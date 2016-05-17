@@ -289,6 +289,16 @@
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Legends.Data\Legends.Data.csproj">
+      <Project>{8ff3ecbf-6998-4a16-acbb-d8bb3fb2ef1c}</Project>
+      <Name>Legends.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Legends.Models\Legends.Models.csproj">
+      <Project>{2107abea-58a7-42c7-b693-0989cfd50945}</Project>
+      <Name>Legends.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
