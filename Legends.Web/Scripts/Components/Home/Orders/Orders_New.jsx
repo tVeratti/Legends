@@ -1,9 +1,9 @@
-﻿/*
+/*
 	-----------------------------------
-	Profile
+	Orders_New
 	-----------------------------------
 */
-class Profile extends React.Component {
+class Orders_New extends React.Component {
 	// --------------------------------
     constructor(props, context) {
         super(props, context);
@@ -13,8 +13,8 @@ class Profile extends React.Component {
     // --------------------------------
     render() {
         return (
-            <div className='profile view'>
-                Profile
+            <div className='orders_new'>
+                New Order
             </div>
         );
     }

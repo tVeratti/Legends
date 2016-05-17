@@ -1,9 +1,9 @@
-﻿/*
+/*
 	-----------------------------------
-	Profile
+	Orders_Browse
 	-----------------------------------
 */
-class Profile extends React.Component {
+class Orders_Browse extends React.Component {
 	// --------------------------------
     constructor(props, context) {
         super(props, context);
@@ -12,10 +12,17 @@ class Profile extends React.Component {
 
     // --------------------------------
     render() {
+        var orderNodes = this.renderOrders();
+
         return (
-            <div className='profile view'>
-                Profile
+            <div className='orders_browse'>
+                Browse Orders
             </div>
         );
+    }
+
+    renderOrders = () => {
+        var orders = this.props.Orders || [];
+        return orders.map(o => <_Order {...o} />);
     }
 }

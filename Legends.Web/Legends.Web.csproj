@@ -243,6 +243,8 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\Components\Home\Home.jsx" />
     <Content Include="Scripts\Components\Home\Orders\Orders.jsx" />
+    <Content Include="Scripts\Components\Home\Orders\Orders_Browse.jsx" />
+    <Content Include="Scripts\Components\Home\Orders\Orders_New.jsx" />
     <Content Include="Scripts\Components\Home\Orders\_Order.jsx" />
     <Content Include="Scripts\Components\Home\Profile\Profile.jsx" />
     <Content Include="Scripts\Components\Router.jsx" />
