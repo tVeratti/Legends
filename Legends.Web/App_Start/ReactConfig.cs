@@ -13,10 +13,11 @@ namespace Legends.Web
             // your components as well as all of their dependencies.
             // See http://reactjs.net/ for more information. Example:
             ReactSiteConfiguration.Configuration
+                //.AddScript("~/Scripts/Vendor/react-router-2.4.0.js")
                 .AddScript("~/Scripts/Components/Home/*.jsx")
                 .AddScript("~/Scripts/Components/Home/Orders/*.jsx")
-                .AddScript("~/Scripts/Components/Home/Profile/*.jsx")
-                .AddScript("~/Scripts/Components/*.jsx");
+                .AddScript("~/Scripts/Components/Home/Profile/*.jsx");
+                //.AddScript("~/Scripts/Components/*.jsx");
         }
 	}
 }
