@@ -248,6 +248,7 @@
     <Content Include="Scripts\Components\Home\Orders\_Order.jsx" />
     <Content Include="Scripts\Components\Home\Profile\Profile.jsx" />
     <Content Include="Scripts\Components\Router.jsx" />
+    <Content Include="Scripts\Vendor\history-2.1.1.js" />
     <Content Include="Scripts\Vendor\jquery-1.10.2.js" />
     <Content Include="Scripts\Vendor\react-15.0.2.js" />
     <Content Include="Scripts\Vendor\react-dom-15.0.2.js" />

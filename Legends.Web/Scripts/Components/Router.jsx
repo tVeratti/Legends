@@ -1,5 +1,5 @@
 ﻿// React-Router object aliases
-var { Router, Route, Link, hashHistory } = ReactRouter
+var { Router, Route, Link, hashHistory } = ReactRouter;
 
 // Configure Routing
 var routerNode = (

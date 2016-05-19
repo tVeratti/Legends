@@ -1,9 +1,9 @@
-﻿/*
+/*
 	-----------------------------------
-	Orders
+	Orders_New
 	-----------------------------------
 */
-class Orders extends React.Component {
+class Orders_View extends React.Component {
 	// --------------------------------
     constructor(props, context) {
         super(props, context);
@@ -13,11 +13,8 @@ class Orders extends React.Component {
     // --------------------------------
     render() {
         return (
-            <div className='orders view'>
-                <_Navigation />
-                
-                {/* Router View */}
-                {this.props.children}
+            <div className='orders_view'>
+                New Order
             </div>
         );
     }
