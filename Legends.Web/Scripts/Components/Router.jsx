@@ -1,12 +1,11 @@
 ﻿// React-Router object aliases
-var { Router, Route, Link, browserHistory } = ReactRouter;
+var { Router, Route, Link, hashHistory } = ReactRouter
 
 // Configure Routing
 var routerNode = (
-    <Router history={browserHistory}>
+    <Router history={hashHistory}>
         <Route path='/' component={Home} />
-
-        {/* Orders */}
+        
         <Route path='Orders' component={Orders}>
             <Route path='New' component={Orders_New}/>
             <Route path='Browse' component={Orders_Browse}/>
