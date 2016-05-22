@@ -16,6 +16,8 @@ namespace Legends.Web
                 "~/Scripts/Vendor/react-router-{version}.js"));
 
             bundles.Add(new BabelBundle("~/bundles/main").Include(
+                "~/Scripts/Stores/*.jsx",
+
                 "~/Scripts/Components/Home/*.jsx",
                 "~/Scripts/Components/Home/Orders/*.jsx",
                 "~/Scripts/Components/Home/Profile/*.jsx",

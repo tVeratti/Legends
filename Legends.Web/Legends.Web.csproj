@@ -229,9 +229,8 @@
     <Compile Include="App_Start\ReactConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -239,6 +238,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\background.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\Components\Home\Home.jsx" />
@@ -246,8 +246,10 @@
     <Content Include="Scripts\Components\Home\Orders\Orders_Browse.jsx" />
     <Content Include="Scripts\Components\Home\Orders\Orders_New.jsx" />
     <Content Include="Scripts\Components\Home\Orders\_Order.jsx" />
+    <Content Include="Scripts\Components\Home\Orders\_OrderGrid.jsx" />
     <Content Include="Scripts\Components\Home\Profile\Profile.jsx" />
     <Content Include="Scripts\Components\Router.jsx" />
+    <Content Include="Scripts\Stores\OrderStore.jsx" />
     <Content Include="Scripts\Vendor\history-2.1.1.js" />
     <Content Include="Scripts\Vendor\jquery-1.10.2.js" />
     <Content Include="Scripts\Vendor\react-15.0.2.js" />
@@ -274,6 +276,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Orders\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -292,6 +295,9 @@
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
+    <Content Include="Styles\Components\_order.scss" />
+    <Content Include="Styles\Components\_orderGrid.scss" />
+    <Content Include="Styles\Components\_navigation.scss" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Legends.Data\Legends.Data.csproj">

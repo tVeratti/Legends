@@ -19,8 +19,32 @@ class _Order extends React.Component {
 
     // --------------------------------
     render() {
+        var model = this.props.model;
+
+        var description = model.Description || '';
+        var ellipsisString = description.length > 50 ? '...' : null;
+        var descriptionSub = description.substr(0, 50);
+
         return (
-            <div>
+            <div className='order'>
+                <div className='cell'>
+                    {/* Standard Request Identifiers */}
+                    <div className='identifiers'>
+                        <span className='tier'>Master</span>
+                        <span className='skill'>Swordsmith</span>
+                    </div>
+
+                    {/* Custom Request Summary */}
+                    <div className='description'>{descriptionSub}{ellipsisString}</div>
+                </div>
+
+                <div className='cell'>
+                    4h 37m
+                </div>
+
+                <div className='cell'>
+                    13 Bids
+                </div>
             </div>
         );
     }

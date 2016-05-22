@@ -1,4 +1,21 @@
 ﻿@import "_reset.scss";
+html, body{ width: 100%; height: 100%; }
 
+body{
+    //background-image: url("/Content/background.jpg");
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    font-family: Arial;
+}
 
+.view{
+    width: 80%;
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+}
+
+@import "Components//_navigation.scss";
 @import "Components/_home.scss";
+@import "Components/_order.scss";
+@import "Components/_orderGrid.scss";

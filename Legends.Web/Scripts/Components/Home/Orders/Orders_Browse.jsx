@@ -12,17 +12,10 @@ class Orders_Browse extends React.Component {
 
     // --------------------------------
     render() {
-        var orderNodes = this.renderOrders();
-
         return (
             <div className='orders_browse'>
                 Browse Orders
             </div>
         );
-    }
-
-    renderOrders = () => {
-        var orders = this.props.Orders || [];
-        return orders.map(o => <_Order {...o} />);
     }
 }

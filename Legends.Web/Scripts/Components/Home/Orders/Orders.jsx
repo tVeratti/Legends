@@ -13,9 +13,7 @@ class Orders extends React.Component {
     // --------------------------------
     render() {
         return (
-            <div className='orders view'>
-                <_Navigation />
-                
+            <div className='orders view'>                
                 {/* Router View */}
                 {this.props.children}
             </div>

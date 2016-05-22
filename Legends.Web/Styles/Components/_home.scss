@@ -1,2 +1,17 @@
-﻿body {
+﻿
+.actions{
+    display: table;
+    width: 100%;
+    border-spacing: 1rem;
+
+    .button{
+        display: table-cell;
+        padding: 2rem;
+        margin: 1rem;
+        border-radius: 3px;
+        background-color: #eee;
+        color: #333 !important;
+        text-decoration: none !important;
+        width: 50%;
+    }
 }
