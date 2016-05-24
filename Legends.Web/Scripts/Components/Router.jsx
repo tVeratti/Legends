@@ -7,11 +7,11 @@ var routerNode = (
         <Route path='/' component={Home} />
         
         <Route path='Orders' component={Orders}>
-            <Route path='New' component={Orders_New}/>
-            <Route path='Browse' component={Orders_Browse}/>
+            <Route path='New' component={Orders_New} />
+            <Route path='Browse' component={Orders_Browse} />
+            <Route path='View/:Id' component={Orders_View} />
         </Route>
         
-        <Route path='/#/Profile/:id' component={Profile}/>
     </Router>
 );
 

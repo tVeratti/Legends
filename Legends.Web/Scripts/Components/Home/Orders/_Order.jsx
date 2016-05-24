@@ -21,12 +21,11 @@ class _Order extends React.Component {
     render() {
         var model = this.props.model;
 
-        var description = model.Description || '';
-        var ellipsisString = description.length > 50 ? '...' : null;
-        var descriptionSub = description.substr(0, 50);
+        var description = this.getDescription();
+        var duration = this.getDuration();
 
         return (
-            <div className='order'>
+            <div className='row order' onClick={this.navigateToOrder}>
                 <div className='cell'>
                     {/* Standard Request Identifiers */}
                     <div className='identifiers'>
@@ -34,12 +33,12 @@ class _Order extends React.Component {
                         <span className='skill'>Swordsmith</span>
                     </div>
 
-                    {/* Custom Request Summary */}
-                    <div className='description'>{descriptionSub}{ellipsisString}</div>
+                    {/* Custom Request Description */}
+                    <div className='description'>{description}</div>
                 </div>
 
                 <div className='cell'>
-                    4h 37m
+                    {duration}h
                 </div>
 
                 <div className='cell'>
@@ -47,6 +46,30 @@ class _Order extends React.Component {
                 </div>
             </div>
         );
+    }
+
+    // --------------------------------
+    getDescription(){
+        var description = this.props.model.Description || '';
+        var ellipsisString = description.length > 50 ? '...' : '';
+        var descriptionSub = description.substr(0, 50);
+        return descriptionSub + ellipsisString;
+    }
+
+    // --------------------------------
+    getDuration(){
+        var model = this.props.model;
+
+        var createdDateTime = model.CreatedDateTime;
+        var endDateTime = moment(createdDateTime).add(model.Duration, 'h');
+
+        var remainingHours = endDateTime.diff(new Date(), 'h');
+        if (remainingHours < 1) return '< 1';
+        else return remainingHours;
+    }
+
+    navigateToOrder = (event) => {
+        window.location = '/#/Orders/View/' + this.props.model.Id;
     }
 }
 

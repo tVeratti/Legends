@@ -13,7 +13,8 @@ namespace Legends.Web
                 "~/Scripts/Vendor/jquery-{version}.js",
                 "~/Scripts/Vendor/react-{version}.js",
                 "~/Scripts/Vendor/react-dom-{version}.js",
-                "~/Scripts/Vendor/react-router-{version}.js"));
+                "~/Scripts/Vendor/react-router-{version}.js",
+                "~/Scripts/Vendor/moment-{version}.js"));
 
             bundles.Add(new BabelBundle("~/bundles/main").Include(
                 "~/Scripts/Stores/*.jsx",

@@ -10,7 +10,13 @@
         var rowNodes = this.renderGrid();
 
         return (
-            <div className='grid'>
+            <div className='orders grid'>
+                <div className='row header'>
+                    <div className='cell'>Description</div>
+                    <div className='cell'>Time Left</div>
+                    <div className='cell'>Bids</div>
+                </div>
+
                 {rowNodes}
             </div>
         );

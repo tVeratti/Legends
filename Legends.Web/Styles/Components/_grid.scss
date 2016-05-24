@@ -1,0 +1,32 @@
+﻿$row-color-bg: #ddd;
+$row-color-bg-0: mix($row-color-bg, white, 25%);
+$row-color-bg-1: mix($row-color-bg, white, 50%);
+$row-color-bg-2: mix($row-color-bg, white, 75%);
+
+$border-color: #bbb;
+
+// Grid Body
+// ------------
+.grid { 
+    display: table; 
+    width: 100%;
+    border: 1px solid $border-color;
+
+    // Row
+    // ------------
+    .row{
+        display: table-row;
+        width: 100%;
+        background-color: $row-color-bg-1;
+        &:nth-child(odd){ background-color: $row-color-bg-2; }
+        &:hover{ background-color: $row-color-bg-0; }
+        &.header{ background-color: $border-color; }
+
+        // Cell
+        // ------------
+        .cell {
+            display: table-cell;
+            padding: 10px;
+        }
+    }
+}

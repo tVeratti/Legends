@@ -7,15 +7,27 @@ class Orders_View extends React.Component {
 	// --------------------------------
     constructor(props, context) {
         super(props, context);
-        this.state = {};
+        this.state = { order: {} };
     }
 
     // --------------------------------
     render() {
+        var model = this.state.order;
         return (
             <div className='orders_view'>
-                New Order
+                View Order
+                <p>{model.Description}</p>
+                Submit Bid
             </div>
         );
+    }
+
+    componentWillMount(){
+        var orderId = this.props.params.Id;
+        orderStore.find(orderId).success(this.updateOrder);
+    }
+
+    updateOrder = (order) => {
+        this.setState({ order });
     }
 }

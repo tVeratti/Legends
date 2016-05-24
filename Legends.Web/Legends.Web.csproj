@@ -252,6 +252,7 @@
     <Content Include="Scripts\Stores\OrderStore.jsx" />
     <Content Include="Scripts\Vendor\history-2.1.1.js" />
     <Content Include="Scripts\Vendor\jquery-1.10.2.js" />
+    <Content Include="Scripts\Vendor\moment-2.13.0.js" />
     <Content Include="Scripts\Vendor\react-15.0.2.js" />
     <Content Include="Scripts\Vendor\react-dom-15.0.2.js" />
     <Content Include="Scripts\Vendor\react-router-2.4.0.js" />
@@ -298,6 +299,7 @@
     <Content Include="Styles\Components\_order.scss" />
     <Content Include="Styles\Components\_orderGrid.scss" />
     <Content Include="Styles\Components\_navigation.scss" />
+    <Content Include="Styles\Components\_grid.scss" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Legends.Data\Legends.Data.csproj">

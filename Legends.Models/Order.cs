@@ -13,6 +13,7 @@ namespace Legends.Models
         public string Description { get; set; }
         public long CreatedById { get; set; }
         public DateTime CreatedDateTime { get; set; }
+        public long Duration { get; set; }
 
         // Joined Values
         public IEnumerable<Bid> Bids { get; set; }

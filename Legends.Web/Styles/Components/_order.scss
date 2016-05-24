@@ -1,13 +1,13 @@
 ﻿.order{
-    display: table;
-    width: 100%;
-    border: 1px solid #eee;
-    &+.order{ border-top: none; }
+    cursor: pointer;
 
-    .cell { 
-        display: table-cell; 
+    &:hover{
+        background-color: #f8f8f8;
+    }
+
+    .cell{
         padding: 1rem;
-        &:first-child{ width: 50%; }
+        &:first-child{ width: 50%; text-align: left; }
         &:not(:first-child){ vertical-align: middle; }
     }
 

@@ -60,10 +60,6 @@ body {
   margin: auto;
   text-align: center; }
 
-.navigation {
-  background: #eee;
-  height: 100px; }
-
 .actions {
   display: table;
   width: 100%;
@@ -79,16 +75,14 @@ body {
     width: 50%; }
 
 .order {
-  display: table;
-  width: 100%;
-  border: 1px solid #eee; }
-  .order + .order {
-    border-top: none; }
+  cursor: pointer; }
+  .order:hover {
+    background-color: #f8f8f8; }
   .order .cell {
-    display: table-cell;
     padding: 1rem; }
     .order .cell:first-child {
-      width: 50%; }
+      width: 50%;
+      text-align: left; }
     .order .cell:not(:first-child) {
       vertical-align: middle; }
   .order .identifiers {
@@ -102,6 +96,21 @@ body {
   .order .description {
     font-size: 12px; }
 
-.orders {
-  text-align: left; }
+.grid {
+  display: table;
+  width: 100%;
+  border: 1px solid #bbb; }
+  .grid .row {
+    display: table-row;
+    width: 100%;
+    background-color: #eeeeee; }
+    .grid .row:nth-child(odd) {
+      background-color: #e6e6e6; }
+    .grid .row:hover {
+      background-color: #f7f7f7; }
+    .grid .row.header {
+      background-color: #bbb; }
+    .grid .row .cell {
+      display: table-cell;
+      padding: 10px; }
 
