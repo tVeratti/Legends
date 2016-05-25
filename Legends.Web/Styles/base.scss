@@ -1,4 +1,5 @@
 ﻿@import "_reset.scss";
+html{ background-color: #333; color: #f3f3f3;}
 html, body{ width: 100%; height: 100%; }
 
 body{
@@ -15,7 +16,7 @@ body{
     text-align: center;
 }
 
-//@import "Components/_navigation.scss";
+@import "Components/_navigation.scss";
 @import "Components/_home.scss";
 @import "Components/_order.scss";
 @import "Components/_grid.scss";

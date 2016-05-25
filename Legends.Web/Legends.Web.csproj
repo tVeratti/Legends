@@ -239,6 +239,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\background.jpg" />
+    <Content Include="Content\SoulChamber.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\Components\Home\Home.jsx" />
@@ -297,9 +298,9 @@
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
     <Content Include="Styles\Components\_order.scss" />
-    <Content Include="Styles\Components\_orderGrid.scss" />
-    <Content Include="Styles\Components\_navigation.scss" />
     <Content Include="Styles\Components\_grid.scss" />
+    <Content Include="Styles\Components\_navigation.scss" />
+    <Content Include="Styles\_colors.scss" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Legends.Data\Legends.Data.csproj">

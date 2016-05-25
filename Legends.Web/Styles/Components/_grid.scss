@@ -3,7 +3,7 @@ $row-color-bg-0: mix($row-color-bg, white, 25%);
 $row-color-bg-1: mix($row-color-bg, white, 50%);
 $row-color-bg-2: mix($row-color-bg, white, 75%);
 
-$border-color: #bbb;
+$border-color: #444;
 
 // Grid Body
 // ------------
@@ -20,7 +20,7 @@ $border-color: #bbb;
         background-color: $row-color-bg-1;
         &:nth-child(odd){ background-color: $row-color-bg-2; }
         &:hover{ background-color: $row-color-bg-0; }
-        &.header{ background-color: $border-color; }
+        &.header{ background-color: $border-color; color: white; }
 
         // Cell
         // ------------

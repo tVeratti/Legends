@@ -17,7 +17,7 @@ class Home extends React.Component {
         return (
         	<div className='home view'>
 
-        		<div>Something lore-ish about legendary people for hire...</div>
+        		<div className='quote'>Something lore-ish about legendary people for hire...</div>
 
         		<div className='actions'>
 	        		<a href='#/Orders/New' className='button'>Hire</a>

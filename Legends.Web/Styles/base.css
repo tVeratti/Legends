@@ -45,6 +45,10 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+html {
+  background-color: #333;
+  color: #f3f3f3; }
+
 html, body {
   width: 100%;
   height: 100%; }
@@ -60,22 +64,66 @@ body {
   margin: auto;
   text-align: center; }
 
+.navigation {
+  position: relative;
+  height: 200px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid black;
+  background-color: #333;
+  background-image: url("../../Content/SoulChamber.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3); }
+  .navigation .menu {
+    position: absolute;
+    display: block;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.3); }
+    .navigation .menu a {
+      display: inline-block;
+      height: 100%;
+      padding: 0 10px;
+      color: #ccc;
+      text-shadow: 1px 1px 1px black;
+      text-decoration: none;
+      vertical-align: middle;
+      line-height: 40px; }
+      .navigation .menu a:hover {
+        color: white; }
+
+.quote {
+  font-style: italic;
+  color: #ccc;
+  margin: 30px; }
+
 .actions {
   display: table;
   width: 100%;
-  border-spacing: 1rem; }
+  border-spacing: 1rem;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #444;
+  margin-bottom: 30px; }
   .actions .button {
     display: table-cell;
+    width: 50%;
     padding: 2rem;
     margin: 1rem;
+    background-color: #666;
+    color: white;
+    font-weight: 600;
     border-radius: 3px;
-    background-color: #eee;
-    color: #333 !important;
     text-decoration: none !important;
-    width: 50%; }
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2); }
+    .actions .button:hover {
+      background-color: #841818; }
 
 .order {
-  cursor: pointer; }
+  cursor: pointer;
+  color: #333; }
   .order:hover {
     background-color: #f8f8f8; }
   .order .cell {
@@ -90,16 +138,16 @@ body {
     .order .identifiers .tier {
       display: inline-block;
       margin-right: .3rem;
-      color: #b02020; }
+      color: #841818; }
     .order .identifiers .skill {
-      color: #d82c2c; }
+      color: #b02020; }
   .order .description {
     font-size: 12px; }
 
 .grid {
   display: table;
   width: 100%;
-  border: 1px solid #bbb; }
+  border: 1px solid #444; }
   .grid .row {
     display: table-row;
     width: 100%;
@@ -109,7 +157,8 @@ body {
     .grid .row:hover {
       background-color: #f7f7f7; }
     .grid .row.header {
-      background-color: #bbb; }
+      background-color: #444;
+      color: white; }
     .grid .row .cell {
       display: table-cell;
       padding: 10px; }
