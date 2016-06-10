@@ -8,15 +8,13 @@
     // --------------------------------
     render() {
         var rowNodes = this.renderGrid();
+        var headerNode = !this.props.compact ?
+            this.renderHeader() :
+            undefined;
 
         return (
             <div className='orders grid'>
-                <div className='row header'>
-                    <div className='cell'>Description</div>
-                    <div className='cell'>Time Left</div>
-                    <div className='cell'>Bids</div>
-                </div>
-
+                {headerNode}
                 {rowNodes}
             </div>
         );
@@ -30,7 +28,18 @@
     // --------------------------------
     renderGrid(){
         var orders = this.state.orders || [];
-        return orders.map(o => <_Order model={o} />);
+        return orders.map(o => <_Order model={o} compact={this.props.compact} />);
+    }
+
+    // --------------------------------
+    renderHeader(){
+        return (
+            <div className='row header'>
+                <div className='cell'>Description</div>
+                <div className='cell'>Time Left</div>
+                <div className='cell'>Bids</div>
+            </div>
+        );
     }
 
     // --------------------------------

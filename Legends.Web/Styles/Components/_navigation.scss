@@ -5,11 +5,7 @@
     height: 200px;
     margin-bottom: 20px;
     border-bottom: 1px solid black;
-    background-color: #333;
-    background-image: url("../../Content/SoulChamber.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    background: mix($color-primary-dark, black, 80%);
     box-shadow: 0 2px 2px rgba(black, .3);
 
     .menu{
@@ -19,21 +15,33 @@
         left: 0;
         width: 100%;
         height: 40px;
-        background-color: rgba(black, .3);
+        background-color: rgba(black, .4);
 
         a{
             display: inline-block;
             height: 100%;
-            padding: 0 10px;
+            padding: 0 15px;
             color: #ccc;
-            //font-weight: bold;
             text-shadow: 1px 1px 1px black;
             text-decoration: none;
             vertical-align: middle;
             line-height: 40px;
             &:hover{
-                color: white;
+                color: $color-primary;
             }
         }
     }
+
+    /*&:before{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        content: "";
+        background-image: url("../../Content/texture.png");
+        background-repeat: no-repeat;
+        background-position: left top;
+        background-size: auto 100%;
+        height: 150px;
+        width: 100%;
+    }*/
 }

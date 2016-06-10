@@ -2,6 +2,10 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+@import url(https://fonts.googleapis.com/css?family=Droid+Sans);
+@import url(https://fonts.googleapis.com/css?family=Cinzel+Decorative:700);
+@import url(https://fonts.googleapis.com/css?family=Overlock+SC);
+@import url(https://fonts.googleapis.com/css?family=Cinzel+Decorative);
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -46,17 +50,21 @@ table {
   border-spacing: 0; }
 
 html {
-  background-color: #333;
-  color: #f3f3f3; }
+  background-color: black;
+  color: #f3f3f3;
+  background: linear-gradient(to bottom, #161616 0, #111 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ }
 
 html, body {
   width: 100%;
   height: 100%; }
 
 body {
-  background-repeat: no-repeat;
-  background-size: auto 100%;
-  font-family: Arial; }
+  /*background-image: url("../../Content/texture.png");
+    background-repeat: no-repeat;
+    background-size: auto 200px;
+    background-position: left 200px;*/
+  font-family: 'Droid Sans', sans-serif; }
 
 .view {
   width: 80%;
@@ -69,12 +77,20 @@ body {
   height: 200px;
   margin-bottom: 20px;
   border-bottom: 1px solid black;
-  background-color: #333;
-  background-image: url("../../Content/SoulChamber.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3); }
+  background: #6a1313;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+  /*&:before{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        content: "";
+        background-image: url("../../Content/texture.png");
+        background-repeat: no-repeat;
+        background-position: left top;
+        background-size: auto 100%;
+        height: 150px;
+        width: 100%;
+    }*/ }
   .navigation .menu {
     position: absolute;
     display: block;
@@ -82,23 +98,35 @@ body {
     left: 0;
     width: 100%;
     height: 40px;
-    background-color: rgba(0, 0, 0, 0.3); }
+    background-color: rgba(0, 0, 0, 0.4); }
     .navigation .menu a {
       display: inline-block;
       height: 100%;
-      padding: 0 10px;
+      padding: 0 15px;
       color: #ccc;
       text-shadow: 1px 1px 1px black;
       text-decoration: none;
       vertical-align: middle;
       line-height: 40px; }
       .navigation .menu a:hover {
-        color: white; }
+        color: #b02020; }
 
 .quote {
-  font-style: italic;
-  color: #ccc;
-  margin: 30px; }
+  max-width: 525px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+  text-shadow: 2px 2px 2px black;
+  z-index: 10; }
+  .quote p:first-child {
+    font-family: "Cinzel Decorative", cursive;
+    font-style: italic;
+    font-size: 28px;
+    margin-bottom: 5px; }
+  .quote p:last-child {
+    font-size: 10px;
+    color: #888;
+    text-shadow: none; }
 
 .actions {
   display: table;
@@ -108,24 +136,63 @@ body {
   border-bottom: 1px solid #444;
   margin-bottom: 30px; }
   .actions .button {
-    display: table-cell;
-    width: 50%;
+    position: relative;
+    font-family: "Cinzel Decorative", cursive;
+    font-weight: bold;
+    display: inline-block;
+    width: 240px;
     padding: 2rem;
-    margin: 1rem;
-    background-color: #666;
+    margin: .5rem;
+    background-color: #222;
+    border: 1px solid #333;
     color: white;
-    font-weight: 600;
+    font-size: 32px;
     border-radius: 3px;
     text-decoration: none !important;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2); }
+    box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.2);
+    text-shadow: 2px 2px 2px black;
+    overflow: hidden;
+    -moz-transition: background-color 0.3s ease-in-out;
+    -o-transition: background-color 0.3s ease-in-out;
+    -webkit-transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out; }
+    .actions .button:before {
+      opacity: 0;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      -moz-transform: translateY(50%);
+      -ms-transform: translateY(50%);
+      -o-transform: translateY(50%);
+      -webkit-transform: translateY(50%);
+      transform: translateY(50%);
+      content: "";
+      width: 220px;
+      height: 215px;
+      background-image: url("../../Content/quill.png");
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: contain;
+      -moz-transition: all 1s ease-in-out;
+      -o-transition: all 1s ease-in-out;
+      -webkit-transition: all 1s ease-in-out;
+      transition: all 1s ease-in-out; }
     .actions .button:hover {
-      background-color: #841818; }
+      background-color: #841818;
+      border-color: #b02020; }
+      .actions .button:hover:before {
+        opacity: .3;
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+        -webkit-transform: translateY(0);
+        transform: translateY(0); }
+
+.orders.grid {
+  margin-top: 20px; }
 
 .order {
-  cursor: pointer;
-  color: #333; }
-  .order:hover {
-    background-color: #f8f8f8; }
+  cursor: pointer; }
   .order .cell {
     padding: 1rem; }
     .order .cell:first-child {
@@ -134,7 +201,11 @@ body {
     .order .cell:not(:first-child) {
       vertical-align: middle; }
   .order .identifiers {
-    font-weight: 600; }
+    font-weight: bold;
+    font-size: 16px;
+    text-shadow: 1px 1px 1px black;
+    margin-bottom: 5px;
+    text-transform: uppercase; }
     .order .identifiers .tier {
       display: inline-block;
       margin-right: .3rem;
@@ -142,22 +213,23 @@ body {
     .order .identifiers .skill {
       color: #b02020; }
   .order .description {
-    font-size: 12px; }
+    font-size: 14px; }
 
 .grid {
   display: table;
   width: 100%;
-  border: 1px solid #444; }
+  border-collapse: collapse; }
   .grid .row {
     display: table-row;
     width: 100%;
-    background-color: #eeeeee; }
+    border-left: 3px solid transparent; }
     .grid .row:nth-child(odd) {
-      background-color: #e6e6e6; }
+      background-color: rgba(0, 0, 0, 0.25); }
     .grid .row:hover {
-      background-color: #f7f7f7; }
+      background-color: rgba(132, 24, 24, 0.2);
+      border-color: #b02020; }
     .grid .row.header {
-      background-color: #444;
+      background-color: #222;
       color: white; }
     .grid .row .cell {
       display: table-cell;

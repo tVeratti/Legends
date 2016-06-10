@@ -1,27 +1,38 @@
-﻿$row-color-bg: #ddd;
-$row-color-bg-0: mix($row-color-bg, white, 25%);
-$row-color-bg-1: mix($row-color-bg, white, 50%);
-$row-color-bg-2: mix($row-color-bg, white, 75%);
+﻿@import '../_colors.scss';
 
-$border-color: #444;
+$row-color-bg: black;
+$row-color-bg-0: rgba($color-primary-dark, .2);
+$row-color-bg-1: rgba($row-color-bg, .25);
+$row-color-bg-2: rgba($row-color-bg, .75);
+
+$border-color: #222;
 
 // Grid Body
 // ------------
-.grid { 
-    display: table; 
+.grid {
+    display: table;
     width: 100%;
-    border: 1px solid $border-color;
-
+    border-collapse: collapse;
     // Row
     // ------------
-    .row{
+    .row {
         display: table-row;
         width: 100%;
-        background-color: $row-color-bg-1;
-        &:nth-child(odd){ background-color: $row-color-bg-2; }
-        &:hover{ background-color: $row-color-bg-0; }
-        &.header{ background-color: $border-color; color: white; }
+        border-left: 3px solid transparent;
 
+        &:nth-child(odd) {
+            background-color: $row-color-bg-1;
+        }
+
+        &:hover {
+            background-color: $row-color-bg-0;
+            border-color: $color-primary;
+        }
+
+        &.header {
+            background-color: $border-color;
+            color: white;
+        }
         // Cell
         // ------------
         .cell {

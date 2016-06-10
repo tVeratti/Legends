@@ -38,7 +38,7 @@ class _Order extends React.Component {
                 </div>
 
                 <div className='cell'>
-                    {duration}h
+                    {duration}
                 </div>
 
                 <div className='cell'>
@@ -64,8 +64,12 @@ class _Order extends React.Component {
         var endDateTime = moment(createdDateTime).add(model.Duration, 'h');
 
         var remainingHours = endDateTime.diff(new Date(), 'h');
-        if (remainingHours < 1) return '< 1';
-        else return remainingHours;
+        if (remainingHours < 1) remainingHours = '< 1';
+        remainingHours += 'h';
+
+        if (this.props.compact) remainingHours += ' left';
+
+        return remainingHours;
     }
 
     navigateToOrder = (event) => {

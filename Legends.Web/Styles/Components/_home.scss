@@ -1,11 +1,33 @@
 ﻿@import "../_colors.scss";
-.quote{
-    font-style: italic;
-    color: #ccc;
-    margin: 30px;
+
+@import url(https://fonts.googleapis.com/css?family=Cinzel+Decorative:700);
+@import url(https://fonts.googleapis.com/css?family=Overlock+SC);
+$font-family-epic: 'Cinzel Decorative', cursive;
+$font-family-secondary: 'Overlock SC', cursive;
+
+.quote {
+    max-width: 525px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+    text-shadow: 2px 2px 2px black;
+    z-index: 10;
+
+    p:first-child {
+        font-family: $font-family-epic;
+        font-style: italic;
+        font-size: 28px;
+        margin-bottom: 5px;
+    }
+
+    p:last-child {
+        font-size: 10px;
+        color: #888;
+        text-shadow: none;
+    }
 }
 
-.actions{
+.actions {
     display: table;
     width: 100%;
     border-spacing: 1rem;
@@ -13,21 +35,68 @@
     border-bottom: 1px solid #444;
     margin-bottom: 30px;
 
-    .button{
-        display: table-cell;
-        width: 50%;
+    .button {
+        position: relative;
+        font-family: $font-family-epic;
+        font-weight: bold;
+        display: inline-block;
+        width: 240px;
         padding: 2rem;
-        margin: 1rem;
-        background-color: #666;
+        margin: .5rem;
+        background-color: #222;
+        border: 1px solid #333;
         color: white;
-        font-weight: 600;
+        font-size: 32px;
         border-radius: 3px;
         text-decoration: none !important;
-        box-shadow: 2px 2px 2px rgba(black, .2);
-        
+        box-shadow: 5px 5px 2px rgba(black, .2);
+        text-shadow: 2px 2px 2px black;
+        overflow: hidden;
+        -moz-transition: background-color 0.3s ease-in-out;
+        -o-transition: background-color 0.3s ease-in-out;
+        -webkit-transition: background-color 0.3s ease-in-out;
+        transition: background-color 0.3s ease-in-out;
 
-        &:hover{
+        &:before {
+            opacity: 0;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            -moz-transform: translateY(50%);
+            -ms-transform: translateY(50%);
+            -o-transform: translateY(50%);
+            -webkit-transform: translateY(50%);
+            transform: translateY(50%);
+            content: "";
+            width: 220px;
+            height: 215px;
+            background-image: url("../../Content/quill.png");
+            background-repeat: no-repeat;
+            background-position: left center;
+            background-size: contain;
+            -moz-transition: all 1s ease-in-out;
+            -o-transition: all 1s ease-in-out;
+            -webkit-transition: all 1s ease-in-out;
+            transition: all 1s ease-in-out;
+        }
+
+        &:hover {
             background-color: $color-primary-dark;
+            border-color: $color-primary;
+
+            &:before {
+                opacity: .3;
+                -moz-transform: translateY(0);
+                -ms-transform: translateY(0);
+                -o-transform: translateY(0);
+                -webkit-transform: translateY(0);
+                transform: translateY(0);
+            }
         }
     }
+}
+
+.orders.grid {
+    margin-top: 20px;
+    //border: 1px solid $color-primary-dark;
 }

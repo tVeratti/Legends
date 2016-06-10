@@ -17,17 +17,20 @@ class Home extends React.Component {
         return (
         	<div className='home view'>
 
-        		<div className='quote'>Something lore-ish about legendary people for hire...</div>
+        		<div className='quote'>
+                    <p>“Heroes get remembered, but legends never die.”</p>
+                    <p>- Babe Ruth</p>
+                </div>
 
         		<div className='actions'>
-	        		<a href='#/Orders/New' className='button'>Hire</a>
-	        		<a href='#/Orders/Browse' className='button'>Work</a>
+	        		<a href='#/Orders/New' className='button'>HIRE</a>
+	        		<a href='#/Orders/Browse' className='button'>WORK</a>
         		</div>
 
         		<div className='orders'>
                     <h2>Popular Orders</h2>
                     {/* Popular Orders Grid */}
-                    <_OrderGrid />
+                    <_OrderGrid compact={true} />
         		</div>
         	</div>
     	);
