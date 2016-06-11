@@ -16,12 +16,11 @@ class Home extends React.Component {
 
         return (
         	<div className='home view'>
-
-        		<div className='quote'>
+				<div className='quote'>
                     <p>“Heroes get remembered, but legends never die.”</p>
                     <p>- Babe Ruth</p>
                 </div>
-
+				
         		<div className='actions'>
 	        		<a href='#/Orders/New' className='button'>HIRE</a>
 	        		<a href='#/Orders/Browse' className='button'>WORK</a>

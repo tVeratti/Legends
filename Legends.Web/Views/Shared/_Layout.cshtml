@@ -10,7 +10,9 @@
 <body>
     @Html.React("_Navigation", new { })
 
-    @RenderBody()
+    <div id="main">
+        @RenderBody()
+    </div>
 
     @Scripts.Render("~/bundles/vendor")
     @Scripts.Render("~/bundles/main")

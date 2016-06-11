@@ -1,34 +1,27 @@
 ﻿@import '../_colors.scss';
 
 $row-color-bg: black;
-$row-color-bg-0: rgba($color-primary-dark, .2);
-$row-color-bg-1: rgba($row-color-bg, .25);
-$row-color-bg-2: rgba($row-color-bg, .75);
+$row-color-bg-0: $color-primary-dark;
+$row-color-bg-1: rgba($row-color-bg, .2);
 
 $border-color: #222;
 
 // Grid Body
 // ------------
 .grid {
+    border: 1px solid #333;
     display: table;
     width: 100%;
     border-collapse: collapse;
+
     // Row
     // ------------
     .row {
         display: table-row;
         width: 100%;
-        border-left: 3px solid transparent;
 
-        &:nth-child(odd) {
-            background-color: $row-color-bg-1;
-        }
-
-        &:hover {
-            background-color: $row-color-bg-0;
-            border-color: $color-primary;
-        }
-
+        &:nth-child(odd) { background-color: $row-color-bg-1; }
+        &:hover { background-color: $row-color-bg-0; color: white; }
         &.header {
             background-color: $border-color;
             color: white;

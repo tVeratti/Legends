@@ -1,11 +1,17 @@
-﻿/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-@import url(https://fonts.googleapis.com/css?family=Droid+Sans);
+﻿@import url(https://fonts.googleapis.com/css?family=Droid+Sans);
 @import url(https://fonts.googleapis.com/css?family=Cinzel+Decorative:700);
 @import url(https://fonts.googleapis.com/css?family=Overlock+SC);
 @import url(https://fonts.googleapis.com/css?family=Cinzel+Decorative);
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -50,35 +56,37 @@ table {
   border-spacing: 0; }
 
 html {
-  background-color: black;
+  font-family: 'Droid Sans', sans-serif;
   color: #f3f3f3;
-  background: linear-gradient(to bottom, #161616 0, #111 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ }
+  background-color: #222;
+  background-image: url("../../Content/Patterns/classy_fabric.png");
+  background-repeat: repeat; }
 
 html, body {
-  width: 100%;
-  height: 100%; }
-
-body {
-  /*background-image: url("../../Content/texture.png");
-    background-repeat: no-repeat;
-    background-size: auto 200px;
-    background-position: left 200px;*/
-  font-family: 'Droid Sans', sans-serif; }
+  min-width: 100%;
+  min-height: 100%; }
 
 .view {
+  color: white;
   width: 80%;
   max-width: 900px;
   margin: auto;
-  text-align: center; }
+  text-align: center;
+  padding: 20px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px; }
 
 .navigation {
   position: relative;
-  height: 200px;
   margin-bottom: 20px;
-  border-bottom: 1px solid black;
-  background: #6a1313;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+  padding-bottom: 60px;
+  border-bottom: 1px solid #111;
+  background: #841818;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
   /*&:before{
         position: absolute;
         top: 100%;
@@ -94,46 +102,43 @@ body {
   .navigation .menu {
     position: absolute;
     display: block;
-    bottom: 0;
+    bottom: 10px;
     left: 0;
     width: 100%;
     height: 40px;
-    background-color: rgba(0, 0, 0, 0.4); }
+    background-color: rgba(0, 0, 0, 0.2); }
     .navigation .menu a {
       display: inline-block;
       height: 100%;
       padding: 0 15px;
       color: #ccc;
-      text-shadow: 1px 1px 1px black;
       text-decoration: none;
       vertical-align: middle;
       line-height: 40px; }
       .navigation .menu a:hover {
-        color: #b02020; }
+        color: white; }
 
 .quote {
-  max-width: 525px;
-  margin: auto;
   padding: 20px;
   text-align: center;
-  text-shadow: 2px 2px 2px black;
+  text-shadow: 1px 1px 3px black;
   z-index: 10; }
   .quote p:first-child {
+    max-width: 525px;
+    margin: auto;
     font-family: "Cinzel Decorative", cursive;
     font-style: italic;
     font-size: 28px;
     margin-bottom: 5px; }
   .quote p:last-child {
     font-size: 10px;
-    color: #888;
+    color: rgba(255, 255, 255, 0.75);
     text-shadow: none; }
 
 .actions {
-  display: table;
   width: 100%;
-  border-spacing: 1rem;
   padding-bottom: 30px;
-  border-bottom: 1px solid #444;
+  border-bottom: 1px dotted #444;
   margin-bottom: 30px; }
   .actions .button {
     position: relative;
@@ -141,52 +146,21 @@ body {
     font-weight: bold;
     display: inline-block;
     width: 240px;
+    max-width: 100%;
     padding: 2rem;
-    margin: .5rem;
-    background-color: #222;
-    border: 1px solid #333;
-    color: white;
+    margin: 0 .5rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid transparent;
     font-size: 32px;
-    border-radius: 3px;
     text-decoration: none !important;
-    box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.2);
-    text-shadow: 2px 2px 2px black;
     overflow: hidden;
-    -moz-transition: background-color 0.3s ease-in-out;
-    -o-transition: background-color 0.3s ease-in-out;
-    -webkit-transition: background-color 0.3s ease-in-out;
-    transition: background-color 0.3s ease-in-out; }
-    .actions .button:before {
-      opacity: 0;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      -moz-transform: translateY(50%);
-      -ms-transform: translateY(50%);
-      -o-transform: translateY(50%);
-      -webkit-transform: translateY(50%);
-      transform: translateY(50%);
-      content: "";
-      width: 220px;
-      height: 215px;
-      background-image: url("../../Content/quill.png");
-      background-repeat: no-repeat;
-      background-position: left center;
-      background-size: contain;
-      -moz-transition: all 1s ease-in-out;
-      -o-transition: all 1s ease-in-out;
-      -webkit-transition: all 1s ease-in-out;
-      transition: all 1s ease-in-out; }
+    border: 1px solid #333;
+    border-radius: 10px;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); }
     .actions .button:hover {
-      background-color: #841818;
-      border-color: #b02020; }
-      .actions .button:hover:before {
-        opacity: .3;
-        -moz-transform: translateY(0);
-        -ms-transform: translateY(0);
-        -o-transform: translateY(0);
-        -webkit-transform: translateY(0);
-        transform: translateY(0); }
+      border-color: #b02020;
+      background-color: #841818; }
 
 .orders.grid {
   margin-top: 20px; }
@@ -201,33 +175,29 @@ body {
     .order .cell:not(:first-child) {
       vertical-align: middle; }
   .order .identifiers {
-    font-weight: bold;
     font-size: 16px;
-    text-shadow: 1px 1px 1px black;
     margin-bottom: 5px;
     text-transform: uppercase; }
     .order .identifiers .tier {
       display: inline-block;
       margin-right: .3rem;
-      color: #841818; }
-    .order .identifiers .skill {
-      color: #b02020; }
+      font-weight: bold; }
   .order .description {
     font-size: 14px; }
 
 .grid {
+  border: 1px solid #333;
   display: table;
   width: 100%;
   border-collapse: collapse; }
   .grid .row {
     display: table-row;
-    width: 100%;
-    border-left: 3px solid transparent; }
+    width: 100%; }
     .grid .row:nth-child(odd) {
-      background-color: rgba(0, 0, 0, 0.25); }
+      background-color: rgba(0, 0, 0, 0.2); }
     .grid .row:hover {
-      background-color: rgba(132, 24, 24, 0.2);
-      border-color: #b02020; }
+      background-color: #841818;
+      color: white; }
     .grid .row.header {
       background-color: #222;
       color: white; }

@@ -1,26 +1,35 @@
-﻿@import "_reset.scss";
+﻿html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+@import "_reset.scss";
+@import "_colors.scss";
 @import url(https://fonts.googleapis.com/css?family=Droid+Sans);
 
 html{ 
-    background-color: black;
-    color: #f3f3f3;
-    background: linear-gradient(to bottom, #161616 0, #111 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-}
-html, body{ width: 100%; height: 100%; }
-
-body{
-    /*background-image: url("../../Content/texture.png");
-    background-repeat: no-repeat;
-    background-size: auto 200px;
-    background-position: left 200px;*/
     font-family: 'Droid Sans', sans-serif;
+    color: #f3f3f3;
+    background-color: #222;
+    background-image: url("../../Content/Patterns/classy_fabric.png");
+    background-repeat: repeat;
 }
+html, body{ min-width: 100%; min-height: 100%; }
 
 .view{
+    color: white;
     width: 80%;
     max-width: 900px;
     margin: auto;
     text-align: center;
+    padding: 20px;
+    //background: rgba(black, .2);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+    //border: 1px solid #333;
 }
 
 @import "Components/_navigation.scss";

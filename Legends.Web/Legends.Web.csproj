@@ -242,10 +242,18 @@
     <Content Include="Content\background.jpg" />
     <Content Include="Content\coins.png" />
     <Content Include="Content\extra_clean_paper.png" />
+    <Content Include="Content\Forest.jpg" />
+    <Content Include="Content\paper.png" />
     <Content Include="Content\paper_fibers.png" />
+    <Content Include="Content\Patterns\black_scales.png" />
+    <Content Include="Content\Patterns\classy_fabric.png" />
+    <Content Include="Content\Patterns\dark_leather.png" />
+    <Content Include="Content\Patterns\dark_Tire.png" />
+    <Content Include="Content\Patterns\darth_stripe.png" />
     <Content Include="Content\quill.png" />
     <Content Include="Content\SoulChamber.jpg" />
     <Content Include="Content\texture.png" />
+    <Content Include="Content\Town.jpg" />
     <Content Include="favicon.png" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\Components\Home\Home.jsx" />
@@ -272,7 +280,9 @@
     <Content Include="Styles\base.min.css">
       <DependentUpon>base.css</DependentUpon>
     </Content>
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -309,6 +319,7 @@
     <Content Include="Styles\Components\_grid.scss" />
     <Content Include="Styles\Components\_navigation.scss" />
     <Content Include="Styles\_colors.scss" />
+    <None Include="Properties\PublishProfiles\legendsforhire.verspyre.com - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\legendsforhire.verspyre.com - Web Deploy.pubxml" />
   </ItemGroup>
   <ItemGroup>

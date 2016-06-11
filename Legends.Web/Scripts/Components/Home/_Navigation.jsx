@@ -14,6 +14,7 @@ class _Navigation extends React.Component {
     render() {
         return (
             <div className='navigation'>
+                
                 <div className='menu'>
                     <a href='#/'>Home</a>
                     <a href='#/Orders/New'>New Order</a>
