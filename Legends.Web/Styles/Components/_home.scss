@@ -1,9 +1,5 @@
 ﻿@import "../_colors.scss";
-
-@import url(https://fonts.googleapis.com/css?family=Cinzel+Decorative:700);
-@import url(https://fonts.googleapis.com/css?family=Overlock+SC);
-$font-family-epic: 'Cinzel Decorative', cursive;
-$font-family-secondary: 'Overlock SC', cursive;
+@import "../_fonts.scss";
 
 .quote {
     padding: 20px;
@@ -15,7 +11,7 @@ $font-family-secondary: 'Overlock SC', cursive;
     p:first-child {
         max-width: 525px;
         margin: auto;
-        font-family: $font-family-epic;
+        font-family: $font-family-title;
         font-style: italic;
         font-size: 28px;
         margin-bottom: 5px;
@@ -36,7 +32,7 @@ $font-family-secondary: 'Overlock SC', cursive;
 
     .button {
         position: relative;
-        font-family: $font-family-epic;
+        font-family: $font-family-title;
         font-weight: bold;
         display: inline-block;
         width: 240px;
@@ -58,6 +54,15 @@ $font-family-secondary: 'Overlock SC', cursive;
             border-color: $color-primary;
             background-color: $color-primary-dark;
             //box-shadow: 0 1px 3px rgba(black,.5);
+        }
+
+        .subtitle{
+            font-family: $font-family-base;
+            font-size: 12px;
+            font-weight: normal;
+            color: rgba(white, .75);
+            padding-top: 5px;
+            
         }
     }
 }

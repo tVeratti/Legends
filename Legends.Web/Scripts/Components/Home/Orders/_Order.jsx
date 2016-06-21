@@ -21,16 +21,21 @@ class _Order extends React.Component {
     render() {
         var model = this.props.model;
 
+        var tier = orderStore.enums.Tiers[model.TierId];
+        var skill = orderStore.enums.Skills[model.SkillId] ||
+            orderStore.enums.Categories[model.CategoryId];
+        
         var description = this.getDescription();
         var duration = this.getDuration();
+       
 
         return (
             <div className='row order' onClick={this.navigateToOrder}>
                 <div className='cell'>
                     {/* Standard Request Identifiers */}
                     <div className='identifiers'>
-                        <span className='tier'>Master</span>
-                        <span className='skill'>Swordsmith</span>
+                        <span className='tier'>{tier}</span>
+                        <span className='skill'>{skill}</span>
                     </div>
 
                     {/* Custom Request Description */}

@@ -321,6 +321,7 @@
     <Content Include="Styles\_colors.scss" />
     <None Include="Properties\PublishProfiles\legendsforhire.verspyre.com - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\legendsforhire.verspyre.com - Web Deploy.pubxml" />
+    <Content Include="Styles\_fonts.scss" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Legends.Data\Legends.Data.csproj">

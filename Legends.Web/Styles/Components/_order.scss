@@ -1,7 +1,5 @@
 ﻿@import "../_colors.scss";
-
-@import url(https://fonts.googleapis.com/css?family=Cinzel+Decorative);
-$font-family: 'Cinzel Decorative', cursive;
+@import "../_fonts.scss";
 
 .order{
     cursor: pointer;
@@ -16,16 +14,20 @@ $font-family: 'Cinzel Decorative', cursive;
         font-size: 16px;
         margin-bottom: 5px;
         text-transform: uppercase;
+        font-weight: bold;
 
         .tier{ 
             display: inline-block;
-            margin-right: .3rem;
-            font-weight: bold;
+            margin-right: .5rem;
+            font-weight: normal;
+            //font-style: italic;
+            font-size: 14px;
         }
         //.skill{ color: $color-primary; }
     }
 
     .description{
         font-size: 14px;
+        color: rgba(white, .75);
     }
 }

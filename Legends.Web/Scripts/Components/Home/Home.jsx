@@ -22,8 +22,14 @@ class Home extends React.Component {
                 </div>
 				
         		<div className='actions'>
-	        		<a href='#/Orders/New' className='button'>HIRE</a>
-	        		<a href='#/Orders/Browse' className='button'>WORK</a>
+	        		<a href='#/Orders/New' className='button'>
+                        HIRE
+                        <p className='subtitle'>New Order</p>
+                    </a>
+	        		<a href='#/Orders/Browse' className='button'>
+                        WORK
+                        <p className='subtitle'>Browse Orders</p>
+                    </a>
         		</div>
 
         		<div className='orders'>
@@ -33,5 +39,15 @@ class Home extends React.Component {
         		</div>
         	</div>
     	);
-    }    
+    } 
+    
+    // --------------------------------
+    componentWillMount(){
+        var self = this;
+        orderStore.getEnums().done(enums => {
+            //Update store values and forceUpdate.
+            orderStore.enums = enums;
+            self.forceUpdate();
+        });
+    }   
 }

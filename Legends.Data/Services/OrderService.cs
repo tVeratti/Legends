@@ -29,24 +29,30 @@ namespace Legends.Data.Services
                 new Order()
                 {
                     Id = 1,
+                    SkillId = (int)SkillIds.Blacksmithing,
+                    TierId = (int)TierIds.Expert,
                     CreatedById = 1,
-                    CreatedDateTime = new DateTime(2016, 05, 23),
+                    CreatedDateTime = DateTime.Now.AddDays(-1),
                     Duration = 72,
                     Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc convallis ipsum id elit placerat, ac malesuada turpis mattis. Curabitur placerat."
                 },
                 new Order()
                 {
                     Id = 2,
+                    SkillId = (int)SkillIds.Navigation,
+                    TierId = (int)TierIds.Master,
                     CreatedById = 1,
-                    CreatedDateTime = new DateTime(2016, 05, 24),
+                    CreatedDateTime = DateTime.Today,
                     Duration = 100,
                     Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sit amet tempus erat. Donec nec egestas justo. Aenean sollicitudin sapien."
                 },
                 new Order()
                 {
                     Id = 3,
+                    CategoryId = (int)CategoryIds.Combat,
+                    TierId = (int)TierIds.Legendary,
                     CreatedById = 1,
-                    CreatedDateTime = new DateTime(2016, 05, 22),
+                    CreatedDateTime = DateTime.Now.AddHours(-4),
                     Duration = 24,
                     Description = "Vestibulum sit amet tempus erat. Donec nec egestas justo. Aenean sollicitudin sapien."
                 }
