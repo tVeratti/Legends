@@ -4,12 +4,13 @@
 .quote {
     padding: 20px;
     text-align: center;
-    text-shadow: 1px 1px 3px black;
+    text-shadow: 1px 1px 4px rgba(black, .75);
     z-index: 10;
+    //color: $color-highlight;
     //background-color: rgba(black, .4);
 
     p:first-child {
-        max-width: 525px;
+        max-width: 450px;
         margin: auto;
         font-family: $font-family-title;
         font-style: italic;
@@ -26,34 +27,40 @@
 
 .actions {
     width: 100%;
-    padding-bottom: 30px;
-    border-bottom: 1px dotted #444;
-    margin-bottom: 30px;
+    padding: 30px 0;
+    margin: 30px 0;
+    border: 1px solid $color-highlight-dark;
+    border-width: 1px 0;
+    background-color: rgba(black, .2);
 
     .button {
         position: relative;
-        font-family: $font-family-title;
-        font-weight: bold;
         display: inline-block;
         width: 240px;
         max-width: 100%;
         padding: 2rem;
         margin: 0 .5rem;
-        background-color: rgba(black, .2);
-        border: 1px solid transparent;
+        overflow: hidden;
+
+        font-family: $font-family-title;
+        font-weight: bold;
         font-size: 32px;
         text-decoration: none !important;
-        overflow: hidden;
-        border: 1px solid #333;
+        text-shadow: 1px 1px 2px rgba(black, .75);
+        color: $color-highlight;
+
+        background-color: $color-primary-darker;
+        border: 1px solid $color-primary-dark;
         border-radius: 10px;
-        color: white;
-        text-shadow: 1px 1px 2px rgba(black,.7);
-        
+        box-shadow: 0 1px 5px rgba(black, .75);
+
+        transition: all 0.2s ease-in-out;
 
         &:hover {
+            color: white;
             border-color: $color-primary;
             background-color: $color-primary-dark;
-            //box-shadow: 0 1px 3px rgba(black,.5);
+            //width: 260px;
         }
 
         .subtitle{
@@ -67,7 +74,8 @@
     }
 }
 
-.orders.grid {
-    margin-top: 20px;
-    //border: 1px solid $color-primary-dark;
+.orders{
+    .grid {
+        margin-top: 10px;
+    }
 }

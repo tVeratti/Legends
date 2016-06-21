@@ -4,15 +4,17 @@ $row-color-bg: black;
 $row-color-bg-0: $color-primary-dark;
 $row-color-bg-1: rgba($row-color-bg, .2);
 
-$border-color: #222;
+$border-color: $color-highlight;
 
 // Grid Body
 // ------------
 .grid {
-    border: 1px solid #333;
+    //border: 1px solid $border-color;
     display: table;
     width: 100%;
     border-collapse: collapse;
+    border: 1px solid $color-highlight-dark;
+    border-width: 1px 0;
 
     // Row
     // ------------
@@ -21,7 +23,10 @@ $border-color: #222;
         width: 100%;
 
         &:nth-child(odd) { background-color: $row-color-bg-1; }
-        &:hover { background-color: $row-color-bg-0; color: white; }
+        &:hover { 
+            background-color: $row-color-bg-0; 
+            color: white;
+        }
         &.header {
             background-color: $border-color;
             color: white;
@@ -30,7 +35,7 @@ $border-color: #222;
         // ------------
         .cell {
             display: table-cell;
-            padding: 10px;
+            padding: 15px 10px;
         }
     }
 }

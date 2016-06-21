@@ -8,9 +8,7 @@
     // --------------------------------
     render() {
         var rowNodes = this.renderGrid();
-        var headerNode = !this.props.compact ?
-            this.renderHeader() :
-            undefined;
+        var headerNode = this.renderHeader();
 
         return (
             <div className='orders grid'>
@@ -33,13 +31,15 @@
 
     // --------------------------------
     renderHeader(){
-        return (
-            <div className='row header'>
-                <div className='cell'>Description</div>
-                <div className='cell'>Time Left</div>
-                <div className='cell'>Bids</div>
-            </div>
-        );
+        if (!this.props.compact){
+            return (
+                <div className='row header'>
+                    <div className='cell'>Description</div>
+                    <div className='cell'>Time Left</div>
+                    <div className='cell'>Bids</div>
+                </div>
+            );
+        }
     }
 
     // --------------------------------

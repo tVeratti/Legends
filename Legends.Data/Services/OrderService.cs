@@ -55,6 +55,26 @@ namespace Legends.Data.Services
                     CreatedDateTime = DateTime.Now.AddHours(-4),
                     Duration = 24,
                     Description = "Vestibulum sit amet tempus erat. Donec nec egestas justo. Aenean sollicitudin sapien."
+                },
+                new Order()
+                {
+                    Id = 3,
+                    SkillId = (int)SkillIds.Blacksmithing,
+                    //TierId = (int)TierIds.Apprentice,
+                    CreatedById = 1,
+                    CreatedDateTime = DateTime.Now.AddHours(-6),
+                    Duration = 16,
+                    Description = "Vestibulum sit amet tempus erat. Donec nec egestas justo. Aenean sollicitudin sapien."
+                },
+                new Order()
+                {
+                    Id = 3,
+                    CategoryId = (int)CategoryIds.Gathering,
+                    TierId = (int)TierIds.Journeyman,
+                    CreatedById = 1,
+                    CreatedDateTime = DateTime.Now.AddHours(-8),
+                    Duration = 30,
+                    Description = "Vestibulum sit amet tempus erat. Donec nec egestas justo. Aenean sollicitudin sapien."
                 }
             };
 

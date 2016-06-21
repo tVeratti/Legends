@@ -24,16 +24,16 @@ class Home extends React.Component {
         		<div className='actions'>
 	        		<a href='#/Orders/New' className='button'>
                         HIRE
-                        <p className='subtitle'>New Order</p>
+                        <p className='subtitle'>New Contract</p>
                     </a>
 	        		<a href='#/Orders/Browse' className='button'>
                         WORK
-                        <p className='subtitle'>Browse Orders</p>
+                        <p className='subtitle'>Browse Contracts</p>
                     </a>
         		</div>
 
         		<div className='orders'>
-                    <h2>Popular Orders</h2>
+                    <p>Popular Contracts</p>
                     {/* Popular Orders Grid */}
                     <_OrderGrid compact={true} />
         		</div>

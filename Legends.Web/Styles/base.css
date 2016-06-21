@@ -64,23 +64,26 @@ html {
   font-family: "Droid Sans", sans-serif;
   color: #f3f3f3;
   background-color: #222;
-  background-image: url("../../Content/Patterns/classy_fabric.png");
-  background-repeat: repeat; }
+  background-image: url("../Content/Patterns/classy_fabric_dark.png");
+  /*background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;*/ }
 
 html, body {
   min-width: 100%;
   min-height: 100%; }
 
 .view {
+  position: relative;
   color: white;
   width: 80%;
   max-width: 900px;
   margin: auto;
   text-align: center;
   padding: 20px;
-  background-repeat: no-repeat;
-  background-size: cover;
   border-radius: 10px; }
+  .view:before {
+    left: 5px; }
 
 .navigation {
   position: relative;
@@ -92,6 +95,7 @@ html, body {
   background-repeat: no-repeat;
   background-position: center;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid #b02020;
   /*&:before{
         position: absolute;
         top: 100%;
@@ -116,7 +120,8 @@ html, body {
       display: inline-block;
       height: 100%;
       padding: 0 15px;
-      color: #ccc;
+      color: rgba(255, 255, 255, 0.75);
+      text-shadow: 1px 1px 1px black;
       text-decoration: none;
       vertical-align: middle;
       line-height: 40px; }
@@ -126,10 +131,10 @@ html, body {
 .quote {
   padding: 20px;
   text-align: center;
-  text-shadow: 1px 1px 3px black;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.75);
   z-index: 10; }
   .quote p:first-child {
-    max-width: 525px;
+    max-width: 450px;
     margin: auto;
     font-family: "Cinzel Decorative", cursive;
     font-style: italic;
@@ -142,28 +147,32 @@ html, body {
 
 .actions {
   width: 100%;
-  padding-bottom: 30px;
-  border-bottom: 1px dotted #444;
-  margin-bottom: 30px; }
+  padding: 30px 0;
+  margin: 30px 0;
+  border: 1px solid #3a3425;
+  border-width: 1px 0;
+  background-color: rgba(0, 0, 0, 0.2); }
   .actions .button {
     position: relative;
-    font-family: "Cinzel Decorative", cursive;
-    font-weight: bold;
     display: inline-block;
     width: 240px;
     max-width: 100%;
     padding: 2rem;
     margin: 0 .5rem;
-    background-color: rgba(0, 0, 0, 0.2);
-    border: 1px solid transparent;
+    overflow: hidden;
+    font-family: "Cinzel Decorative", cursive;
+    font-weight: bold;
     font-size: 32px;
     text-decoration: none !important;
-    overflow: hidden;
-    border: 1px solid #333;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.75);
+    color: #90835c;
+    background-color: #581010;
+    border: 1px solid #841818;
     border-radius: 10px;
-    color: white;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); }
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.75);
+    transition: all 0.2s ease-in-out; }
     .actions .button:hover {
+      color: white;
       border-color: #b02020;
       background-color: #841818; }
     .actions .button .subtitle {
@@ -173,23 +182,23 @@ html, body {
       color: rgba(255, 255, 255, 0.75);
       padding-top: 5px; }
 
-.orders.grid {
-  margin-top: 20px; }
+.orders .grid {
+  margin-top: 10px; }
 
 .order {
   cursor: pointer; }
-  .order .cell {
-    padding: 1rem; }
-    .order .cell:first-child {
-      width: 50%;
-      text-align: left; }
-    .order .cell:not(:first-child) {
-      vertical-align: middle; }
+  .order .cell:first-child {
+    width: 50%;
+    text-align: left; }
+  .order .cell:not(:first-child) {
+    vertical-align: middle; }
   .order .identifiers {
     font-size: 16px;
     margin-bottom: 5px;
     text-transform: uppercase;
-    font-weight: bold; }
+    font-weight: bold;
+    color: #90835c;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.75); }
     .order .identifiers .tier {
       display: inline-block;
       margin-right: .5rem;
@@ -198,12 +207,15 @@ html, body {
   .order .description {
     font-size: 14px;
     color: rgba(255, 255, 255, 0.75); }
+  .order:hover .identifiers {
+    color: white; }
 
 .grid {
-  border: 1px solid #333;
   display: table;
   width: 100%;
-  border-collapse: collapse; }
+  border-collapse: collapse;
+  border: 1px solid #3a3425;
+  border-width: 1px 0; }
   .grid .row {
     display: table-row;
     width: 100%; }
@@ -213,9 +225,9 @@ html, body {
       background-color: #841818;
       color: white; }
     .grid .row.header {
-      background-color: #222;
+      background-color: #90835c;
       color: white; }
     .grid .row .cell {
       display: table-cell;
-      padding: 10px; }
+      padding: 15px 10px; }
 

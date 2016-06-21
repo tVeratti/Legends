@@ -5,6 +5,9 @@
     Model:
     - long          Id
     - string        Description
+    - int           CategoryId
+    - int           SkillId
+    - int           TierId    
     - long          CreatedById
     - DateTime      CreatedDateTime
     - string        CreatedByName
@@ -21,21 +24,25 @@ class _Order extends React.Component {
     render() {
         var model = this.props.model;
 
-        var tier = orderStore.enums.Tiers[model.TierId];
-        var skill = orderStore.enums.Skills[model.SkillId] ||
-            orderStore.enums.Categories[model.CategoryId];
+        // Identifiers
+        var category =  orderStore.enums.Categories[model.CategoryId]
+        var tier =      orderStore.enums.Tiers[model.TierId];
+        var skill =     orderStore.enums.Skills[model.SkillId];
         
+        var minimumTier = orderStore.enums.Tiers[1];
+        
+        // Details
         var description = this.getDescription();
         var duration = this.getDuration();
-       
 
         return (
             <div className='row order' onClick={this.navigateToOrder}>
+
                 <div className='cell'>
                     {/* Standard Request Identifiers */}
                     <div className='identifiers'>
-                        <span className='tier'>{tier}</span>
-                        <span className='skill'>{skill}</span>
+                        <span className='tier'>{tier || 'Novice'}</span>
+                        <span className='skill'>{skill || minimumTier}</span>
                     </div>
 
                     {/* Custom Request Description */}
@@ -43,10 +50,12 @@ class _Order extends React.Component {
                 </div>
 
                 <div className='cell'>
+                    {/* Duration */}
                     {duration}
                 </div>
 
                 <div className='cell'>
+                    {/* Bid Count */}
                     13 Bids
                 </div>
             </div>
@@ -58,6 +67,7 @@ class _Order extends React.Component {
         var description = this.props.model.Description || '';
         var ellipsisString = description.length > 50 ? '...' : '';
         var descriptionSub = description.substr(0, 50);
+
         return descriptionSub + ellipsisString;
     }
 

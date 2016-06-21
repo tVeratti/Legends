@@ -17,7 +17,7 @@ class Orders_New extends React.Component {
         
         return (
             <div className='orders_new'>
-                New Orders
+                New Order
                 
                 <select id='select-skill'>
                     {skillOptions}

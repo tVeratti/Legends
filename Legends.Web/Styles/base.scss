@@ -13,23 +13,32 @@ html{
     font-family: $font-family-base;
     color: #f3f3f3;
     background-color: #222;
-    background-image: url("../../Content/Patterns/classy_fabric.png");
-    background-repeat: repeat;
+    background-image: url("../Content/Patterns/classy_fabric_dark.png");
+    //background-size: 15px;
+    /*background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;*/
 }
+
 html, body{ min-width: 100%; min-height: 100%; }
 
 .view{
+    position: relative;
     color: white;
     width: 80%;
     max-width: 900px;
     margin: auto;
     text-align: center;
     padding: 20px;
-    //background: rgba(black, .2);
-    background-repeat: no-repeat;
-    background-size: cover;
+    //background: url("../Content/Patterns/dark_Tire.png");
     border-radius: 10px;
-    //border: 1px solid #333;
+    //border: 1px solid #090909;
+    //box-shadow: 0 0 5px rgba(black, .3);
+
+
+    &:before{
+        left: 5px;
+    }
 }
 
 @import "Components/_navigation.scss";
