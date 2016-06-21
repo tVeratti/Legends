@@ -41,8 +41,8 @@ class _Order extends React.Component {
                 <div className='cell'>
                     {/* Standard Request Identifiers */}
                     <div className='identifiers'>
-                        <span className='tier'>{tier || 'Novice'}</span>
-                        <span className='skill'>{skill || minimumTier}</span>
+                        <span className='tier'>{tier || minimumTier}</span>
+                        <span className='skill'>{skill || category}</span>
                     </div>
 
                     {/* Custom Request Description */}

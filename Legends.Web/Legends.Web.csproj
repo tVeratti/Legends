@@ -326,6 +326,7 @@
     <Content Include="Styles\Components\_navigation.scss" />
     <Content Include="Styles\_colors.scss" />
     <None Include="Properties\PublishProfiles\legendsforhire.verspyre.com - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\legendsforhire.verspyre.com - Web Deploy %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\legendsforhire.verspyre.com - Web Deploy.pubxml" />
     <Content Include="Styles\_fonts.scss" />
   </ItemGroup>

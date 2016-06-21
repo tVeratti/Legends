@@ -1,22 +1,16 @@
-﻿@import url(https://fonts.googleapis.com/css?family=Droid+Sans);
-@import url(https://fonts.googleapis.com/css?family=Cinzel+Decorative:700);
-@import url(https://fonts.googleapis.com/css?family=Overlock+SC);
-@import url(https://fonts.googleapis.com/css?family=Droid+Sans);
-@import url(https://fonts.googleapis.com/css?family=Cinzel+Decorative:700);
-@import url(https://fonts.googleapis.com/css?family=Overlock+SC);
-@import url(https://fonts.googleapis.com/css?family=Droid+Sans);
-@import url(https://fonts.googleapis.com/css?family=Cinzel+Decorative:700);
-@import url(https://fonts.googleapis.com/css?family=Overlock+SC);
-html {
-  box-sizing: border-box; }
-
-*, *:before, *:after {
-  box-sizing: inherit; }
-
-/* http://meyerweb.com/eric/tools/css/reset/ 
+﻿/* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
 */
+@import url(https://fonts.googleapis.com/css?family=Droid+Sans);
+@import url(https://fonts.googleapis.com/css?family=Cinzel+Decorative:700);
+@import url(https://fonts.googleapis.com/css?family=Overlock+SC);
+@import url(https://fonts.googleapis.com/css?family=Droid+Sans);
+@import url(https://fonts.googleapis.com/css?family=Cinzel+Decorative:700);
+@import url(https://fonts.googleapis.com/css?family=Overlock+SC);
+@import url(https://fonts.googleapis.com/css?family=Droid+Sans);
+@import url(https://fonts.googleapis.com/css?family=Cinzel+Decorative:700);
+@import url(https://fonts.googleapis.com/css?family=Overlock+SC);
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -61,29 +55,27 @@ table {
   border-spacing: 0; }
 
 html {
+  box-sizing: border-box;
   font-family: "Droid Sans", sans-serif;
   color: #f3f3f3;
   background-color: #222;
   background-image: url("../Content/Patterns/classy_fabric_dark.png");
-  /*background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;*/ }
+  background-repeat: repeat; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
 
 html, body {
   min-width: 100%;
   min-height: 100%; }
 
 .view {
-  position: relative;
   color: white;
   width: 80%;
   max-width: 900px;
   margin: auto;
   text-align: center;
-  padding: 20px;
-  border-radius: 10px; }
-  .view:before {
-    left: 5px; }
+  padding: 20px; }
 
 .navigation {
   position: relative;
