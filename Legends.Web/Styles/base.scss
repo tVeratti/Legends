@@ -1,6 +1,7 @@
 ﻿@import "_reset.scss";
 @import "_colors.scss";
 @import "_fonts.scss";
+@import "variables";
 
 html{ 
     box-sizing: border-box;
@@ -17,8 +18,49 @@ html{
 
 html, body{ min-width: 100%; min-height: 100%; }
 
+h1 {
+    font-size: 42px;
+}
+
+.button {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+    padding: 1rem;
+    overflow: hidden;
+    cursor: pointer;
+
+    font-size: 18px;
+    font-family: $font-family-title;
+    font-weight: bold;
+    text-decoration: none !important;
+    text-shadow: $text-shadow-normal;
+    color: $color-highlight;
+
+    background-color: $color-primary-darker;
+    border: 1px solid $color-primary-dark;
+    border-radius: 10px;
+    box-shadow: $box-shadow-normal;
+
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+        color: white;
+        border-color: $color-primary;
+        background-color: $color-primary-dark;
+    }
+
+    .subtitle{
+        font-family: $font-family-base;
+        font-size: 12px;
+        font-weight: normal;
+        color: rgba(white, .75);
+        padding-top: 5px;
+    }
+}
+
 .view{
-    color: white;
+    color: $color-base-font;
     width: 80%;
     max-width: 900px;
     margin: auto;
@@ -26,7 +68,27 @@ html, body{ min-width: 100%; min-height: 100%; }
     padding: 20px;
 }
 
-@import "Components/_navigation.scss";
-@import "Components/_home.scss";
-@import "Components/_order.scss";
-@import "Components/_grid.scss";
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { 
+    border-radius:0 0 3px 0;
+    background: $color-highlight-darker;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background: $color-highlight; 
+}
+
+// Vendor
+@import "Vendor/Select/components";
+
+// Common
+@import "Components/navigation";
+@import "Components/grid";
+@import "Components/field";
+
+// Home
+@import "Components/home";
+@import "Components/orderGrid";
+
+// Orders
+@import "Components/newOrder";

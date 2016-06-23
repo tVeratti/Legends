@@ -1,0 +1,7 @@
+﻿@import "../mixins";
+
+#new-order{
+    text-align: left;
+    padding: 30px;
+    @include border-deco();
+}

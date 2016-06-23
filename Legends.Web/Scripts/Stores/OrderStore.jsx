@@ -13,27 +13,34 @@ function OrderStore(){
 
 	};
 	
+	// Source Enums
 	self.enums = {
 		Categories: {},
 		Skills: {},
 		Tiers: {}
 	};
 
-	self.get = function() {
+	// --------------------------------
+	self.getOrders = function() {
 		return $.get(_api.get);
 	};
 
-	self.find = function(id) {
+	// --------------------------------
+	self.findOrder = function(id) {
 		return $.get(_api.find, { id });
 	};
 	
+	// --------------------------------
 	self.getEnums = function(){
 		return $.get(_api.getEnums);
 	};
 	
-	self.renderOptions = function(arr){
+	// --------------------------------
+	self.mapSelectOptions = function(arr){
 		var keys = Object.keys(arr);
-		return keys.map(k => <option value={k}>{arr[k]}</option>);	
+		return keys.map(k => {
+			return {value: k, label: arr[k] };
+		});	
 	};
 
 	return self;

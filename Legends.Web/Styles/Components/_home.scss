@@ -1,13 +1,14 @@
 ﻿@import "../_colors.scss";
 @import "../_fonts.scss";
+@import "../_variables.scss";
+@import "../mixins";
 
+// Quote
+// -----------------------
 .quote {
     padding: 20px;
     text-align: center;
-    text-shadow: 1px 1px 4px rgba(black, .75);
-    z-index: 10;
-    //color: $color-highlight;
-    //background-color: rgba(black, .4);
+    text-shadow: $text-shadow-normal;
 
     p:first-child {
         max-width: 450px;
@@ -20,60 +21,30 @@
 
     p:last-child {
         font-size: 10px;
-        color: rgba(white, .75);
+        color: rgba($color-base-font, .75);
         text-shadow: none;
     }
 }
 
+// HIRE / WORK
+// -----------------------
 .actions {
     width: 100%;
     padding: 30px 0;
     margin: 30px 0;
-    border: 1px solid $color-highlight-dark;
-    border-width: 1px 0;
-    background-color: rgba(black, .2);
+    @include border-deco();
 
     .button {
-        position: relative;
-        display: inline-block;
         width: 240px;
-        max-width: 100%;
         padding: 2rem;
         margin: 0 .5rem;
-        overflow: hidden;
-
-        font-family: $font-family-title;
-        font-weight: bold;
         font-size: 32px;
-        text-decoration: none !important;
-        text-shadow: 1px 1px 2px rgba(black, .75);
-        color: $color-highlight;
-
-        background-color: $color-primary-darker;
-        border: 1px solid $color-primary-dark;
-        border-radius: 10px;
-        box-shadow: 0 1px 5px rgba(black, .75);
-
-        transition: all 0.2s ease-in-out;
-
-        &:hover {
-            color: white;
-            border-color: $color-primary;
-            background-color: $color-primary-dark;
-            //width: 260px;
-        }
-
-        .subtitle{
-            font-family: $font-family-base;
-            font-size: 12px;
-            font-weight: normal;
-            color: rgba(white, .75);
-            padding-top: 5px;
-            
-        }
     }
 }
 
+
+// Popular Orders Grid
+// -----------------------
 .orders{
     .grid {
         margin-top: 10px;

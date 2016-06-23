@@ -22,12 +22,11 @@ class Orders_View extends React.Component {
         );
     }
 
+    // --------------------------------
     componentWillMount(){
         var orderId = this.props.params.Id;
-        orderStore.find(orderId).success(this.updateOrder);
-    }
-
-    updateOrder = (order) => {
-        this.setState({ order });
+        orderStore.find(orderId).success(order => {
+            this.setState({ order });
+        });
     }
 }

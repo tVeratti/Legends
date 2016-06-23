@@ -1,4 +1,9 @@
-﻿class _OrderGrid extends React.Component {
+﻿/*
+	-----------------------------------
+	_OrderGrid
+	-----------------------------------
+*/
+class _OrderGrid extends React.Component {
 	// --------------------------------
     constructor(props, context) {
         super(props, context);
@@ -20,13 +25,16 @@
 
     // --------------------------------
     componentWillMount() {
-        orderStore.get().success(this.updateOrders)
+        // Get list of orders from database.
+        orderStore.getOrders().success(orders => {
+            this.setState({ orders });
+        });
     }
 
     // --------------------------------
     renderGrid(){
         var orders = this.state.orders || [];
-        return orders.map(o => <_Order model={o} compact={this.props.compact} />);
+        return orders.map(o => <_OrderGrid_Row model={o} />);
     }
 
     // --------------------------------
@@ -40,10 +48,5 @@
                 </div>
             );
         }
-    }
-
-    // --------------------------------
-    updateOrders = (orders) => {
-        this.setState({ orders });
     }
 }

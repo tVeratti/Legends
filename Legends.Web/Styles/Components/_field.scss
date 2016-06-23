@@ -1,0 +1,46 @@
+﻿@import "../_colors.scss";
+@import "../_fonts.scss";
+@import "../_variables.scss";
+
+.field{
+    display: block;
+    max-width: 100%;
+    padding: 10px 0;
+
+    label{ 
+        display: block;
+        padding: 3px 0;
+        color: $color-highlight; 
+        font-weight: bold;
+        text-shadow: $text-shadow-normal;
+    }
+
+    .Select{
+        width: 100%;
+        max-width: 300px;
+    }
+
+    input,
+    textarea {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        border-radius: 4px;
+        background-color: $input-color-bg;
+        border: 1px solid $input-color-border;
+        color: $input-color-text;
+        padding: $input-padding;
+        font-family: inherit;
+        font-size: inherit;
+        outline: none;
+    }
+
+}
+
+::-webkit-input-placeholder { color: $input-color-placeholder; }
+::-moz-placeholder { color: $input-color-placeholder; }
+:-ms-input-placeholder { color: $input-color-placeholder; }
+:-moz-placeholder { color: $input-color-placeholder; }
+
+
+

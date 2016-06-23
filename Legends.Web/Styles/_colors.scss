@@ -7,3 +7,10 @@ $color-secondary-dark: mix($color-secondary, black, 75%);
 
 $color-highlight: #90835c;
 $color-highlight-dark: mix($color-highlight, black, 40%);
+$color-highlight-darker: mix($color-highlight, black, 30%);
+
+$color-base-font: white;
+
+$color-base-bg: #111;
+$color-base-bg-light: lighten($color-base-bg, 25%);
+$color-base-bg-lighter: lighten($color-base-bg, 50%);

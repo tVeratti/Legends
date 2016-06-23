@@ -1,8 +1,8 @@
 ﻿/*
 	-----------------------------------
-	_Order
+	_OrderGrid_Row
     -----------------------------------
-    Model:
+    props.Model:
     - long          Id
     - string        Description
     - int           CategoryId
@@ -13,7 +13,7 @@
     - string        CreatedByName
     - Bid[]         Bids
 */
-class _Order extends React.Component {
+class _OrderGrid_Row extends React.Component {
 	// --------------------------------
     constructor(props, context) {
         super(props, context);
@@ -25,15 +25,14 @@ class _Order extends React.Component {
         var model = this.props.model;
 
         // Identifiers
-        var category =  orderStore.enums.Categories[model.CategoryId]
-        var tier =      orderStore.enums.Tiers[model.TierId];
-        var skill =     orderStore.enums.Skills[model.SkillId];
-        
-        var minimumTier = orderStore.enums.Tiers[1];
+        var category =      orderStore.enums.Categories[model.CategoryId]
+        var tier =          orderStore.enums.Tiers[model.TierId];
+        var skill =         orderStore.enums.Skills[model.SkillId];
+        var minimumTier =   orderStore.enums.Tiers[1];
         
         // Details
         var description = this.getDescription();
-        var duration = this.getDuration();
+        var duration = this.getRemainingDuration();
 
         return (
             <div className='row order' onClick={this.navigateToOrder}>
@@ -50,7 +49,7 @@ class _Order extends React.Component {
                 </div>
 
                 <div className='cell'>
-                    {/* Duration */}
+                    {/* Remaining Duration */}
                     {duration}
                 </div>
 
@@ -65,28 +64,32 @@ class _Order extends React.Component {
     // --------------------------------
     getDescription(){
         var description = this.props.model.Description || '';
-        var ellipsisString = description.length > 50 ? '...' : '';
-        var descriptionSub = description.substr(0, 50);
 
-        return descriptionSub + ellipsisString;
+        if (description.length > 50){
+            // Remove exceeding characters and add an ellipsis.
+            description = description.substr(0, 50) + '...';
+        }
+
+        return description;
     }
 
     // --------------------------------
-    getDuration(){
+    getRemainingDuration(){
         var model = this.props.model;
 
+        // Calculate the time left on the order.
+        // Diff: CreatedDateTime, EndDateTime, Duration.
         var createdDateTime = model.CreatedDateTime;
         var endDateTime = moment(createdDateTime).add(model.Duration, 'h');
-
         var remainingHours = endDateTime.diff(new Date(), 'h');
+
         if (remainingHours < 1) remainingHours = '< 1';
         remainingHours += 'h';
-
-        if (this.props.compact) remainingHours += ' left';
 
         return remainingHours;
     }
 
+    // --------------------------------
     navigateToOrder = (event) => {
         window.location = '/#/Orders/View/' + this.props.model.Id;
     }

@@ -1,0 +1,16 @@
+﻿@import "colors";
+
+$text-shadow-light: 1px 1px 4px rgba(black, .50);
+$text-shadow-normal: 1px 1px 4px rgba(black, .75);
+$text-shadow-heavy: 1px 1px 4px rgba(black, .90);
+
+$box-shadow-light: 0 1px 5px rgba(black, .75);
+$box-shadow-normal: 0 1px 5px rgba(black, .75);
+$box-shadow-heavy: 0 1px 5px rgba(black, .90);
+
+$input-height: 36px;
+$input-color-border: $color-base-bg-light;
+$input-color-bg: $color-base-bg;
+$input-color-text: $color-base-bg-lighter;
+$input-color-placeholder: $color-base-bg-light;
+$input-padding: 8px;

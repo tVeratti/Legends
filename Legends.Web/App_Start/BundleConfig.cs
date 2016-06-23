@@ -14,12 +14,17 @@ namespace Legends.Web
                 "~/Scripts/Vendor/react-{version}.js",
                 "~/Scripts/Vendor/react-dom-{version}.js",
                 "~/Scripts/Vendor/react-router-{version}.js",
-                "~/Scripts/Vendor/moment-{version}.js"));
+                "~/Scripts/Vendor/moment-{version}.js",
+                // react-select
+                "~/Scripts/Vendor/classnames.js",
+                "~/Scripts/Vendor/react-input-autosize.js",
+                "~/Scripts/Vendor/react-select.min.js"));
 
             bundles.Add(new BabelBundle("~/bundles/main").Include(
                 "~/Scripts/Stores/*.jsx",
 
                 "~/Scripts/Components/Home/*.jsx",
+                "~/Scripts/Components/Home/Common/*.jsx",
                 "~/Scripts/Components/Home/Orders/*.jsx",
                 "~/Scripts/Components/Home/Profile/*.jsx",
                 "~/Scripts/Components/*.jsx"));

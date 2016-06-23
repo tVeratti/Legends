@@ -30,44 +30,38 @@ namespace Legends.Web.Controllers
         [HttpGet]
         public JsonResult GetEnums()
         {
-            var model = new
+            // Get Id Enums as Dictionary<string, string> models.
+            var enums = new
             {
-                Categories = this.getCategories(),
-                Skills = this.getSkills(),
-                Tiers = this.getTiers()
+                Categories =    getEnumDictionary(typeof(CategoryIds)),
+                Skills =        getEnumDictionary(typeof(SkillIds)),
+                Tiers =         getEnumDictionary(typeof(TierIds))
             };
 
-            return Json(model, JsonRequestBehavior.AllowGet);
+            return Json(enums, JsonRequestBehavior.AllowGet);
         }
         
-        private Dictionary<string, string> getCategories()
+        /// <summary>
+        /// Get a Dictionary of values from an enum type. This is useful for passing the values
+        /// to JavaScript as an associative array used for mapping model Ids.
+        /// </summary>
+        /// <param name="enumType">Class Type of the enum.</param>
+        /// <returns>Dictionary (string, string) that represent the enum.</returns>
+        private Dictionary<string, string> getEnumDictionary(Type enumType)
         {
-            var values = Enum.GetValues(typeof(CategoryIds));
-            return this.enumDictionary(values);
-        }
+            var enumDictionary = new Dictionary<string, string>();
 
-        private Dictionary<string, string> getSkills()
-        {
-            var values = Enum.GetValues(typeof(SkillIds));
-            return this.enumDictionary(values);
-        }
-
-        private Dictionary<string, string> getTiers()
-        {
-            var values = Enum.GetValues(typeof(TierIds));
-            return this.enumDictionary(values);
-        }
-
-        private Dictionary<string, string> enumDictionary(Array values)
-        {
-            Dictionary<string, string> enumDictionary = new Dictionary<string, string>();
+            var values = Enum.GetValues(enumType);
             foreach (var key in values)
             {
+                // Get the int Id and the string value that matches.
                 var id = ((int)key).ToString();
                 var name = key.ToString();
 
+                // Add the KVP to the Dictionary.
                 enumDictionary.Add(id, name);
             }
+
             return enumDictionary;
         }
     }
