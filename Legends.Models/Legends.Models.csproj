@@ -42,7 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bid.cs" />
-    <Compile Include="Order.cs" />
+    <Compile Include="Category.cs" />
+    <Compile Include="Lookup.cs" />
+    <Compile Include="Tier.cs" />
+    <Compile Include="Skill.cs" />
+    <Compile Include="Contract.cs" />
+    <Compile Include="Work.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

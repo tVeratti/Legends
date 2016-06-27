@@ -26,9 +26,10 @@ class _OrderGrid extends React.Component {
     // --------------------------------
     componentWillMount() {
         // Get list of orders from database.
-        orderStore.getOrders().success(orders => {
-            this.setState({ orders });
-        });
+        // orderStore.getOrders().success(orders => {
+        //     this.setState({ orders });
+        // });
+        console.log('x')
     }
 
     // --------------------------------

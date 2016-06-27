@@ -15,6 +15,7 @@ namespace Legends.Web
                 "~/Scripts/Vendor/react-dom-{version}.js",
                 "~/Scripts/Vendor/react-router-{version}.js",
                 "~/Scripts/Vendor/moment-{version}.js",
+                "~/Scripts/Vendor/pubsub{version}.js",
                 // react-select
                 "~/Scripts/Vendor/classnames.js",
                 "~/Scripts/Vendor/react-input-autosize.js",

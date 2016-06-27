@@ -39,15 +39,5 @@ class Home extends React.Component {
         		</div>
         	</div>
     	);
-    } 
-    
-    // --------------------------------
-    componentWillMount(){
-        var self = this;
-        orderStore.getEnums().done(enums => {
-            //Update store values and forceUpdate.
-            orderStore.enums = enums;
-            self.forceUpdate();
-        });
     }   
 }

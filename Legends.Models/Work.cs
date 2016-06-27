@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 
 namespace Legends.Models
 {
-    public class Bid
+    public class Work
     {
         // Table Values
         public long Id { get; set; }
-        public long ContractId { get; set; }
         public string Description { get; set; }
+       
         public long CreatedById { get; set; }
         public DateTime CreatedDateTime { get; set; }
-        public int StatusId { get; set; }
+
+        // Joined Values
+        public IEnumerable<Contract> Contracts { get; set; }
     }
 }

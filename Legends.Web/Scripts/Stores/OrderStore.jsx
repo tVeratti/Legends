@@ -1,4 +1,5 @@
 ﻿var orderStore = new OrderStore();
+orderStore.initialize();
 
 function OrderStore(){
 	var self = this;
@@ -6,19 +7,42 @@ function OrderStore(){
 	var _api = {
 		get: 		'/Orders/Get',
 		find: 		'/Orders/Find',
-		getEnums: 	'/Orders/GetEnums'
+		getLookups: '/Orders/Lookup_Skills'
+	};
+	
+	var _keys = {
+		lookups: 'o_lookups'
 	};
 
 	self.filters = {
 
 	};
 	
-	// Source Enums
-	self.enums = {
+	// Source Lookups
+	self.lookups = {
 		Categories: {},
 		Skills: {},
 		Tiers: {}
 	};
+
+	// --------------------------------
+	self.initialize = function(){
+		// Attempt to read lookup from session first.
+		var jsonLookups = sessionStorage.getItem(_keys.lookups) || '';
+		var sessionLookups;
+		try {
+		 sessionLookups = JSON.parse(jsonLookups);
+		} catch (err) {}
+		
+		console.log(jsonLookups, sessionLookups)
+		if (sessionLookups && sessionLookups.Categories){
+			// Use the values stored in session.
+			self.lookups = sessionLookups;
+		} else{
+			// Request values from the database.
+			$.get(_api.getLookups).success(res => self.lookups = res);
+		}
+	}
 
 	// --------------------------------
 	self.getOrders = function() {
@@ -31,15 +55,9 @@ function OrderStore(){
 	};
 	
 	// --------------------------------
-	self.getEnums = function(){
-		return $.get(_api.getEnums);
-	};
-	
-	// --------------------------------
-	self.mapSelectOptions = function(arr){
-		var keys = Object.keys(arr);
-		return keys.map(k => {
-			return {value: k, label: arr[k] };
+	self.mapSelectOptions = function(lookup){
+		return lookup.map(l => {
+			return {value: l.Id, label: l.Name };
 		});	
 	};
 
