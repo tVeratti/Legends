@@ -596,46 +596,46 @@ h1 {
     margin: 0 .5rem;
     font-size: 32px; }
 
-.orders .grid {
+.work .grid {
   margin-top: 10px; }
 
-.order {
+.contract {
   cursor: pointer; }
-  .order .cell:first-child {
+  .contract .cell:first-child {
     width: 50%;
     text-align: left; }
-  .order .cell:not(:first-child) {
+  .contract .cell:not(:first-child) {
     vertical-align: middle; }
-  .order .identifiers {
+  .contract .identifiers {
     font-size: 16px;
     margin-bottom: 5px;
     text-transform: uppercase;
     font-weight: bold;
     color: #90835c;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.75); }
-    .order .identifiers .tier {
+    .contract .identifiers .tier {
       display: inline-block;
       margin-right: .5rem;
       font-weight: normal;
       font-size: 14px; }
-  .order .description {
+  .contract .description {
     font-size: 14px;
     color: rgba(255, 255, 255, 0.75); }
-  .order:hover .identifiers {
+  .contract:hover .identifiers {
     color: white; }
 
-#new-order {
+#new-work {
   text-align: left;
   padding: 20px;
   border: 1px solid #3a3425;
   border-width: 1px 0;
   background-color: rgba(0, 0, 0, 0.2); }
-  #new-order .skill-info {
+  #new-work .skill-info {
     display: table;
     width: 100%;
     background: rgba(43, 39, 28, 0.5);
     margin-bottom: 10px; }
-    #new-order .skill-info .field {
+    #new-work .skill-info .field {
       display: table-cell;
       vertical-align: bottom;
       padding: 10px;

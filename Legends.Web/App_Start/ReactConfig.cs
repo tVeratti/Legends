@@ -14,14 +14,14 @@ namespace Legends.Web
             // See http://reactjs.net/ for more information. Example:
             ReactSiteConfiguration.Configuration
                 // Dependencies
-                //.AddScript("~/Scripts/Vendor/react-router-2.4.0.js")
                 .AddScript("~/Scripts/Vendor/moment-2.13.0.js")
+                .AddScript("~/Scripts/Vendor/pubsub-1.4.2.js")
 
                 // Components
-                .AddScript("~/Scripts/Components/Home/*.jsx")
-                .AddScript("~/Scripts/Components/Home/Common/*.jsx")
-                .AddScript("~/Scripts/Components/Home/Orders/*.jsx")
-                .AddScript("~/Scripts/Components/Home/Profile/*.jsx");
+                .AddScript("~/Scripts/Components/*.jsx")
+                .AddScript("~/Scripts/Components/Common/*.jsx")
+                .AddScript("~/Scripts/Components/Works/*.jsx")
+                .AddScript("~/Scripts/Components/Profile/*.jsx");
         }
 	}
 }

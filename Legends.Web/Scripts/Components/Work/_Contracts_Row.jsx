@@ -1,6 +1,6 @@
 ﻿/*
-	-----------------------------------
-	_OrderGrid_Row
+    -----------------------------------
+    _Contracts_Row
     -----------------------------------
     props.Model:
     - long          Id
@@ -13,8 +13,8 @@
     - string        CreatedByName
     - Bid[]         Bids
 */
-class _OrderGrid_Row extends React.Component {
-	// --------------------------------
+class _Contracts_Row extends React.Component {
+    // --------------------------------
     constructor(props, context) {
         super(props, context);
         this.state = {};
@@ -22,42 +22,40 @@ class _OrderGrid_Row extends React.Component {
 
     // --------------------------------
     render() {
+        // Model: Contract
         var model = this.props.model;
-
-        // Identifiers
-        var category =      orderStore.enums.Categories[model.CategoryId]
-        var tier =          orderStore.enums.Tiers[model.TierId];
-        var skill =         orderStore.enums.Skills[model.SkillId];
-        var minimumTier =   orderStore.enums.Tiers[1];
         
         // Details
         var description = this.getDescription();
         var duration = this.getRemainingDuration();
 
-        return (
-            <div className='row order' onClick={this.navigateToOrder}>
+        // View URL
+        var workURL = '/#/Work/View/' + this.props.model.Id;
 
+        return (
+            <a className='contract row' href={workURL}>
+
+                {/* Standard Request Identifiers */}
                 <div className='cell'>
-                    {/* Standard Request Identifiers */}
                     <div className='identifiers'>
-                        <span className='tier'>{tier || minimumTier}</span>
-                        <span className='skill'>{skill || category}</span>
+                        <span className='tier'>{model.Tier}</span>
+                        <span className='skill'>{model.Skill || model.Category}</span>
                     </div>
 
                     {/* Custom Request Description */}
                     <div className='description'>{description}</div>
                 </div>
 
+                {/* Remaining Duration */}
                 <div className='cell'>
-                    {/* Remaining Duration */}
                     {duration}
                 </div>
 
+                {/* Bid Count */}
                 <div className='cell'>
-                    {/* Bid Count */}
                     13 Bids
                 </div>
-            </div>
+            </a>
         );
     }
 
@@ -88,23 +86,4 @@ class _OrderGrid_Row extends React.Component {
 
         return remainingHours;
     }
-
-    // --------------------------------
-    navigateToOrder = (event) => {
-        window.location = '/#/Orders/View/' + this.props.model.Id;
-    }
 }
-
-
-//     public class CommentBidModel
-//     {
-//         // Table Data
-//         public long Id { get; set; }
-//         public string Offer { get; set; }
-//         public string Description { get; set; }
-//         public long CreatedById { get; set; }
-//         public DateTime CreatedDateTime { get; set; }
-
-//         // Joined Data
-//         public string CreatedByName { get; set; }
-//     }

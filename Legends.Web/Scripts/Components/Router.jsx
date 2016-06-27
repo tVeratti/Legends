@@ -6,10 +6,10 @@ var routerNode = (
     <Router history={hashHistory}>
         <Route path='/' component={Home} />
         
-        <Route path='Orders' component={Orders}>
-            <Route path='New' component={Orders_New} />
-            <Route path='Browse' component={Orders_Browse} />
-            <Route path='View/:Id' component={Orders_View} />
+        <Route path='Work' component={Work}>
+            <Route path='New' component={Work_New} />
+            <Route path='Browse' component={Work_Browse} />
+            <Route path='View/:Id' component={Work_View} />
         </Route>
         
     </Router>

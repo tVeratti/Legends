@@ -15,6 +15,10 @@ class _Field extends React.Component {
 
     // --------------------------------
     render() {
+        // Track this field's value in the formStore
+        // and browser session every time it renders.
+        formStore.trackField(this.props.name, this.state.value);
+
         var inputNode = this.renderInput();
         var labelClassName = 'label';
         if (this.props.required) labelClassName += ' required';
@@ -63,7 +67,7 @@ class _Field extends React.Component {
 
         if (options){
             // Input Type: Select
-            var options = orderStore.mapSelectOptions(options);
+            var options = workStore.mapSelectOptions(options);
             return <Select {...fieldProps} options={options} onChange={this.selecthandler} searchable={false} />;
 
         } else {

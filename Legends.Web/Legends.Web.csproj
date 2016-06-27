@@ -284,18 +284,19 @@
     <Content Include="Content\Town.jpg" />
     <Content Include="favicon.png" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\Components\Home\Common\_Field.jsx" />
-    <Content Include="Scripts\Components\Home\Common\_Navigation.jsx" />
-    <Content Include="Scripts\Components\Home\Home.jsx" />
-    <Content Include="Scripts\Components\Home\Orders\Orders.jsx" />
-    <Content Include="Scripts\Components\Home\Orders\Orders_Browse.jsx" />
-    <Content Include="Scripts\Components\Home\Orders\Orders_New.jsx" />
-    <Content Include="Scripts\Components\Home\Orders\Orders_View.jsx" />
-    <Content Include="Scripts\Components\Home\Orders\_OrderGrid.jsx" />
-    <Content Include="Scripts\Components\Home\Orders\_OrderGrid_Row.jsx" />
-    <Content Include="Scripts\Components\Home\Profile\Profile.jsx" />
+    <Content Include="Scripts\Components\Common\_Field.jsx" />
+    <Content Include="Scripts\Components\Common\_Navigation.jsx" />
+    <Content Include="Scripts\Components\Home.jsx" />
+    <Content Include="Scripts\Components\Work\Work.jsx" />
+    <Content Include="Scripts\Components\Work\Work_Browse.jsx" />
+    <Content Include="Scripts\Components\Work\Work_New.jsx" />
+    <Content Include="Scripts\Components\Work\Work_View.jsx" />
+    <Content Include="Scripts\Components\Work\_Contracts_Grid.jsx" />
+    <Content Include="Scripts\Components\Profile\Profile.jsx" />
     <Content Include="Scripts\Components\Router.jsx" />
-    <Content Include="Scripts\Stores\OrderStore.jsx" />
+    <Content Include="Scripts\Components\Work\_Contracts_Row.jsx" />
+    <Content Include="Scripts\Stores\FormStore.jsx" />
+    <Content Include="Scripts\Stores\WorkStore.jsx" />
     <Content Include="Scripts\Vendor\classnames.js" />
     <Content Include="Scripts\Vendor\history-2.1.1.js" />
     <Content Include="Scripts\Vendor\jquery-1.10.2.js" />
@@ -347,7 +348,7 @@
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
-    <Content Include="Styles\Components\_orderGrid.scss" />
+    <Content Include="Styles\Components\_contractsGrid.scss" />
     <Content Include="Styles\Components\_grid.scss" />
     <Content Include="Styles\Components\_navigation.scss" />
     <Content Include="Styles\_colors.scss" />
@@ -355,7 +356,7 @@
     <None Include="Properties\PublishProfiles\legendsforhire.verspyre.com - Web Deploy %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\legendsforhire.verspyre.com - Web Deploy.pubxml" />
     <Content Include="Styles\_fonts.scss" />
-    <Content Include="Styles\Components\_newOrder.scss" />
+    <Content Include="Styles\Components\_newWork.scss" />
     <Content Include="Styles\Components\_field.scss" />
     <Content Include="Styles\_variables.scss" />
     <Content Include="Styles\Vendor\Select\_select.scss" />

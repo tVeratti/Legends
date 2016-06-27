@@ -10,25 +10,29 @@ namespace Legends.Web
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/vendor").Include(
+                // jQuery
                 "~/Scripts/Vendor/jquery-{version}.js",
+                // React
                 "~/Scripts/Vendor/react-{version}.js",
                 "~/Scripts/Vendor/react-dom-{version}.js",
+                // React-Router
                 "~/Scripts/Vendor/react-router-{version}.js",
-                "~/Scripts/Vendor/moment-{version}.js",
-                "~/Scripts/Vendor/pubsub{version}.js",
-                // react-select
+                // React-Select
                 "~/Scripts/Vendor/classnames.js",
                 "~/Scripts/Vendor/react-input-autosize.js",
-                "~/Scripts/Vendor/react-select.min.js"));
+                "~/Scripts/Vendor/react-select.min.js",
+                // Other
+                "~/Scripts/Vendor/moment-{version}.js",
+                "~/Scripts/Vendor/pubsub{version}.js"));
 
             bundles.Add(new BabelBundle("~/bundles/main").Include(
+                // Stores
                 "~/Scripts/Stores/*.jsx",
-
-                "~/Scripts/Components/Home/*.jsx",
-                "~/Scripts/Components/Home/Common/*.jsx",
-                "~/Scripts/Components/Home/Orders/*.jsx",
-                "~/Scripts/Components/Home/Profile/*.jsx",
-                "~/Scripts/Components/*.jsx"));
+                // Components
+                "~/Scripts/Components/*.jsx",
+                "~/Scripts/Components/Common/*.jsx",
+                "~/Scripts/Components/Works/*.jsx",
+                "~/Scripts/Components/Profile/*.jsx"));
         }
     }
 }

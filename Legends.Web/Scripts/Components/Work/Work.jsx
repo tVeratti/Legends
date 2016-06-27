@@ -1,9 +1,9 @@
 ﻿/*
 	-----------------------------------
-	Orders
+	Works
 	-----------------------------------
 */
-class Orders extends React.Component {
+class Work extends React.Component {
 	// --------------------------------
     constructor(props, context) {
         super(props, context);

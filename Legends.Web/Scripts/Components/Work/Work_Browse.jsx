@@ -1,9 +1,9 @@
 /*
 	-----------------------------------
-	Orders_Browse
+	Works_Browse
 	-----------------------------------
 */
-class Orders_Browse extends React.Component {
+class Work_Browse extends React.Component {
 	// --------------------------------
     constructor(props, context) {
         super(props, context);
@@ -13,8 +13,8 @@ class Orders_Browse extends React.Component {
     // --------------------------------
     render() {
         return (
-            <div className='orders_browse'>
-                Browse Orders
+            <div>
+                Browse Work
             </div>
         );
     }

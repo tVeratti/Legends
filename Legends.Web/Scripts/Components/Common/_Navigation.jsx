@@ -17,8 +17,8 @@ class _Navigation extends React.Component {
                 
                 <div className='menu'>
                     <a href='#/'>Home</a>
-                    <a href='#/Orders/New'>New Contract</a>
-                    <a href='#/Orders/Browse'>Browse</a>
+                    <a href='#/Work/New'>New Contract</a>
+                    <a href='#/Work/Browse'>Browse</a>
                 </div>
             </div>
         );

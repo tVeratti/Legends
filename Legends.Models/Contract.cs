@@ -20,6 +20,10 @@ namespace Legends.Models
         public DateTime CreatedDateTime { get; set; }
 
         // Joined Values
+        public string Category { get; set; }
+        public string Skill { get; set; }
+        public string Tier { get; set; }
+        public int Duration { get; set; }
         public IEnumerable<Bid> Bids { get; set; }
     }
 }

@@ -1,9 +1,9 @@
 /*
 	-----------------------------------
-	Orders_New
+	Work_New
 	-----------------------------------
 */
-class Orders_View extends React.Component {
+class Work_View extends React.Component {
 	// --------------------------------
     constructor(props, context) {
         super(props, context);
@@ -14,8 +14,8 @@ class Orders_View extends React.Component {
     render() {
         var model = this.state.order;
         return (
-            <div className='orders_view'>
-                View Order
+            <div>
+                View Work
                 <p>{model.Description}</p>
                 Submit Bid
             </div>
@@ -25,7 +25,7 @@ class Orders_View extends React.Component {
     // --------------------------------
     componentWillMount(){
         var orderId = this.props.params.Id;
-        orderStore.find(orderId).success(order => {
+        workStore.find(orderId).success(order => {
             this.setState({ order });
         });
     }

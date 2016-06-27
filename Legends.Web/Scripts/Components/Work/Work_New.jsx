@@ -1,9 +1,9 @@
 /*
 	-----------------------------------
-	Orders_New
+	Work_New
 	-----------------------------------
 */
-class Orders_New extends React.Component {
+class Work_New extends React.Component {
 	// --------------------------------
     constructor(props, context) {
         super(props, context);
@@ -12,13 +12,13 @@ class Orders_New extends React.Component {
 
     // --------------------------------
     render() {     
-        var lookups = orderStore.lookups;   
+        var lookups = workStore.lookups;   
 
         return (
-            <div className='orders_new'>
-                <h1>New Work Order</h1>
+            <div>
+                <h1>New Work Work</h1>
 
-                <form id='new-order'>
+                <form id='new-order' onSubmit={this.submitForm}>
                 
                     <div className='skill-info'>
                     
@@ -59,12 +59,17 @@ class Orders_New extends React.Component {
         );
     }
 
+    // --------------------------------
     changeCategory = (option) => {
-        var skills = orderStore.lookups.Skills.filter(s => {
-           return s.CategoryId == option.value; 
-        });
-        
+        var skills = option.Skills || [];
         this.setState({ skills });
+    }
+
+    // --------------------------------
+    submitForm = (event) => {
+        event.preventDefault();
+        var model = formStore.fields;
+        workStore.create(model);
     }
     
 }

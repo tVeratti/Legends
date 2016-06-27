@@ -28,7 +28,14 @@ namespace Legends.Web.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpPost]
+        public JsonResult Create(Work Model)
+        {
+            return Json(null, JsonRequestBehavior.AllowGet);
+        }
+
         [HttpGet]
+        [OutputCache(Duration = 60 * 60 * 24)]
         public JsonResult Lookup_Skills()
         {
             var result = _context.Lookups.Skills();
