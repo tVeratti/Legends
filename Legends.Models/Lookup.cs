@@ -11,5 +11,6 @@ namespace Legends.Models
         public IEnumerable<Tier> Tiers { get; set; }
         public IEnumerable<Category> Categories { get; set; }
         public IEnumerable<Skill> Skills { get; set; }
+        public IEnumerable<Duration> Durations { get; set; }
     }
 }

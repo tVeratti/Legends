@@ -523,12 +523,21 @@ h1 {
   display: block;
   max-width: 100%;
   padding: 10px 0; }
-  .field label {
+  .field .label {
     display: block;
     padding: 3px 0;
     color: #90835c;
     font-weight: bold;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.75); }
+    .field .label.required:before {
+      content: "*";
+      color: #b02020;
+      margin-right: 5px; }
+  .field .info {
+    font-size: 12px;
+    font-weight: 200;
+    color: rgba(255, 255, 255, 0.75);
+    padding-bottom: 3px; }
   .field .Select {
     width: 100%;
     max-width: 300px; }
@@ -617,8 +626,18 @@ h1 {
 
 #new-order {
   text-align: left;
-  padding: 30px;
+  padding: 20px;
   border: 1px solid #3a3425;
   border-width: 1px 0;
   background-color: rgba(0, 0, 0, 0.2); }
+  #new-order .skill-info {
+    display: table;
+    width: 100%;
+    background: rgba(43, 39, 28, 0.5);
+    margin-bottom: 10px; }
+    #new-order .skill-info .field {
+      display: table-cell;
+      vertical-align: bottom;
+      padding: 10px;
+      width: 50%; }
 

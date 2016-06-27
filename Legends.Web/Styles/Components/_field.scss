@@ -7,12 +7,25 @@
     max-width: 100%;
     padding: 10px 0;
 
-    label{ 
+    .label{ 
         display: block;
         padding: 3px 0;
         color: $color-highlight; 
         font-weight: bold;
         text-shadow: $text-shadow-normal;
+
+        &.required:before{
+            content: "*";
+            color: $color-primary;
+            margin-right: 5px;
+        }
+    }
+
+    .info{
+        font-size: 12px;
+        font-weight: 200;
+        color: rgba(white, .75);
+        padding-bottom: 3px;
     }
 
     .Select{

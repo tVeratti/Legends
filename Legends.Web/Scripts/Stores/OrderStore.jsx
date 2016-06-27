@@ -5,13 +5,13 @@ function OrderStore(){
 	var self = this;
 
 	var _api = {
-		get: 		'/Orders/Get',
-		find: 		'/Orders/Find',
-		getLookups: '/Orders/Lookup_Skills'
+		get: 		'/Work/Get',
+		find: 		'/Work/Find',
+		getLookups: '/Work/Lookup_Skills'
 	};
 	
 	var _keys = {
-		lookups: 'o_lookups'
+		lookups: 'lookups_skills'
 	};
 
 	self.filters = {
@@ -20,9 +20,10 @@ function OrderStore(){
 	
 	// Source Lookups
 	self.lookups = {
-		Categories: {},
-		Skills: {},
-		Tiers: {}
+		Categories: [],
+		Skills: [],
+		Tiers: [],
+		Durations: []
 	};
 
 	// --------------------------------
@@ -32,15 +33,18 @@ function OrderStore(){
 		var sessionLookups;
 		try {
 		 sessionLookups = JSON.parse(jsonLookups);
-		} catch (err) {}
+		} catch (err) { }
 		
-		console.log(jsonLookups, sessionLookups)
 		if (sessionLookups && sessionLookups.Categories){
 			// Use the values stored in session.
 			self.lookups = sessionLookups;
 		} else{
 			// Request values from the database.
-			$.get(_api.getLookups).success(res => self.lookups = res);
+			$.get(_api.getLookups).success(res => {
+				// Store the values in session for future requests.
+				sessionStorage.setItem(_keys.lookups, JSON.stringify(res));
+				self.lookups = res;
+			});
 		}
 	}
 

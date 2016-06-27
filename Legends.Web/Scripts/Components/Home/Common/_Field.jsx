@@ -15,37 +15,61 @@ class _Field extends React.Component {
 
     // --------------------------------
     render() {
-
         var inputNode = this.renderInput();
+        var labelClassName = 'label';
+        if (this.props.required) labelClassName += ' required';
 
         return (
             <div className='field'>                
-                <label>{this.props.label}</label>
+                <label className={labelClassName}>{this.props.label}</label>
+                <p className='info'>{this.props.info}</p>
                 {inputNode}
             </div>
         );
     }
-
+    
+    // --------------------------------
+    componentWillReceiveProps(nextProps){
+        if (nextProps.value !== this.props.value){
+            this.setState({ value: nextProps.value });
+            
+        } else {
+            var nextOptions = nextProps.options;
+            var thisOptions = this.props.options;
+            
+            if (nextOptions && thisOptions){
+                // Compare options arrays.
+                if (nextOptions.length === thisOptions.length){
+                    var nextMap = nextOptions.map(o => o.value).join('');
+                    var thisMap = thisOptions.map(o => o.value).join('');
+                    if (nextMap === thisMap) return;
+                }
+                
+                // Options changed; reset value.
+                this.setState({ value: null });
+            }
+        }
+    }
+    
     // --------------------------------
     renderInput(){
         var type = this.props.type;
         var options = this.props.options;
-        var fieldProps = {
-            name: this.props.name,
-            value: this.state.value,
-            placeholder: this.props.placeholder,
-            className: 'input'
-        };
+        
+        var fieldProps = {...this.props};
+        fieldProps.value = this.state.value,
+        fieldProps.className = 'input';
+        fieldProps.clearable = fieldProps.clearable || false;
 
         if (options){
             // Input Type: Select
             var options = orderStore.mapSelectOptions(options);
-            return <Select {...fieldProps} options={options} onChange={this.selecthandler} searchable={false} clearable={false} />;
+            return <Select {...fieldProps} options={options} onChange={this.selecthandler} searchable={false} />;
 
         } else {
             // Input Type: Other
             switch(type){
-                case 'textarea': return <textarea {...fieldProps} />;
+                case 'textarea': return <textarea {...fieldProps} onInput={this.inputHandler} />;
                 default: return <input {...fieldProps} onInput={this.inputHandler} />;
             }
         }
@@ -55,10 +79,18 @@ class _Field extends React.Component {
     inputHandler = (event) => {
         var value = event.target.value;
         this.setState({ value });
+        this.reportChange(value);
     }
 
     // --------------------------------
     selecthandler = (value) => {
         this.setState({ value });
+        this.reportChange(value);
+    }
+    
+    reportChange(value){
+        if (typeof this.props.onChange === 'function'){
+            this.props.onChange(value);
+        }
     }
 }

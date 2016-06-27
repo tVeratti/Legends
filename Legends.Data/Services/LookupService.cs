@@ -28,13 +28,14 @@ namespace Legends.Data.Services
 
         public Lookup_Skills Skills()
         {
-            var spr_name = "[Legends].[Sel_Lookups_Skill]";
+            var spr_name = "[Legends].[Sel_Lookups_Skills]";
             using (var multi = _cnx.QueryMultiple(spr_name, commandType: CommandType.StoredProcedure))
             {
                 // Read datasets
                 var tiers = multi.Read<Tier>();
                 var categories = multi.Read<Category>().ToList();
                 var skills = multi.Read<Skill>();
+                var durations = multi.Read<Duration>();
 
                 // Nest Skills within their Category parents.
                 categories.ForEach(c => c.Skills = skills.Where(s => s.CategoryId == c.Id));
@@ -43,7 +44,8 @@ namespace Legends.Data.Services
                 {
                     Tiers = tiers,
                     Categories = categories,
-                    Skills = skills
+                    Skills = skills,
+                    Durations = durations
                 };
             }
         }

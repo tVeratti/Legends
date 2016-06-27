@@ -33,7 +33,6 @@ class Home extends React.Component {
         		</div>
 
         		<div className='orders'>
-                    <p>Popular Contracts</p>
                     {/* Popular Orders Grid */}
                     <_OrderGrid compact={true} />
         		</div>
