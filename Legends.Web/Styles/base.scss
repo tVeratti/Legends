@@ -8,7 +8,7 @@ html{
     font-family: $font-family-base;
     color: #f3f3f3;
     background-color: #222;
-    background-image: url("../Content/Patterns/classy_fabric_dark.png");
+    background-image: url("../Content/Patterns/dark_leather.png");
     background-repeat: repeat;
 }
 
@@ -22,6 +22,16 @@ h1 {
     font-size: 42px;
 }
 
+h2 {
+    font-size: 24px;
+    margin-bottom: 5px;
+    border-bottom: 2px solid $color-primary-dark;
+}
+.buttons{
+    padding: 10px;
+    text-align: right;
+    //.button{ text-align:match-paren }
+}
 .button {
     position: relative;
     display: inline-block;
@@ -64,8 +74,9 @@ h1 {
     width: 80%;
     max-width: 900px;
     margin: auto;
-    text-align: center;
+    text-align: left;
     padding: 20px;
+    padding-bottom: 200px;
 }
 
 ::-webkit-scrollbar { width: 10px; }

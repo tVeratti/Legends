@@ -65,7 +65,7 @@ html {
   font-family: "Arima Madurai", cursive;
   color: #f3f3f3;
   background-color: #222;
-  background-image: url("../Content/Patterns/classy_fabric_dark.png");
+  background-image: url("../Content/Patterns/dark_leather.png");
   background-repeat: repeat; }
 
 *, *:before, *:after {
@@ -77,6 +77,15 @@ html, body {
 
 h1 {
   font-size: 42px; }
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 5px;
+  border-bottom: 2px solid #841818; }
+
+.buttons {
+  padding: 10px;
+  text-align: right; }
 
 .button {
   position: relative;
@@ -112,8 +121,9 @@ h1 {
   width: 80%;
   max-width: 900px;
   margin: auto;
-  text-align: center;
-  padding: 20px; }
+  text-align: left;
+  padding: 20px;
+  padding-bottom: 200px; }
 
 ::-webkit-scrollbar {
   width: 10px; }
@@ -163,7 +173,7 @@ h1 {
   border-color: #5e5e5e #515151 #373737;
   border-radius: 4px;
   border: 1px solid #515151;
-  color: #919191;
+  color: #d0d0d0;
   cursor: pointer;
   display: table;
   border-spacing: 0;
@@ -197,7 +207,6 @@ h1 {
 .Select-placeholder,
 .Select--single > .Select-control .Select-value {
   bottom: 0;
-  color: #919191;
   left: 0;
   line-height: 34px;
   padding-left: 8px;
@@ -210,9 +219,15 @@ h1 {
   text-overflow: ellipsis;
   white-space: nowrap; }
 
+.Select-placeholder {
+  color: #515151; }
+
+.Select-value {
+  color: #d0d0d0; }
+
 .has-value.Select--single:not(.is-focused) > .Select-control > .Select-value .Select-value-label,
 .has-value.is-pseudo-focused.Select--single > .Select-control > .Select-value .Select-value-label {
-  color: #919191; }
+  color: #d0d0d0; }
 
 .has-value.Select--single:not(.is-focused) > .Select-control > .Select-value a.Select-value-label,
 .has-value.is-pseudo-focused.Select--single > .Select-control > .Select-value a.Select-value-label {
@@ -270,7 +285,7 @@ h1 {
   box-sizing: border-box;
   border-radius: 50%;
   border: 2px solid #515151;
-  border-right-color: #919191;
+  border-right-color: #d0d0d0;
   display: inline-block;
   position: relative;
   vertical-align: middle; }
@@ -291,8 +306,9 @@ h1 {
 
 .Select-clear {
   display: inline-block;
-  font-size: 18px;
-  line-height: 1; }
+  font-size: 26px;
+  line-height: 26px;
+  font-weight: bold; }
 
 .Select--multi .Select-clear-zone {
   width: 17px; }
@@ -371,7 +387,7 @@ h1 {
 .Select-option {
   box-sizing: border-box;
   background-color: transparent;
-  color: #919191;
+  color: #d0d0d0;
   cursor: pointer;
   display: block;
   padding: 8px 8px; }
@@ -379,7 +395,7 @@ h1 {
     border-bottom-right-radius: 4px;
     border-bottom-left-radius: 4px; }
   .Select-option.is-selected {
-    background-color: #f5faff;
+    background-color: #581010;
     color: white; }
   .Select-option.is-focused {
     background-color: #841818;
@@ -390,7 +406,7 @@ h1 {
 
 .Select-noresults {
   box-sizing: border-box;
-  color: #f7f7f7;
+  color: white;
   cursor: default;
   display: block;
   padding: 8px 8px; }
@@ -522,7 +538,8 @@ h1 {
 .field {
   display: block;
   max-width: 100%;
-  padding: 10px 0; }
+  padding: 10px 0;
+  text-align: left; }
   .field .label {
     display: block;
     padding: 3px 0;
@@ -540,7 +557,7 @@ h1 {
     padding-bottom: 3px; }
   .field .Select {
     width: 100%;
-    max-width: 300px; }
+    max-width: 100%; }
   .field input,
   .field textarea {
     display: block;
@@ -549,7 +566,7 @@ h1 {
     border-radius: 4px;
     background-color: #111;
     border: 1px solid #515151;
-    color: #919191;
+    color: #d0d0d0;
     padding: 8px;
     font-family: inherit;
     font-size: inherit;
@@ -566,6 +583,9 @@ h1 {
 
 :-moz-placeholder {
   color: #515151; }
+
+.home {
+  text-align: center; }
 
 .quote {
   padding: 20px;
@@ -589,7 +609,8 @@ h1 {
   margin: 30px 0;
   border: 1px solid #3a3425;
   border-width: 1px 0;
-  background-color: rgba(0, 0, 0, 0.2); }
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 10px; }
   .actions .button {
     width: 240px;
     padding: 2rem;
@@ -606,8 +627,11 @@ h1 {
     text-align: left; }
   .contract .cell:not(:first-child) {
     vertical-align: middle; }
+  .contract .cell .identifiers {
+    font-size: 16px; }
+  .contract .cell .tier {
+    font-size: 14px; }
   .contract .identifiers {
-    font-size: 16px;
     margin-bottom: 5px;
     text-transform: uppercase;
     font-weight: bold;
@@ -616,8 +640,7 @@ h1 {
     .contract .identifiers .tier {
       display: inline-block;
       margin-right: .5rem;
-      font-weight: normal;
-      font-size: 14px; }
+      font-weight: normal; }
   .contract .description {
     font-size: 14px;
     color: rgba(255, 255, 255, 0.75); }
@@ -625,19 +648,25 @@ h1 {
     color: white; }
 
 #new-work {
+  max-width: 500px;
+  margin: auto;
   text-align: left;
   padding: 20px;
   border: 1px solid #3a3425;
   border-width: 1px 0;
-  background-color: rgba(0, 0, 0, 0.2); }
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 10px; }
+  #new-work .contract .identifiers {
+    font-size: 32px; }
+  #new-work .contract .tier {
+    font-size: 28px; }
   #new-work .skill-info {
     display: table;
     width: 100%;
-    background: rgba(43, 39, 28, 0.5);
-    margin-bottom: 10px; }
-    #new-work .skill-info .field {
-      display: table-cell;
-      vertical-align: bottom;
-      padding: 10px;
-      width: 50%; }
+    background-color: rgba(43, 39, 28, 0.5);
+    border: 1px solid #3a3425;
+    border-width: 1px 0;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 10px; }
 

@@ -1,9 +1,9 @@
 ﻿/*
 	-----------------------------------
-	Home
+	App
 	-----------------------------------
 */
-class Home extends React.Component {
+class App extends React.Component {
 	// --------------------------------
     constructor(props, context) {
         super(props, context);
@@ -22,11 +22,11 @@ class Home extends React.Component {
                 </div>
 				
         		<div className='actions'>
-	        		<a href='#/Works/New' className='button'>
+	        		<a href='#/Work/New' className='button'>
                         HIRE
                         <p className='subtitle'>New Contract</p>
                     </a>
-	        		<a href='#/Works/Browse' className='button'>
+	        		<a href='#/Work/Browse' className='button'>
                         WORK
                         <p className='subtitle'>Browse Contracts</p>
                     </a>
@@ -34,9 +34,13 @@ class Home extends React.Component {
 
         		<div className='orders'>
                     {/* Popular Work Grid */}
-                    <_WorkGrid compact={true} />
+                    <_Contracts_Grid />
         		</div>
         	</div>
     	);
     }   
+    
+    componentWillMount(){
+        workStore.read();
+    }
 }

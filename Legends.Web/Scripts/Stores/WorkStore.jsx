@@ -6,6 +6,7 @@ function WorkStore(){
 
 	var _api = {
 		read: 		'/Work/Read',
+		find: 		'/Work/Find',
 		create: 	'/Work/Create',
 		getLookups: '/Work/Lookup_Skills'
 	};
@@ -14,6 +15,11 @@ function WorkStore(){
 		lookups: 'lookups_skills'
 	};
 
+	self.events = {
+		lookups: 'lookups',
+		contracts: 'contracts'
+	};
+	
 	self.filters = {
 
 	};
@@ -30,23 +36,46 @@ function WorkStore(){
 	self.initialize = function(){
 		// Request values from the database.
 		// Values are cached for 24 hours.
-		$.get(_api.getLookups)
-			.success(res => self.lookups = res);
+		$.get(_api.getLookups).success(lookups => {
+			self.lookups = lookups;
+			// Publish the event to trigger new renders with
+			// the retrieved data lookups.
+			PubSub.publish(self.events.lookups, lookups);
+		});
 	}
 
 	// --------------------------------
 	self.read = function() {
-		$.get(_api.read);
+		$.get(_api.read).success(function(contracts){
+			PubSub.publish(self.events.contracts, contracts);
+		});
 	};
 
 	// --------------------------------
 	self.find = function(id) {
-		$.get(_api.read, { id });
+		return $.get(_api.find, { id });
 	};
 
 	// --------------------------------
-	self.create = function(model) {
-		$.post(_api.create, { model });
+	self.create = function(contract) {
+		
+		var model = JSON.stringify({
+			TierId: contract.Tier.Id,
+			CategoryId: contract.Category.Id,
+			SkillId: contract.Skill.Id,
+			DurationId: contract.Duration.Id,
+			Description: contract.Description,
+		});
+		
+		$.ajax({
+			url: _api.create,
+			type: 'POST',
+			data: model,
+			contentType: 'application/json; charset=utf-8',
+			success: function (result) {
+				window.location = '/';
+			}
+		});
 	};
 
 	// --------------------------------
@@ -54,8 +83,8 @@ function WorkStore(){
 		return lookup.map(item => {
 			// Add the required Select props
 			// but maintain the entire object too.
-			item.value = l.Id;
-			item.label = l.Name;
+			item.value = item.Id;
+			item.label = item.Name;
 			return item;
 		});	
 	};

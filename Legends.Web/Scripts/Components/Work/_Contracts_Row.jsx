@@ -23,22 +23,19 @@ class _Contracts_Row extends React.Component {
     // --------------------------------
     render() {
         // Model: Contract
-        var model = this.props.model;
+        var model = this.props;
         
         // Details
         var description = this.getDescription();
         var duration = this.getRemainingDuration();
 
-        // View URL
-        var workURL = '/#/Work/View/' + this.props.model.Id;
-
         return (
-            <a className='contract row' href={workURL}>
+            <div className='contract row' onClick={this.toWork}>
 
                 {/* Standard Request Identifiers */}
                 <div className='cell'>
                     <div className='identifiers'>
-                        <span className='tier'>{model.Tier}</span>
+                        <span className='tier'>{model.Tier || 'Novice'}</span>
                         <span className='skill'>{model.Skill || model.Category}</span>
                     </div>
 
@@ -55,13 +52,13 @@ class _Contracts_Row extends React.Component {
                 <div className='cell'>
                     13 Bids
                 </div>
-            </a>
+            </div>
         );
     }
 
     // --------------------------------
     getDescription(){
-        var description = this.props.model.Description || '';
+        var description = this.props.Description || '';
 
         if (description.length > 50){
             // Remove exceeding characters and add an ellipsis.
@@ -73,7 +70,7 @@ class _Contracts_Row extends React.Component {
 
     // --------------------------------
     getRemainingDuration(){
-        var model = this.props.model;
+        var model = this.props;
 
         // Calculate the time left on the order.
         // Diff: CreatedDateTime, EndDateTime, Duration.
@@ -85,5 +82,10 @@ class _Contracts_Row extends React.Component {
         remainingHours += 'h';
 
         return remainingHours;
+    }
+    
+    toWork = (e) => {
+        // View Work View (Parent)
+        window.location = '/#/Work/View/' + this.props.WorkId;
     }
 }

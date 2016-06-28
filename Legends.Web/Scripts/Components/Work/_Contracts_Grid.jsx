@@ -7,7 +7,7 @@ class _Contracts_Grid extends React.Component {
 	// --------------------------------
     constructor(props, context) {
         super(props, context);
-        this.state = { contracts: [] };
+        this.state = { contracts: props.contracts || [] };
     }
 
     // --------------------------------
@@ -23,6 +23,17 @@ class _Contracts_Grid extends React.Component {
     // --------------------------------
     renderGrid(){
         var contracts = this.state.contracts || [];
-        return contracts.map(c => <_Contracts_Row model={c} />);
+        return contracts.map(contract => <_Contracts_Row {...contract} />);
+    }
+    
+    // --------------------------------
+    componentWillMount(){
+        // Subscribe to any events that update the contracts list.
+        this.token = PubSub.subscribe(workStore.events.contracts, this.update);
+    }
+    
+    // --------------------------------
+    update = (message, contracts) => {
+        this.setState({ contracts });
     }
 }

@@ -18,9 +18,9 @@ namespace Legends.Web
                 .AddScript("~/Scripts/Vendor/pubsub-1.4.2.js")
 
                 // Components
-                .AddScript("~/Scripts/Components/*.jsx")
+                .AddScript("~/Scripts/Components/App.jsx")
                 .AddScript("~/Scripts/Components/Common/*.jsx")
-                .AddScript("~/Scripts/Components/Works/*.jsx")
+                .AddScript("~/Scripts/Components/Work/*.jsx")
                 .AddScript("~/Scripts/Components/Profile/*.jsx");
         }
 	}

@@ -23,16 +23,16 @@ namespace Legends.Web
                 "~/Scripts/Vendor/react-select.min.js",
                 // Other
                 "~/Scripts/Vendor/moment-{version}.js",
-                "~/Scripts/Vendor/pubsub{version}.js"));
+                "~/Scripts/Vendor/pubsub-{version}.js"));
 
             bundles.Add(new BabelBundle("~/bundles/main").Include(
                 // Stores
                 "~/Scripts/Stores/*.jsx",
                 // Components
-                "~/Scripts/Components/*.jsx",
                 "~/Scripts/Components/Common/*.jsx",
-                "~/Scripts/Components/Works/*.jsx",
-                "~/Scripts/Components/Profile/*.jsx"));
+                "~/Scripts/Components/Work/*.jsx",
+                "~/Scripts/Components/Profile/*.jsx",
+                "~/Scripts/Components/*.jsx"));
         }
     }
 }

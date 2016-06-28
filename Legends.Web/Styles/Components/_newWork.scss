@@ -1,23 +1,26 @@
 ﻿@import "../mixins";
 
+
 #new-work{
+    max-width:500px;
+    margin:auto;
     text-align: left;
     padding: 20px;
     @include border-deco();
 
+    .contract{
+        .identifiers { font-size: 32px; }
+        .tier { font-size: 28px; }
+    }
+
     .skill-info{
         display: table;
         width: 100%;
-        background: rgba($color-highlight-darker, .5);
-        //border: 1px solid $color-highlight-dark;
-        //border-radius: 10px;
-        margin-bottom: 10px;
-
-        .field{
-            display: table-cell;
-            vertical-align: bottom;
-            padding: 10px;
-            width: 50%;
-        }
+        background-color: rgba($color-highlight-darker, .5);
+        border: 1px solid $color-highlight-dark;
+        border-width: 1px 0;
+        margin: 10px 0;
+        padding: 10px;
+        border-radius: 10px;
     }
 }

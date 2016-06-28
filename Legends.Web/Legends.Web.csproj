@@ -286,9 +286,10 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\Components\Common\_Field.jsx" />
     <Content Include="Scripts\Components\Common\_Navigation.jsx" />
-    <Content Include="Scripts\Components\Home.jsx" />
+    <Content Include="Scripts\Components\App.jsx" />
     <Content Include="Scripts\Components\Work\Work.jsx" />
     <Content Include="Scripts\Components\Work\Work_Browse.jsx" />
+    <Content Include="Scripts\Components\Work\Work_New_Contract.jsx" />
     <Content Include="Scripts\Components\Work\Work_New.jsx" />
     <Content Include="Scripts\Components\Work\Work_View.jsx" />
     <Content Include="Scripts\Components\Work\_Contracts_Grid.jsx" />

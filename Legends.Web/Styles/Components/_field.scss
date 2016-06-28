@@ -6,6 +6,7 @@
     display: block;
     max-width: 100%;
     padding: 10px 0;
+    text-align: left;
 
     .label{ 
         display: block;
@@ -30,7 +31,7 @@
 
     .Select{
         width: 100%;
-        max-width: 300px;
+        max-width: 100%;
     }
 
     input,
@@ -46,6 +47,8 @@
         font-family: inherit;
         font-size: inherit;
         outline: none;
+
+
     }
 
 }

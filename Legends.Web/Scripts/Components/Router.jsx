@@ -4,7 +4,7 @@ var { Router, Route, Link, hashHistory } = ReactRouter;
 // Configure Routing
 var routerNode = (
     <Router history={hashHistory}>
-        <Route path='/' component={Home} />
+        <Route path='/' component={App} />
         
         <Route path='Work' component={Work}>
             <Route path='New' component={Work_New} />

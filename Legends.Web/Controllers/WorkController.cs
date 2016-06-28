@@ -15,7 +15,7 @@ namespace Legends.Web.Controllers
         public WorkController(DataContext context) { _context = context; }
 
         [HttpGet]
-        public JsonResult Get()
+        public JsonResult Read()
         {
             var results = _context.Work.Read();
             return Json(results, JsonRequestBehavior.AllowGet);
@@ -29,9 +29,13 @@ namespace Legends.Web.Controllers
         }
 
         [HttpPost]
-        public JsonResult Create(Work Model)
+        public JsonResult Create(Contract Model)
         {
-            return Json(null, JsonRequestBehavior.AllowGet);
+            var work = new Work();
+            work.Contracts = new List<Contract>() { Model };
+            var result = _context.Work.Create(work);
+
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]

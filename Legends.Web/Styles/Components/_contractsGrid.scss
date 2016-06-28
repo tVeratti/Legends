@@ -8,10 +8,11 @@
     .cell{
         &:first-child{ width: 50%; text-align: left; }
         &:not(:first-child){ vertical-align: middle; }
+        .identifiers{ font-size: 16px; }
+        .tier{ font-size: 14px; }
     }
 
     .identifiers{
-        font-size: 16px;
         margin-bottom: 5px;
         text-transform: uppercase;
         font-weight: bold;
@@ -22,7 +23,6 @@
             display: inline-block;
             margin-right: .5rem;
             font-weight: normal;
-            font-size: 14px;
         }
     }
 
