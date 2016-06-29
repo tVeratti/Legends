@@ -122,8 +122,11 @@ h2 {
   max-width: 900px;
   margin: auto;
   text-align: left;
-  padding: 20px;
+  padding: 10px;
   padding-bottom: 200px; }
+  @media (max-width: 600px) {
+    .view {
+      width: 100%; } }
 
 ::-webkit-scrollbar {
   width: 10px; }
@@ -614,7 +617,7 @@ h2 {
   .actions .button {
     width: 240px;
     padding: 2rem;
-    margin: 0 .5rem;
+    margin: .5rem;
     font-size: 32px; }
 
 .work .grid {
