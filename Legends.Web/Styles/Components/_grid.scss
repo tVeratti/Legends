@@ -2,7 +2,7 @@
 
 $row-color-bg: black;
 $row-color-bg-0: $color-primary-dark;
-$row-color-bg-1: rgba($row-color-bg, .2);
+$row-color-bg-1: rgba($row-color-bg, .3);
 
 $border-color: $color-highlight;
 
@@ -13,7 +13,7 @@ $border-color: $color-highlight;
     display: table;
     width: 100%;
     border-collapse: collapse;
-    border: 1px solid $color-highlight-dark;
+    border: 1px solid $color-highlight;
     border-width: 1px 0;
 
     // Row

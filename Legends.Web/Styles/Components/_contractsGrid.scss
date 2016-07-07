@@ -3,13 +3,17 @@
 @import "../_variables.scss";
 
 .contract{
-    cursor: pointer;
 
     .cell{
+        cursor: pointer;
         &:first-child{ width: 50%; text-align: left; }
         &:not(:first-child){ vertical-align: middle; }
         .identifiers{ font-size: 16px; }
         .tier{ font-size: 14px; }
+
+        &:hover{
+            .identifiers { color: white; }
+        }
     }
 
     .identifiers{
@@ -30,8 +34,5 @@
         font-size: 14px;
         color: rgba($color-base-font, .75);
     }
-
-    &:hover{
-        .identifiers { color: white; }
-    }
+    
 }

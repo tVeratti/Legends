@@ -64,8 +64,8 @@ html {
   box-sizing: border-box;
   font-family: "Arima Madurai", cursive;
   color: #f3f3f3;
-  background-color: #222;
-  background-image: url("../Content/Patterns/dark_leather.png");
+  background-color: #1e1e1e;
+  background-image: url("../Content/Patterns/binding_dark.png");
   background-repeat: repeat; }
 
 *, *:before, *:after {
@@ -116,17 +116,20 @@ h2 {
     color: rgba(255, 255, 255, 0.75);
     padding-top: 5px; }
 
+button:focus, a:focus, input:focus, textarea:focus {
+  outline: none; }
+
 .view {
   color: white;
   width: 80%;
   max-width: 900px;
   margin: auto;
   text-align: left;
-  padding: 10px;
-  padding-bottom: 200px; }
-  @media (max-width: 600px) {
+  margin-bottom: 100px; }
+  @media (max-width: 720px) {
     .view {
-      width: 100%; } }
+      width: 100%;
+      padding: 20px; } }
 
 ::-webkit-scrollbar {
   width: 10px; }
@@ -204,8 +207,8 @@ h2 {
   cursor: pointer; }
 
 .is-focused:not(.is-open) > .Select-control {
-  border-color: #90835c #9e9067 #9e9067;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1), 0 0 5px -1px fade(#90835c, 50%); }
+  border-color: #209ab0 #24adc6 #24adc6;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1), 0 0 5px -1px fade(#209ab0, 50%); }
 
 .Select-placeholder,
 .Select--single > .Select-control .Select-value {
@@ -238,7 +241,7 @@ h2 {
   text-decoration: none; }
   .has-value.Select--single:not(.is-focused) > .Select-control > .Select-value a.Select-value-label:hover,
   .has-value.is-pseudo-focused.Select--single > .Select-control > .Select-value a.Select-value-label:hover {
-    color: #90835c;
+    color: #209ab0;
     text-decoration: underline; }
 
 .Select-input {
@@ -521,13 +524,13 @@ h2 {
   display: table;
   width: 100%;
   border-collapse: collapse;
-  border: 1px solid #3a3425;
+  border: 1px solid #90835c;
   border-width: 1px 0; }
   .grid .row {
     display: table-row;
     width: 100%; }
     .grid .row:nth-child(odd) {
-      background-color: rgba(0, 0, 0, 0.2); }
+      background-color: rgba(0, 0, 0, 0.3); }
     .grid .row:hover {
       background-color: #841818;
       color: white; }
@@ -610,20 +613,24 @@ h2 {
   width: 100%;
   padding: 30px 0;
   margin: 30px 0;
-  border: 1px solid #3a3425;
+  border: 1px solid #90835c;
   border-width: 1px 0;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.3);
   border-radius: 10px; }
   .actions .button {
     width: 240px;
-    padding: 2rem;
-    margin: .5rem;
+    padding: 20px;
+    margin: 5px;
     font-size: 32px; }
+  @media (max-width: 720px) {
+    .actions .button {
+      display: block;
+      margin: 20px auto; } }
 
 .work .grid {
   margin-top: 10px; }
 
-.contract {
+.contract .cell {
   cursor: pointer; }
   .contract .cell:first-child {
     width: 50%;
@@ -634,36 +641,41 @@ h2 {
     font-size: 16px; }
   .contract .cell .tier {
     font-size: 14px; }
-  .contract .identifiers {
-    margin-bottom: 5px;
-    text-transform: uppercase;
-    font-weight: bold;
-    color: #90835c;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.75); }
-    .contract .identifiers .tier {
-      display: inline-block;
-      margin-right: .5rem;
-      font-weight: normal; }
-  .contract .description {
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.75); }
-  .contract:hover .identifiers {
+  .contract .cell:hover .identifiers {
     color: white; }
 
-#new-work {
+.contract .identifiers {
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #90835c;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.75); }
+  .contract .identifiers .tier {
+    display: inline-block;
+    margin-right: .5rem;
+    font-weight: normal; }
+
+.contract .description {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.75); }
+
+.new-contract {
   max-width: 500px;
   margin: auto;
   text-align: left;
   padding: 20px;
-  border: 1px solid #3a3425;
+  border: 1px solid #90835c;
   border-width: 1px 0;
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 10px; }
-  #new-work .contract .identifiers {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  border-top-width: 2px; }
+  .new-contract .contract .identifiers {
     font-size: 32px; }
-  #new-work .contract .tier {
+  .new-contract .contract .tier {
     font-size: 28px; }
-  #new-work .skill-info {
+  .new-contract .contract .fade {
+    opacity: .4; }
+  .new-contract .skill-info {
     display: table;
     width: 100%;
     background-color: rgba(43, 39, 28, 0.5);
@@ -672,4 +684,43 @@ h2 {
     margin: 10px 0;
     padding: 10px;
     border-radius: 10px; }
+
+.tabs {
+  max-width: 500px;
+  margin: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 0 10px; }
+
+.tab {
+  margin-right: 5px;
+  padding: 5px 10px;
+  border: 1px solid #3a3425;
+  border-bottom: none;
+  border-radius: 0;
+  cursor: pointer;
+  color: #90835c;
+  background-color: rgba(0, 0, 0, 0.3);
+  box-shadow: none;
+  font-size: 16px;
+  border-top-right-radius: 10px;
+  vertical-align: bottom; }
+  .tab.new {
+    padding: 2px 8px;
+    border: 1px solid #3a3425;
+    font-size: 14px;
+    vertical-align: top; }
+  .tab:hover {
+    color: white;
+    background-color: #841818;
+    border-color: #b02020; }
+  .tab.active {
+    color: white;
+    background-color: #90835c;
+    border-color: #90835c;
+    cursor: default; }
+
+.buttons {
+  max-width: 500px;
+  margin: auto; }
 

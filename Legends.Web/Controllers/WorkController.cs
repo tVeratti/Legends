@@ -29,10 +29,9 @@ namespace Legends.Web.Controllers
         }
 
         [HttpPost]
-        public JsonResult Create(Contract Model)
+        public JsonResult Create(IEnumerable<Contract> Model)
         {
-            var work = new Work();
-            work.Contracts = new List<Contract>() { Model };
+            var work = new Work() { Contracts = Model };
             var result = _context.Work.Create(work);
 
             return Json(result, JsonRequestBehavior.AllowGet);

@@ -57,16 +57,10 @@ function WorkStore(){
 	};
 
 	// --------------------------------
-	self.create = function(contract) {
-		
-		var model = JSON.stringify({
-			TierId: contract.Tier.Id,
-			CategoryId: contract.Category.Id,
-			SkillId: contract.Skill.Id,
-			DurationId: contract.Duration.Id,
-			Description: contract.Description,
-		});
-		
+	self.create = function(forms) {
+		var contracts = forms.map(f => f.fields);
+		var model = JSON.stringify(contracts);
+
 		$.ajax({
 			url: _api.create,
 			type: 'POST',

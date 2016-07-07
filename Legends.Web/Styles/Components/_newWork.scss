@@ -1,16 +1,18 @@
 ﻿@import "../mixins";
 
 
-#new-work{
+.new-contract {
     max-width:500px;
     margin:auto;
     text-align: left;
     padding: 20px;
     @include border-deco();
+    border-top-width: 2px;
 
     .contract{
         .identifiers { font-size: 32px; }
         .tier { font-size: 28px; }
+        .fade{ opacity: .4; }
     }
 
     .skill-info{
@@ -23,4 +25,53 @@
         padding: 10px;
         border-radius: 10px;
     }
+}
+
+.tabs{
+    max-width:500px;
+    margin:auto;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 0 10px;
+}
+
+.tab{
+    margin-right: 5px;
+    padding: 5px 10px;
+    border: 1px solid $color-highlight-dark;
+    border-bottom: none;
+    border-radius: 0;
+    cursor: pointer;
+    color: $color-highlight;
+    background-color: rgba(black, .3);
+    box-shadow: none;
+    font-size: 16px;
+    border-top-right-radius: 10px;
+    vertical-align: bottom;
+
+    &.new{
+        padding: 2px 8px;
+        border: 1px solid $color-highlight-dark;
+        font-size: 14px;
+        vertical-align: top;
+    }
+
+    &:hover{
+        color: white;
+        background-color: $color-primary-dark;
+        border-color: $color-primary;
+    }
+
+    &.active{
+        color: white;
+        background-color: $color-highlight;
+        border-color: $color-highlight;
+        cursor: default;        
+    }
+
+}
+
+.buttons{
+    max-width:500px;
+    margin:auto;
 }

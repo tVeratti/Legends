@@ -40,9 +40,16 @@
 
     .button {
         width: 240px;
-        padding: 2rem;
-        margin: .5rem;
+        padding: 20px;
+        margin: 5px;
         font-size: 32px;
+    }
+
+    @media (max-width: $size-screen-mobile){
+        .button{
+            display: block;
+            margin: 20px auto;
+        }
     }
 }
 

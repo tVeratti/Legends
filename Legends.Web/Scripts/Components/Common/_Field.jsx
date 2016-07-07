@@ -15,10 +15,6 @@ class _Field extends React.Component {
 
     // --------------------------------
     render() {
-        // Track this field's value in the formStore
-        // and browser session every time it renders.
-        formStore.trackField(this.props.name, this.state.value);
-
         var inputNode = this.renderInput();
         var labelClassName = 'label';
         if (this.props.required) labelClassName += ' required';
@@ -93,8 +89,12 @@ class _Field extends React.Component {
     }
     
     reportChange(value){
-        if (typeof this.props.onChange === 'function'){
-            this.props.onChange(value);
+        var reportHandler = 
+            this.props.onChange ||
+            this.props.onInput;
+
+        if (typeof reportHandler  === 'function'){
+            reportHandler(value);
         }
     }
 }
