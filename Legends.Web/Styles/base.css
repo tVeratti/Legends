@@ -64,9 +64,7 @@ html {
   box-sizing: border-box;
   font-family: "Arima Madurai", cursive;
   color: #f3f3f3;
-  background-color: #1e1e1e;
-  background-image: url("../Content/Patterns/binding_dark.png");
-  background-repeat: repeat; }
+  background-color: #141616; }
 
 *, *:before, *:after {
   box-sizing: inherit; }
@@ -175,11 +173,11 @@ button:focus, a:focus, input:focus, textarea:focus {
     pointer-events: none; }
 
 .Select-control {
-  background-color: #111;
-  border-color: #5e5e5e #515151 #373737;
+  background-color: #141616;
+  border-color: #5d6666 #515959 #383e3e;
   border-radius: 4px;
-  border: 1px solid #515151;
-  color: #d0d0d0;
+  border: 1px solid #515959;
+  color: #d2d6d6;
   cursor: pointer;
   display: table;
   border-spacing: 0;
@@ -198,9 +196,9 @@ button:focus, a:focus, input:focus, textarea:focus {
 .is-open > .Select-control {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
-  background: #111; }
+  background: #141616; }
   .is-open > .Select-control > .Select-arrow {
-    border-color: transparent transparent #515151;
+    border-color: transparent transparent #515959;
     border-width: 0 5px 5px; }
 
 .is-searchable.is-focused:not(.is-open) > .Select-control {
@@ -226,14 +224,14 @@ button:focus, a:focus, input:focus, textarea:focus {
   white-space: nowrap; }
 
 .Select-placeholder {
-  color: #515151; }
+  color: #515959; }
 
 .Select-value {
-  color: #d0d0d0; }
+  color: #d2d6d6; }
 
 .has-value.Select--single:not(.is-focused) > .Select-control > .Select-value .Select-value-label,
 .has-value.is-pseudo-focused.Select--single > .Select-control > .Select-value .Select-value-label {
-  color: #d0d0d0; }
+  color: #d2d6d6; }
 
 .has-value.Select--single:not(.is-focused) > .Select-control > .Select-value a.Select-value-label,
 .has-value.is-pseudo-focused.Select--single > .Select-control > .Select-value a.Select-value-label {
@@ -290,8 +288,8 @@ button:focus, a:focus, input:focus, textarea:focus {
   height: 16px;
   box-sizing: border-box;
   border-radius: 50%;
-  border: 2px solid #515151;
-  border-right-color: #d0d0d0;
+  border: 2px solid #515959;
+  border-right-color: #d2d6d6;
   display: inline-block;
   position: relative;
   vertical-align: middle; }
@@ -300,7 +298,7 @@ button:focus, a:focus, input:focus, textarea:focus {
   -webkit-animation: Select-animation-fadeIn 200ms;
   -o-animation: Select-animation-fadeIn 200ms;
   animation: Select-animation-fadeIn 200ms;
-  color: #515151;
+  color: #515959;
   cursor: pointer;
   display: table-cell;
   position: relative;
@@ -332,7 +330,7 @@ button:focus, a:focus, input:focus, textarea:focus {
   padding-right: 5px; }
 
 .Select-arrow {
-  border-color: #515151 transparent transparent;
+  border-color: #515959 transparent transparent;
   border-style: solid;
   border-width: 5px 5px 2.5px;
   display: inline-block;
@@ -373,9 +371,9 @@ button:focus, a:focus, input:focus, textarea:focus {
 .Select-menu-outer {
   border-bottom-right-radius: 4px;
   border-bottom-left-radius: 4px;
-  background-color: #111;
-  border: 1px solid #515151;
-  border-top-color: #313131;
+  background-color: #141616;
+  border: 1px solid #515959;
+  border-top-color: #323737;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
   box-sizing: border-box;
   margin-top: -1px;
@@ -393,7 +391,7 @@ button:focus, a:focus, input:focus, textarea:focus {
 .Select-option {
   box-sizing: border-box;
   background-color: transparent;
-  color: #d0d0d0;
+  color: #d2d6d6;
   cursor: pointer;
   display: block;
   padding: 8px 8px; }
@@ -530,7 +528,7 @@ button:focus, a:focus, input:focus, textarea:focus {
     display: table-row;
     width: 100%; }
     .grid .row:nth-child(odd) {
-      background-color: rgba(0, 0, 0, 0.3); }
+      background-color: #1e2020; }
     .grid .row:hover {
       background-color: #841818;
       color: white; }
@@ -570,25 +568,25 @@ button:focus, a:focus, input:focus, textarea:focus {
     width: 100%;
     max-width: 100%;
     border-radius: 4px;
-    background-color: #111;
-    border: 1px solid #515151;
-    color: #d0d0d0;
+    background-color: #141616;
+    border: 1px solid #515959;
+    color: #d2d6d6;
     padding: 8px;
     font-family: inherit;
     font-size: inherit;
     outline: none; }
 
 ::-webkit-input-placeholder {
-  color: #515151; }
+  color: #515959; }
 
 ::-moz-placeholder {
-  color: #515151; }
+  color: #515959; }
 
 :-ms-input-placeholder {
-  color: #515151; }
+  color: #515959; }
 
 :-moz-placeholder {
-  color: #515151; }
+  color: #515959; }
 
 .home {
   text-align: center; }
@@ -615,8 +613,9 @@ button:focus, a:focus, input:focus, textarea:focus {
   margin: 30px 0;
   border: 1px solid #90835c;
   border-width: 1px 0;
-  background-color: rgba(0, 0, 0, 0.3);
-  border-radius: 10px; }
+  background-color: #1e2020;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5); }
   .actions .button {
     width: 240px;
     padding: 20px;
@@ -630,6 +629,9 @@ button:focus, a:focus, input:focus, textarea:focus {
 .work .grid {
   margin-top: 10px; }
 
+.contract.row:hover .identifiers {
+  color: white; }
+
 .contract .cell {
   cursor: pointer; }
   .contract .cell:first-child {
@@ -641,8 +643,6 @@ button:focus, a:focus, input:focus, textarea:focus {
     font-size: 16px; }
   .contract .cell .tier {
     font-size: 14px; }
-  .contract .cell:hover .identifiers {
-    color: white; }
 
 .contract .identifiers {
   margin-bottom: 5px;
@@ -666,24 +666,16 @@ button:focus, a:focus, input:focus, textarea:focus {
   padding: 20px;
   border: 1px solid #90835c;
   border-width: 1px 0;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: #1e2020;
   border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
   border-top-width: 2px; }
   .new-contract .contract .identifiers {
     font-size: 32px; }
   .new-contract .contract .tier {
     font-size: 28px; }
   .new-contract .contract .fade {
-    opacity: .4; }
-  .new-contract .skill-info {
-    display: table;
-    width: 100%;
-    background-color: rgba(43, 39, 28, 0.5);
-    border: 1px solid #3a3425;
-    border-width: 1px 0;
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 10px; }
+    color: #515959; }
 
 .tabs {
   max-width: 500px;

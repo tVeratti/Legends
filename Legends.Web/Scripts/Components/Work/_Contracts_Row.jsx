@@ -75,8 +75,8 @@ class _Contracts_Row extends React.Component {
         // Calculate the time left on the order.
         // Diff: CreatedDateTime, EndDateTime, Duration.
         var createdDateTime = model.CreatedDateTime;
-        var endDateTime = moment(createdDateTime).add(model.Duration, 'h');
-        var remainingHours = endDateTime.diff(new Date(), 'h');
+        var endDateTime = moment.utc(createdDateTime).add(model.Duration, 'h');
+        var remainingHours = endDateTime.diff(new moment.utc(), 'h');
 
         if (remainingHours < 1) remainingHours = '< 1';
         remainingHours += 'h';

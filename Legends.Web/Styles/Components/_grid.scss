@@ -1,8 +1,7 @@
 ﻿@import '../_colors.scss';
 
-$row-color-bg: black;
-$row-color-bg-0: $color-primary-dark;
-$row-color-bg-1: rgba($row-color-bg, .3);
+$row-color-bg-hover: $color-primary-dark;
+$row-color-bg-zebra: $color-base-bg-panel;
 
 $border-color: $color-highlight;
 
@@ -22,9 +21,9 @@ $border-color: $color-highlight;
         display: table-row;
         width: 100%;
 
-        &:nth-child(odd) { background-color: $row-color-bg-1; }
+        &:nth-child(odd) { background-color: $row-color-bg-zebra; }
         &:hover { 
-            background-color: $row-color-bg-0; 
+            background-color: $row-color-bg-hover; 
             color: white;
         }
         &.header {

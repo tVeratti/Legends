@@ -7,9 +7,7 @@ html{
     box-sizing: border-box;
     font-family: $font-family-base;
     color: #f3f3f3;
-    background-color: #1e1e1e;
-    background-image: url("../Content/Patterns/binding_dark.png");
-    background-repeat: repeat;
+    background-color: $color-base-bg;
 }
 
 *, *:before, *:after {

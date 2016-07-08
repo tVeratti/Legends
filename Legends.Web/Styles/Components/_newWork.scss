@@ -12,18 +12,7 @@
     .contract{
         .identifiers { font-size: 32px; }
         .tier { font-size: 28px; }
-        .fade{ opacity: .4; }
-    }
-
-    .skill-info{
-        display: table;
-        width: 100%;
-        background-color: rgba($color-highlight-darker, .5);
-        border: 1px solid $color-highlight-dark;
-        border-width: 1px 0;
-        margin: 10px 0;
-        padding: 10px;
-        border-radius: 10px;
+        .fade{ color: $color-base-bg-light; }
     }
 }
 

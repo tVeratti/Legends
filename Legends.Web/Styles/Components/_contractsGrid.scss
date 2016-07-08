@@ -4,17 +4,20 @@
 
 .contract{
 
+    &.row{
+        &:hover{
+            .identifiers { color: white; }
+        }
+    }
+
     .cell{
         cursor: pointer;
         &:first-child{ width: 50%; text-align: left; }
         &:not(:first-child){ vertical-align: middle; }
         .identifiers{ font-size: 16px; }
         .tier{ font-size: 14px; }
-
-        &:hover{
-            .identifiers { color: white; }
-        }
     }
+
 
     .identifiers{
         margin-bottom: 5px;

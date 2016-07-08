@@ -11,7 +11,9 @@ $color-highlight-darker: mix($color-highlight, black, 30%);
 
 $color-base-font: white;
 
-$color-base-bg: #111;
+$color-base-bg: rgb(20, 22, 22);
+$color-base-bg-panel: rgb(30, 32, 32);
+
 $color-base-bg-light: lighten($color-base-bg, 25%);
 $color-base-bg-lighter: lighten($color-base-bg, 50%);
 $color-base-bg-lightest: lighten($color-base-bg, 75%);

@@ -23,7 +23,14 @@ class _Contracts_Grid extends React.Component {
     // --------------------------------
     renderGrid(){
         var contracts = this.state.contracts || [];
-        return contracts.map(contract => <_Contracts_Row {...contract} />);
+        return contracts
+            .sort((a, b) =>{
+                if (a.CreatedDateTime > b.CreatedDateTime) return 1;
+                if (b.CreatedDateTime > a.CreatedDateTime) return -1;
+                return 0;
+            })
+            .slice(0, 10)
+            .map(contract => <_Contracts_Row {...contract} />);
     }
     
     // --------------------------------
