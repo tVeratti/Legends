@@ -15,6 +15,7 @@
 		this.formSeed = 1;
 		
 		// Active Forms
+		this.activeForm = {};
 		this.forms = {};
 
 		this.requiredFields = [];
@@ -23,6 +24,8 @@
 
 	// --------------------------------
 	getForm(formSeed){
+		if (formSeed === -1) formSeed = undefined;
+
 		var activeForm;
 		if (formSeed !== undefined){
 			// This is not a new form, use the seed

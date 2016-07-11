@@ -16,28 +16,19 @@ class Work_New extends React.Component {
             'Description'
         ];
 
-        var contracts = [formStore.getForm()];
-        this.state = { 
-            contracts,
-            activeContract: contracts[0] 
-        };
+        var initialForm = formStore.getForm();
+        this.state = { };
     }
 
     // --------------------------------
     render() {     
         var lookups = workStore.lookups;
-        var activeContract = this.state.activeContract;
 
-        var submitHandler = this.submitForm.bind(this, this.state.contracts);
-        
         return (
             <div>
                 {/* Tabs
                     --------------------- */}
-                <Work_New_Tabs activeContract={activeContract} 
-                    contracts={this.state.contracts}
-                    activateTab={this.activateTab}
-                    newContract={this.newContract} />
+                <Work_New_Tabs />
                 
                 {/* Work Info
                     --------------------- */}
@@ -46,12 +37,12 @@ class Work_New extends React.Component {
 
                 {/* Contract(s)
                     --------------------- */}
-                <Work_New_Contract key={activeContract.seed} form={activeContract} />
+                <Work_New_Contract key={formStore.activeForm.seed} />
 
                 {/* Buttons
                     --------------------- */}
                 <div className='buttons'>
-                    <button className='button' onClick={submitHandler}>Submit</button>
+                    <button className='button' onClick={this.submitForm.bind(this)}>Submit</button>
                 </div>
             </div>
         );
@@ -59,27 +50,23 @@ class Work_New extends React.Component {
     
     // --------------------------------
     componentDidMount(){
-        this.token = PubSub.subscribe(workStore.events.lookups, this.update);
+        this.tokens = [ 
+            PubSub.subscribe(workStore.events.lookups, this.update),
+            PubSub.subscribe(workStore.events.activate, this.activateTab),
+            PubSub.subscribe(formStore.events.formChange, this.update)
+        ];
     }
 
     // --------------------------------
     componentWillUnmount(){
         formStore.reset();
-        PubSub.unsubscribe(this.token);
+        PubSub.unsubscribe(this.tokens);
     }
     
     // --------------------------------
-    activateTab = (form) =>{
-        this.setState({ activeContract: form });
-    }
-
-    // --------------------------------
-    newContract(){
-        var contracts = this.state.contracts;
-        var newContract = formStore.getForm();
-        contracts.push(newContract);
-
-        this.setState({ contracts, activeContract: newContract });
+    activateTab = (message, seed) =>{
+        formStore.getForm(seed);
+        this.update(message);
     }
     
     // --------------------------------
@@ -88,10 +75,11 @@ class Work_New extends React.Component {
     }
 
     // --------------------------------
-    submitForm(contracts){
+    submitForm(){
+
         if (formStore.isValid()){
             // Commit to database.
-            workStore.create(contracts);
+            workStore.create();
         } else {
             // Re-render, this will force fields
             // that are invalid to show their errors.

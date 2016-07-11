@@ -8,7 +8,7 @@ class Work_New_Contract extends React.Component {
     constructor(props, context) {
         super(props, context);
 
-        var model = props.form.fields;
+        var model = formStore.activeForm.fields;
         var category = workStore.lookups.Categories
             .filter(c => c.Id == model.CategoryId)[0];
 
@@ -18,7 +18,7 @@ class Work_New_Contract extends React.Component {
     // --------------------------------
     render() {
         // Update the formStore with current field values.
-        formStore.trackForm(this.props.form.seed, this.state.model);
+        formStore.trackForm(formStore.activeForm.seed, this.state.model);
 
         var model = this.state.model;
         var lookups = workStore.lookups;

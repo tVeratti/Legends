@@ -22,22 +22,14 @@ class Work_New_Tabs extends React.Component {
     }
     
     // --------------------------------
-    componentDidMount(){
-        this.token = PubSub.subscribe(formStore.events.formChange, this.update);
-    }
-
-    // --------------------------------
-    componentWillUnmount(){
-        PubSub.unsubscribe(this.token);
-    }
-    
-    // --------------------------------
     renderContractTabs(){
-        var activeSeed = this.props.activeContract.seed;
+        var activeSeed = formStore.activeForm.seed;
+        var formKeys = Object.keys(formStore.forms);
 
         // Create one tab for each active contract.
-        var tabNodes = this.props.contracts.map(form => {
-            var clickHandler = this.activateTab.bind(this, form);
+        var tabNodes = formKeys.map((key, index) => {
+            var form = formStore.forms[key];
+            var clickHandler = workStore.activateContract.bind(this, form.seed);
             var tabClassName = 'tab button';
 
             var isActive = form.seed === activeSeed;
@@ -53,22 +45,9 @@ class Work_New_Tabs extends React.Component {
         });
 
         // Add a final tab used to create new contracts.
-        var newHandler = this.newContract.bind(this);
+        var newHandler = workStore.newContract;
         tabNodes.push(<button className='tab button new' onClick={newHandler}>+</button>);
         
         return tabNodes;
     }
-
-    activateTab(form){
-        this.props.activateTab(form);
-    }
-
-    newContract(){
-        this.props.newContract();
-    }
-    
-    // --------------------------------
-    update = (message) => {
-        this.forceUpdate();
-    }    
 }

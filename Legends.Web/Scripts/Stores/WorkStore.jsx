@@ -16,8 +16,9 @@ function WorkStore(){
 	};
 
 	self.events = {
-		lookups: 'lookups',
-		contracts: 'contracts'
+		lookups: 		'lookups',
+		contracts: 		'contracts.get',
+		activate: 		'contracts.activate'
 	};
 	
 	self.filters = {
@@ -58,7 +59,9 @@ function WorkStore(){
 
 	// --------------------------------
 	self.create = function(forms) {
-		var contracts = forms.map(f => f.fields);
+		// Extract associative array into a simple array.
+        var formKeys = Object.keys(formStore.forms);
+        var contracts = formKeys.map(key => formStore.forms[key].fields);
 		var model = JSON.stringify(contracts);
 
 		$.ajax({
@@ -70,6 +73,16 @@ function WorkStore(){
 				window.location = '/';
 			}
 		});
+	};
+
+	// --------------------------------
+	self.newContract = function(){
+		PubSub.publish(self.events.activate, -1);
+	};
+
+	// --------------------------------
+	self.activateContract = function(index){
+		PubSub.publish(self.events.activate, index);
 	};
 
 	// --------------------------------
