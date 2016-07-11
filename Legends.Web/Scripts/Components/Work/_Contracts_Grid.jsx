@@ -7,36 +7,55 @@ class _Contracts_Grid extends React.Component {
 	// --------------------------------
     constructor(props, context) {
         super(props, context);
-        this.state = { contracts: props.contracts || [] };
+        this.state = { 
+            contracts: props.contracts || [],
+            filters: {
+                pageNumber: 1,
+                pageSize: 10,
+                sortBy: 'CreatedDateTime',
+                sortOrder: 1,
+                tiers: [],
+                categories: [],
+                skills: []
+            }
+        };
     }
 
     // --------------------------------
     render() {
         var rowNodes = this.renderGrid();
+        var paginator = this.renderPaginator();
         return (
-            <div className='contracts grid'>
-                {rowNodes}
+            <div className='contracts'>
+                <div className='grid'>
+                    {rowNodes}
+                </div>
             </div>
         );
     }
 
     // --------------------------------
-    renderGrid(){
-        var contracts = this.state.contracts || [];
-        return contracts
-            .sort((a, b) =>{
-                if (a.CreatedDateTime > b.CreatedDateTime) return 1;
-                if (b.CreatedDateTime > a.CreatedDateTime) return -1;
-                return 0;
-            })
-            .slice(0, 10)
-            .map(contract => <_Contracts_Row {...contract} />);
-    }
-    
-    // --------------------------------
     componentWillMount(){
         // Subscribe to any events that update the contracts list.
         this.token = PubSub.subscribe(workStore.events.contracts, this.update);
+    }
+
+    // --------------------------------
+    renderGrid(){
+        var contracts = this.state.contracts || [];
+        return contracts.map(contract => <_Contracts_Row {...contract} />);
+    }
+
+    // --------------------------------
+    renderPaginator(){
+        var pageNumber = this.state.filters.pageNumber;
+        var pageSize = this.state.filters.pageSize;
+        return (
+            <div className='paginator'>
+                <span className='previous'></span>
+                <span className='next'></span>
+            </div>
+        )
     }
     
     // --------------------------------

@@ -20,22 +20,25 @@
     max-width:500px;
     margin:auto;
     white-space: nowrap;
-    overflow: hidden;
     padding: 0 10px;
 }
 
 .tab{
-    margin-right: 5px;
+    position:relative;
+    display: inline-block;
+    margin-right: 8px;
     padding: 5px 10px;
     border: 1px solid $color-highlight-dark;
     border-bottom: none;
     border-radius: 0;
+    border-top-right-radius: 10px;
     cursor: pointer;
     color: $color-highlight;
     background-color: rgba(black, .3);
     box-shadow: none;
     font-size: 16px;
-    border-top-right-radius: 10px;
+    overflow: visible;
+    
     vertical-align: bottom;
 
     &.new{
@@ -56,6 +59,23 @@
         background-color: $color-highlight;
         border-color: $color-highlight;
         cursor: default;        
+    }
+
+    // Little badge floating on the tab that
+    // shows how many validation errors exist on
+    // that tab (form).
+    .errors-badge{
+        position: absolute;
+        top: -10px;
+        right: -5px;
+        padding: 2px 5px;
+        font-size: 12px;
+        line-height: 14px;
+        background-color: $color-primary;
+        color: white;
+        border: 1px solid $color-highlight;
+        border-radius: 20px;
+        
     }
 
 }

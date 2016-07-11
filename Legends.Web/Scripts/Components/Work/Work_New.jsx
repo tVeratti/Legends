@@ -7,6 +7,15 @@ class Work_New extends React.Component {
 	// --------------------------------
     constructor(props, context) {
         super(props, context);
+
+        // Required field names.
+        formStore.requiredFields = [
+            'Tier',
+            'Category',
+            'Duration',
+            'Description'
+        ];
+
         var contracts = [formStore.getForm()];
         this.state = { 
             contracts,
@@ -17,7 +26,6 @@ class Work_New extends React.Component {
     // --------------------------------
     render() {     
         var lookups = workStore.lookups;
-        var contractTabs = this.renderContractTabs();
         var activeContract = this.state.activeContract;
 
         var submitHandler = this.submitForm.bind(this, this.state.contracts);
@@ -26,11 +34,17 @@ class Work_New extends React.Component {
             <div>
                 {/* Tabs
                     --------------------- */}
-                <div className='tabs'>
-                    {contractTabs}
+                <Work_New_Tabs activeContract={activeContract} 
+                    contracts={this.state.contracts}
+                    activateTab={this.activateTab}
+                    newContract={this.newContract} />
+                
+                {/* Work Info
+                    --------------------- */}
+                <div className='work-info'>
                 </div>
-                    
-                {/* Contract
+
+                {/* Contract(s)
                     --------------------- */}
                 <Work_New_Contract key={activeContract.seed} form={activeContract} />
 
@@ -51,35 +65,11 @@ class Work_New extends React.Component {
     // --------------------------------
     componentWillUnmount(){
         formStore.reset();
+        PubSub.unsubscribe(this.token);
     }
     
     // --------------------------------
-    renderContractTabs(){
-        var self = this;
-        var activeSeed = this.state.activeContract.seed;
-
-        // Create one tab for each active contract.
-        var tabNodes = this.state.contracts.map(form => {
-            var clickHandler = self.activateTab.bind(self, form);
-            var tabClassName = 'tab button';
-            var isActive = form.seed === activeSeed;
-            if (isActive){
-                tabClassName += ' active';
-                clickHandler = undefined;
-            }
-
-            return <button key={form.seed} className={tabClassName} onClick={clickHandler}>{form.seed}</button>;
-        });
-
-        // Add a final tab used to create new contracts.
-        var newHandler = this.newContract.bind(this);
-        tabNodes.push(<button className='tab button new' onClick={newHandler}>+</button>);
-        
-        return tabNodes;
-    }
-
-    // --------------------------------
-    activateTab(form){
+    activateTab = (form) =>{
         this.setState({ activeContract: form });
     }
 
@@ -99,7 +89,14 @@ class Work_New extends React.Component {
 
     // --------------------------------
     submitForm(contracts){
-        workStore.create(contracts);
+        if (formStore.isValid()){
+            // Commit to database.
+            workStore.create(contracts);
+        } else {
+            // Re-render, this will force fields
+            // that are invalid to show their errors.
+            this.forceUpdate();
+        }
     }
     
 }

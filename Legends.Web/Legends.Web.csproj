@@ -293,6 +293,7 @@
     <Content Include="Scripts\Components\App.jsx" />
     <Content Include="Scripts\Components\Work\Work.jsx" />
     <Content Include="Scripts\Components\Work\Work_Browse.jsx" />
+    <Content Include="Scripts\Components\Work\Work_New_Tabs.jsx" />
     <Content Include="Scripts\Components\Work\Work_New_Contract.jsx" />
     <Content Include="Scripts\Components\Work\Work_New.jsx" />
     <Content Include="Scripts\Components\Work\Work_View.jsx" />

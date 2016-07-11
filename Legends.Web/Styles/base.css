@@ -559,6 +559,12 @@ button:focus, a:focus, input:focus, textarea:focus {
     font-weight: 200;
     color: rgba(255, 255, 255, 0.75);
     padding-bottom: 3px; }
+  .field .warning {
+    font-size: 12px;
+    visibility: hidden;
+    padding: 5px 0;
+    color: #b02020;
+    font-weight: bold; }
   .field .Select {
     width: 100%;
     max-width: 100%; }
@@ -575,6 +581,10 @@ button:focus, a:focus, input:focus, textarea:focus {
     font-family: inherit;
     font-size: inherit;
     outline: none; }
+  .field.invalid input, .field.invalid textarea, .field.invalid .Select-control {
+    border-color: #b02020; }
+  .field.invalid .warning {
+    visibility: visible; }
 
 ::-webkit-input-placeholder {
   color: #515959; }
@@ -615,7 +625,7 @@ button:focus, a:focus, input:focus, textarea:focus {
   border-width: 1px 0;
   background-color: #1e2020;
   border-radius: 10px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5); }
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4); }
   .actions .button {
     width: 240px;
     padding: 20px;
@@ -668,7 +678,7 @@ button:focus, a:focus, input:focus, textarea:focus {
   border-width: 1px 0;
   background-color: #1e2020;
   border-radius: 10px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
   border-top-width: 2px; }
   .new-contract .contract .identifiers {
     font-size: 32px; }
@@ -681,21 +691,23 @@ button:focus, a:focus, input:focus, textarea:focus {
   max-width: 500px;
   margin: auto;
   white-space: nowrap;
-  overflow: hidden;
   padding: 0 10px; }
 
 .tab {
-  margin-right: 5px;
+  position: relative;
+  display: inline-block;
+  margin-right: 8px;
   padding: 5px 10px;
   border: 1px solid #3a3425;
   border-bottom: none;
   border-radius: 0;
+  border-top-right-radius: 10px;
   cursor: pointer;
   color: #90835c;
   background-color: rgba(0, 0, 0, 0.3);
   box-shadow: none;
   font-size: 16px;
-  border-top-right-radius: 10px;
+  overflow: visible;
   vertical-align: bottom; }
   .tab.new {
     padding: 2px 8px;
@@ -711,6 +723,17 @@ button:focus, a:focus, input:focus, textarea:focus {
     background-color: #90835c;
     border-color: #90835c;
     cursor: default; }
+  .tab .errors-badge {
+    position: absolute;
+    top: -10px;
+    right: -5px;
+    padding: 2px 5px;
+    font-size: 12px;
+    line-height: 14px;
+    background-color: #b02020;
+    color: white;
+    border: 1px solid #90835c;
+    border-radius: 20px; }
 
 .buttons {
   max-width: 500px;

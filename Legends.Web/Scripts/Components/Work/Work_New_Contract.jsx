@@ -45,43 +45,36 @@ class Work_New_Contract extends React.Component {
                 <_Field name='Tier'
                     label='Minimum Required Tier'
                     info='This is the minimum skill tier required to fulfill the contract. It is assumed that higher proficiencies are acceptable.'
-                    required={true}
                     options={lookups.Tiers}
                     value={model.TierId}
                     onChange={this.changeTier} />
                     
-                <div className='skill-info'>
-                
-                    <_Field name='Category'
-                        label='Category'
-                        info='Choose the category of skill required to fulfill the contract.'
-                        required={true}
-                        options={lookups.Categories}
-                        value={model.CategoryId}
-                        onChange={this.changeCategory} />
+                <_Field name='Category'
+                    label='Category'
+                    info='Choose the category of skill required to fulfill the contract.'
+                    options={lookups.Categories}
+                    value={model.CategoryId}
+                    onChange={this.changeCategory} />
 
-                    <_Field name='Skill'
-                        label='Skill'
-                        info='You may specify a skill within the category.'
-                        clearable={true}
-                        noResultsText='Select a Category...'
-                        placeholder='(Optional)'
-                        options={skills}
-                        value={model.SkillId}
-                        onChange={this.changeSkill} />
-                </div>
+                <_Field name='Skill'
+                    label='Skill'
+                    info='You may specify a skill within the category.'
+                    clearable={true}
+                    noResultsText='Select a Category...'
+                    placeholder='(Optional)'
+                    options={skills}
+                    value={model.SkillId}
+                    onChange={this.changeSkill} />
 
                 <_Field name='Duration'
                     label='Duration'
                     info='Amount of time that bids will be accepted on this contract.'
-                    required={true}
                     options={lookups.Durations}
                     value={model.DurationId}
                     onChange={this.changeDuration} />
                 
                 <_Field name='Description'
                     label='Description'
-                    required={true}
                     type='textarea'
                     placeholder='Describe the contract you wish to have fulfilled...'
                     value={model.Description}
@@ -91,6 +84,16 @@ class Work_New_Contract extends React.Component {
         );
     }
 
+    // --------------------------------
+    changeCategory = (option) => {
+        var model = this.state.model;
+
+        model.CategoryId = option.Id;
+        model.Category = option.Name;
+
+        this.setState({ model, category: option });
+    } 
+    
     // --------------------------------
     changeCategory = (option) => {
         var model = this.state.model;
