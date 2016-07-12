@@ -25,24 +25,31 @@ class Work_New extends React.Component {
         var lookups = workStore.lookups;
 
         return (
-            <div>
+            <div id='new-work'>
+
                 {/* Tabs
-                    --------------------- */}
+                 ------------------------- */}
                 <Work_New_Tabs />
-                
-                {/* Work Info
-                    --------------------- */}
-                <div className='work-info'>
-                </div>
 
                 {/* Contract(s)
-                    --------------------- */}
+                 ------------------------- */}
                 <Work_New_Contract key={formStore.activeForm.seed} />
 
+                {/* Work Info
+                 ------------------------- */}
+                <div className='work-info panel'>
+                    <div className='field'>
+                        <label className='label'>Work Summary</label>
+                        <p className='info'>Describe the overall goal for the contract(s). This field can help you remember the context of the above contract(s).</p>
+                        <textarea className='input' placeholder='(Optional)' onInput={workStore.updateWorkSummary} />
+                    </div>
+                </div>
+
                 {/* Buttons
-                    --------------------- */}
+                 ------------------------- */}
                 <div className='buttons'>
-                    <button className='button' onClick={this.submitForm.bind(this)}>Submit</button>
+                    <button className='button secondary' onClick={this.cancel}>Cancel</button>
+                    <button className='button' onClick={this.submitForm.bind(this)}>Create</button>
                 </div>
             </div>
         );
@@ -53,7 +60,8 @@ class Work_New extends React.Component {
         this.tokens = [ 
             PubSub.subscribe(workStore.events.lookups, this.update),
             PubSub.subscribe(workStore.events.activate, this.activateTab),
-            PubSub.subscribe(formStore.events.formChange, this.update)
+            PubSub.subscribe(formStore.events.formValidated, this.update),
+            PubSub.subscribe(formStore.events.formDeleted, this.update)
         ];
     }
 
@@ -72,6 +80,11 @@ class Work_New extends React.Component {
     // --------------------------------
     update = (message) => {
         this.forceUpdate();
+    }
+
+    // --------------------------------
+    cancel(){
+        window.location = '/';
     }
 
     // --------------------------------

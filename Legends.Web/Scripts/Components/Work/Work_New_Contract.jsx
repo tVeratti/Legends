@@ -30,17 +30,30 @@ class Work_New_Contract extends React.Component {
         var typeClassName = type === '[Skill]' ? ' fade' : '';
 
         var skills = (this.state.category || {}).Skills || [];
+
+        // Determine if a delete node should be rendered.
+        // Do not render if only 1 form exists.
+        var formKeys = Object.keys(formStore.forms);
+        var deleteNode = formKeys.length > 1 ?
+            <span className='delete' onClick={this.deleteContract} /> :
+            undefined;
         
         return (
-            <div className='new-contract'>                
+            <div className='new-contract panel'>                
                 <div className='contract'>
+
+                    {/* Contract Title (Tier/Skill) */}
                     <h2>New Contract:
                         <div className='identifiers'>
                             <span className={'tier ' + tierClassName}>{tier}</span>
                             <span className={typeClassName}>{type}</span>
                         </div>
                     </h2>
+
+                    {/* Delete Contract */}
+                    {deleteNode}
                 </div>
+
                 
                 <_Field name='Tier'
                     label='Minimum Required Tier'
@@ -85,13 +98,8 @@ class Work_New_Contract extends React.Component {
     }
 
     // --------------------------------
-    changeCategory = (option) => {
-        var model = this.state.model;
-
-        model.CategoryId = option.Id;
-        model.Category = option.Name;
-
-        this.setState({ model, category: option });
+    deleteContract = (event) => {
+        formStore.deleteForm(formStore.activeForm.seed);
     } 
     
     // --------------------------------
@@ -108,8 +116,10 @@ class Work_New_Contract extends React.Component {
     changeSkill = (option) => {
         var model = this.state.model;
 
+        option = option || {};
         model.SkillId = option.Id;
         model.Skill = option.Name;
+
 
         this.setState({ model });
     }  

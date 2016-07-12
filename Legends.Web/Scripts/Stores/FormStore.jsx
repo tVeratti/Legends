@@ -1,15 +1,25 @@
 ﻿class FormStore {
 	// --------------------------------
     constructor(){
+		// CONSTANT VALUES
+		// ------------------------------
+
 		// Session Storage Keys
 		this.keys = {
 			form: 'f_form'
 		};
 
 		this.events = {
-			validate: 'validate',
-			formChange: 'formChange'
+			validate: 		'fields.validate',
+			formValidated: 	'form.Validated',
+			formDeleted: 	'form.Deleted'
 		};
+
+		this.maxForms = 5;
+
+		// ACTIVE VALUES
+		// (Track active data, resets.)
+		// ------------------------------
 
 		// Form Creation Seed
 		this.formSeed = 1;
@@ -17,6 +27,7 @@
 		// Active Forms
 		this.activeForm = {};
 		this.forms = {};
+		
 
 		this.requiredFields = [];
 		this.dirty = false;
@@ -70,6 +81,34 @@
 		var storageKey = this.keys.form + '_' + formSeed;
 
 		sessionStorage.setItem(storageKey, jsonValue);
+	}
+
+	// --------------------------------
+	deleteForm(formSeed){
+		
+		// Before deleting, find out the position
+		// of this form in order to activate a new one
+		// once it has been deleted.
+		var formKeys = Object.keys(formStore.forms);
+		var curIndex = formKeys.indexOf(formSeed.toString());
+		if (curIndex > 0) curIndex--;
+
+		var newActiveSeed = formKeys[curIndex];
+
+		// Delete this form.
+		delete this.forms[formSeed];
+
+		// Remove from session.
+		var storageKey = this.keys.form + '_' + formSeed;
+		sessionStorage.removeItem(storageKey);
+
+		// Activate next form (if any)
+		// --------------------------------
+		formKeys = Object.keys(formStore.forms);
+		var nextFormSeed = formKeys[curIndex];
+		console.log(curIndex, nextFormSeed)
+
+		workStore.activateContract(nextFormSeed);
 	}
 
 	// --------------------------------

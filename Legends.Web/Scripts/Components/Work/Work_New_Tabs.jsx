@@ -41,12 +41,14 @@ class Work_New_Tabs extends React.Component {
                 <span className='errors-badge'>{form.errors}</span> :
                 undefined;
 
-            return <button key={form.seed} className={tabClassName} onClick={clickHandler}>{form.seed}{errorsBadgeNode}</button>;
+            return <button key={form.seed} className={tabClassName} onClick={clickHandler}>{index+1}{errorsBadgeNode}</button>;
         });
 
-        // Add a final tab used to create new contracts.
-        var newHandler = workStore.newContract;
-        tabNodes.push(<button className='tab button new' onClick={newHandler}>+</button>);
+        if (formKeys.length < formStore.maxForms){
+            // Add a final tab used to create new contracts.
+            var newHandler = workStore.newContract;
+            tabNodes.push(<button className='tab button new' onClick={newHandler}>+</button>);
+        }
         
         return tabNodes;
     }

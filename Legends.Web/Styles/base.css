@@ -113,6 +113,13 @@ h2 {
     font-weight: normal;
     color: rgba(255, 255, 255, 0.75);
     padding-top: 5px; }
+  .button.secondary {
+    background: none;
+    box-shadow: none;
+    border: 1px solid transparent; }
+
+.buttons .button {
+  margin-left: 10px; }
 
 button:focus, a:focus, input:focus, textarea:focus {
   outline: none; }
@@ -669,27 +676,46 @@ button:focus, a:focus, input:focus, textarea:focus {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.75); }
 
-.new-contract {
+.panel {
   max-width: 500px;
   margin: auto;
   text-align: left;
-  padding: 20px;
+  padding: 20px; }
+
+.work-info .field {
+  padding-top: 0; }
+
+.new-contract {
   border: 1px solid #90835c;
   border-width: 1px 0;
   background-color: #1e2020;
   border-radius: 10px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
   border-top-width: 2px; }
-  .new-contract .contract .identifiers {
-    font-size: 32px; }
-  .new-contract .contract .tier {
-    font-size: 28px; }
-  .new-contract .contract .fade {
-    color: #515959; }
+  .new-contract .contract {
+    position: relative; }
+    .new-contract .contract .identifiers {
+      font-size: 32px; }
+    .new-contract .contract .tier {
+      font-size: 28px; }
+    .new-contract .contract .fade {
+      color: #515959; }
+    .new-contract .contract .delete {
+      position: absolute;
+      top: 0;
+      right: 0;
+      cursor: pointer;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 18px; }
+      .new-contract .contract .delete:hover {
+        color: white; }
+      .new-contract .contract .delete:before {
+        font-family: FontAwesome;
+        content: "\f00d"; }
 
 .tabs {
   max-width: 500px;
-  margin: auto;
+  margin: 0 auto;
   white-space: nowrap;
   padding: 0 10px; }
 
@@ -728,11 +754,11 @@ button:focus, a:focus, input:focus, textarea:focus {
     top: -10px;
     right: -5px;
     padding: 2px 5px;
+    font-family: monospace;
     font-size: 12px;
     line-height: 14px;
     background-color: #b02020;
     color: white;
-    border: 1px solid #90835c;
     border-radius: 20px; }
 
 .buttons {

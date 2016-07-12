@@ -122,7 +122,7 @@ class _Field extends React.Component {
             // component, trigger the form to revalidate and then
             // publish the event (mainly for tabs/errors).
             formStore.validateForm(formStore.activeForm);
-            PubSub.publish(formStore.events.formChange);
+            PubSub.publish(formStore.events.formValidated);
         }
 
         return isValid;

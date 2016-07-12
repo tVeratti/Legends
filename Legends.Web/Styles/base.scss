@@ -66,6 +66,16 @@ h2 {
         color: rgba(white, .75);
         padding-top: 5px;
     }
+
+    &.secondary{
+        background: none;
+        box-shadow: none;
+        border: 1px solid transparent;
+    }
+}
+
+.buttons .button{
+    margin-left: 10px;
 }
 
 button, a, input, textarea {

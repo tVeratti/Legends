@@ -1,24 +1,51 @@
 ﻿@import "../mixins";
 
-
-.new-contract {
+.panel{
     max-width:500px;
     margin:auto;
     text-align: left;
     padding: 20px;
+}
+
+.work-info{
+    .field{ padding-top: 0; }
+}
+
+.new-contract {
     @include border-deco();
     border-top-width: 2px;
 
     .contract{
+        position: relative;
+
         .identifiers { font-size: 32px; }
         .tier { font-size: 28px; }
         .fade{ color: $color-base-bg-light; }
+
+        // Delete one contract (FontAwesome)
+        .delete{
+            position: absolute;
+            top: 0;
+            right: 0;
+            cursor: pointer;
+            color: rgba(white, .5);
+            font-size: 18px;
+
+            &:hover{
+                color: white;
+            }
+
+            &:before{
+                font-family: FontAwesome;
+                content: "\f00d";
+            }
+        }
     }
 }
 
 .tabs{
     max-width:500px;
-    margin:auto;
+    margin:0 auto;
     white-space: nowrap;
     padding: 0 10px;
 }
@@ -69,13 +96,12 @@
         top: -10px;
         right: -5px;
         padding: 2px 5px;
+        font-family: monospace;
         font-size: 12px;
         line-height: 14px;
         background-color: $color-primary;
         color: white;
-        border: 1px solid $color-highlight;
         border-radius: 20px;
-        
     }
 
 }
