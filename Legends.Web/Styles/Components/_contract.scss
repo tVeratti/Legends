@@ -1,0 +1,49 @@
+﻿@import "../_colors.scss";
+@import "../_fonts.scss";
+@import "../_variables.scss";
+
+// Contract
+.contract{
+     .contract__identifiers{
+        margin-bottom: 5px;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: $color-highlight;
+        text-shadow: $text-shadow-normal;
+
+        .contract__tier{ 
+            display: inline-block;
+            margin-right: .5rem;
+            font-weight: normal;
+        }
+    }
+
+    .contract__description{
+        font-size: 14px;
+        color: rgba($color-base-font, .75);
+    }
+}
+
+// Contract (as Grid Row)
+.contract--row{
+    .contract__identifiers{ font-size: 16px; }
+    .contract__tier{ font-size: 14px; }
+
+    &.row:hover{
+        .contract__identifiers { color: white; }
+    }
+
+    .cell{
+        cursor: pointer;
+        &:first-child{ width: 50%; text-align: left; }
+        &:not(:first-child){ vertical-align: middle; }
+    }
+}
+
+// Contract (as Header)
+.contract--header{
+    .contract__identifiers { font-size: 32px; }
+    .contract__tier { font-size: 28px; }
+    .contract__fade{ color: $color-base-bg-light; }
+}
+

@@ -19,17 +19,18 @@ class _Field extends React.Component {
     // --------------------------------
     render() {
         var inputNode = this.renderInput();
-        var wrapperClassName = 'field';
-        var labelClassName = 'label';
-        if (this.state.required) labelClassName += ' required';
-        if (!this.state.isValid) wrapperClassName += ' invalid';
+
+        var wrapperClassName =  'field';
+        var labelClassName =    'field__label';
+        if (this.state.required) labelClassName +=      ' field__label--required';
+        if (!this.state.isValid) wrapperClassName +=    ' field--invalid';
 
         return (
             <div className={wrapperClassName}>                
                 <label className={labelClassName}>{this.props.label}</label>
-                <p className='info'>{this.props.info}</p>
+                <p className='field__info'>{this.props.info}</p>
                 {inputNode}
-                <p className='warning'>This field is required.</p>
+                <p className='field__warning'>This field is required.</p>
             </div>
         );
     }
@@ -76,7 +77,7 @@ class _Field extends React.Component {
         
         var fieldProps = {...this.props};
         fieldProps.value = this.state.value,
-        fieldProps.className = 'input';
+        fieldProps.className = 'field__input';
         fieldProps.clearable = fieldProps.clearable || false;
 
         if (options){

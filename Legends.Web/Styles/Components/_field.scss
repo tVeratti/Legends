@@ -2,34 +2,37 @@
 @import "../_fonts.scss";
 @import "../_variables.scss";
 
+// -------------------------------
+// Field
+// -------------------------------
 .field{
     display: block;
     max-width: 100%;
     padding: 10px 0;
     text-align: left;
 
-    .label{ 
+    .field__label{ 
         display: block;
         padding: 3px 0;
         color: $color-highlight; 
         font-weight: bold;
         text-shadow: $text-shadow-normal;
 
-        &.required:before{
+        &.field__label--required:before{
             content: "*";
             color: $color-primary;
             margin-right: 5px;
         }
     }
 
-    .info{
+    .field__info{
         font-size: 12px;
         font-weight: 200;
         color: rgba(white, .75);
         padding-bottom: 3px;
     }
 
-    .warning{
+    .field__warning{
         font-size: 12px;
         visibility: hidden;
         padding: 5px 0;
@@ -38,7 +41,6 @@
     }
 
     
-
     .Select{
         width: 100%;
         max-width: 100%;
@@ -59,7 +61,7 @@
         outline: none;
     }
 
-    &.invalid{
+    &.field--invalid{
         input, textarea, .Select-control{
             border-color: $color-primary;
         }

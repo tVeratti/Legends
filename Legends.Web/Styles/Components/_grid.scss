@@ -17,7 +17,7 @@ $border-color: $color-highlight;
 
     // Row
     // ------------
-    .row {
+    .grid__row {
         display: table-row;
         width: 100%;
 
@@ -26,13 +26,15 @@ $border-color: $color-highlight;
             background-color: $row-color-bg-hover; 
             color: white;
         }
-        &.header {
+
+        &.grid__row--header {
             background-color: $border-color;
             color: white;
         }
+
         // Cell
         // ------------
-        .cell {
+        .grid__cell {
             display: table-cell;
             padding: 15px 10px;
         }

@@ -13,7 +13,7 @@ class Work extends React.Component {
     // --------------------------------
     render() {
         return (
-            <div className='orders view'>                
+            <div className='view'>                
                 {/* Router View */}
                 {this.props.children}
             </div>

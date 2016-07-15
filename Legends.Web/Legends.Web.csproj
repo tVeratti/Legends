@@ -354,7 +354,6 @@
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
-    <Content Include="Styles\Components\_contractsGrid.scss" />
     <Content Include="Styles\Components\_grid.scss" />
     <Content Include="Styles\Components\_navigation.scss" />
     <Content Include="Styles\_colors.scss" />
@@ -362,7 +361,7 @@
     <None Include="Properties\PublishProfiles\legendsforhire.verspyre.com - Web Deploy %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\legendsforhire.verspyre.com - Web Deploy.pubxml" />
     <Content Include="Styles\_fonts.scss" />
-    <Content Include="Styles\Components\_newWork.scss" />
+    <Content Include="Styles\Components\_work.scss" />
     <Content Include="Styles\Components\_field.scss" />
     <Content Include="Styles\_variables.scss" />
     <Content Include="Styles\Vendor\Select\_select.scss" />
@@ -373,6 +372,10 @@
     <Content Include="Styles\Vendor\Select\_menu.scss" />
     <Content Include="Styles\Vendor\Select\_components.scss" />
     <Content Include="Styles\_mixins.scss" />
+    <Content Include="Styles\Components\_contract.scss" />
+    <Content Include="Styles\Components\_button.scss" />
+    <Content Include="Styles\Components\_tab.scss" />
+    <Content Include="Styles\Components\_view.scss" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Legends.Data\Legends.Data.csproj">

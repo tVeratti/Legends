@@ -25,14 +25,14 @@ class Work_New extends React.Component {
         var lookups = workStore.lookups;
 
         return (
-            <div>
+            <div className='work work--new'>
                 {/* Tabs
                     --------------------- */}
                 <Work_New_Tabs />
                 
                 {/* Work Info
                     --------------------- */}
-                <div className='work-info'>
+                <div className='work__info'>
                 </div>
 
                 {/* Contract(s)

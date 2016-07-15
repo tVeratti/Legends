@@ -31,63 +31,6 @@ h2 {
     text-align: right;
 }
 
-.button {
-    position: relative;
-    display: inline-block;
-    max-width: 100%;
-    padding: 1rem;
-    overflow: hidden;
-    cursor: pointer;
-
-    font-size: 18px;
-    font-family: $font-family-title;
-    font-weight: bold;
-    text-decoration: none !important;
-    text-shadow: $text-shadow-normal;
-    color: $color-highlight;
-
-    background-color: $color-primary-darker;
-    border: 1px solid $color-primary-dark;
-    border-radius: 10px;
-    box-shadow: $box-shadow-normal;
-
-    transition: all 0.2s ease-in-out;
-
-    &:hover {
-        color: white;
-        border-color: $color-primary;
-        background-color: $color-primary-dark;
-    }
-
-    .subtitle{
-        font-family: $font-family-base;
-        font-size: 12px;
-        font-weight: normal;
-        color: rgba(white, .75);
-        padding-top: 5px;
-    }
-}
-
-button, a, input, textarea {
-    &:focus{
-        outline: none;
-    }
-}
-
-.view{
-    color: $color-base-font;
-    width: 80%;
-    max-width: 900px;
-    margin: auto;
-    text-align: left;
-    margin-bottom: 100px;
-
-    @media (max-width: $size-screen-mobile){
-        width: 100%;
-        padding: 20px;
-    }
-}
-
 ::-webkit-scrollbar { width: 10px; }
 ::-webkit-scrollbar-track { 
     border-radius:0 0 3px 0;
@@ -105,10 +48,13 @@ button, a, input, textarea {
 @import "Components/navigation";
 @import "Components/grid";
 @import "Components/field";
+@import "Components/button";
+@import "Components/tab";
+@import "Components/view";
 
 // Home
 @import "Components/home";
-@import "Components/contractsGrid";
+@import "Components/contract";
 
 // Work
-@import "Components/newWork";
+@import "Components/work";

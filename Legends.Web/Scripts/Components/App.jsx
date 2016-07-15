@@ -17,18 +17,19 @@ class App extends React.Component {
         return (
         	<div className='home view'>
 				<div className='quote'>
-                    <p>“Heroes get remembered, but legends never die.”</p>
-                    <p>- Babe Ruth</p>
+                    <p className='quote__text'>“Heroes get remembered, but legends never die.”</p>
+                    <p className='quote__author'>- Babe Ruth</p>
                 </div>
 				
         		<div className='actions'>
-	        		<a href='#/Work/New' className='button'>
-                        HIRE
-                        <p className='subtitle'>New Contract</p>
+	        		<a href='#/Work/New' className='button actions__button'>
+                        <p className='button__title'>HIRE</p>
+                        <p className='button__subtitle'>New Contract</p>
                     </a>
-	        		<a href='#/Work/Browse' className='button'>
-                        WORK
-                        <p className='subtitle'>Browse Contracts</p>
+
+	        		<a href='#/Work/Browse' className='button actions__button'>
+                        <p className='button__title'>WORK</p>
+                        <p className='button__subtitle'>Browse Contracts</p>
                     </a>
         		</div>
 
@@ -40,6 +41,7 @@ class App extends React.Component {
     	);
     }   
     
+    // --------------------------------
     componentWillMount(){
         workStore.read();
     }

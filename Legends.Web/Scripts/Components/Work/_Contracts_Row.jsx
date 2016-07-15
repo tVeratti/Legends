@@ -30,26 +30,26 @@ class _Contracts_Row extends React.Component {
         var duration = this.getRemainingDuration();
 
         return (
-            <div className='contract row' onClick={this.toWork}>
+            <div className='grid__row contract contract--row' onClick={this.toWork}>
 
                 {/* Standard Request Identifiers */}
-                <div className='cell'>
-                    <div className='identifiers'>
-                        <span className='tier'>{model.Tier || 'Novice'}</span>
-                        <span className='skill'>{model.Skill || model.Category}</span>
+                <div className='grid__cell'>
+                    <div className='contract__identifiers'>
+                        <span className='contract__tier'>{model.Tier || 'Novice'}</span>
+                        <span className='contract__skill'>{model.Skill || model.Category}</span>
                     </div>
 
                     {/* Custom Request Description */}
-                    <div className='description'>{description}</div>
+                    <div className='contract__description'>{description}</div>
                 </div>
 
                 {/* Remaining Duration */}
-                <div className='cell'>
+                <div className='grid__cell'>
                     {duration}
                 </div>
 
                 {/* Bid Count */}
-                <div className='cell'>
+                <div className='grid__cell'>
                     13 Bids
                 </div>
             </div>

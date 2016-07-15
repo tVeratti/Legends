@@ -14,11 +14,10 @@ class _Navigation extends React.Component {
     render() {
         return (
             <div className='navigation'>
-                
-                <div className='menu'>
-                    <a href='#/'>Home</a>
-                    <a href='#/Work/New'>New Contract</a>
-                    <a href='#/Work/Browse'>Browse</a>
+                <div className='navigation__menu'>
+                    <a className='navigation__link' href='#/'>Home</a>
+                    <a className='navigation__link' href='#/Work/New'>New Contract</a>
+                    <a className='navigation__link' href='#/Work/Browse'>Browse</a>
                 </div>
             </div>
         );

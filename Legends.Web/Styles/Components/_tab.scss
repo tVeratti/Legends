@@ -1,28 +1,10 @@
-﻿@import "../mixins";
+﻿@import "../_colors.scss";
+@import "../_fonts.scss";
+@import "../_variables.scss";
 
-
-.new-contract {
-    max-width:500px;
-    margin:auto;
-    text-align: left;
-    padding: 20px;
-    @include border-deco();
-    border-top-width: 2px;
-
-    .contract{
-        .identifiers { font-size: 32px; }
-        .tier { font-size: 28px; }
-        .fade{ color: $color-base-bg-light; }
-    }
-}
-
-.tabs{
-    max-width:500px;
-    margin:auto;
-    white-space: nowrap;
-    padding: 0 10px;
-}
-
+// -------------------------------
+// Tab
+// -------------------------------
 .tab{
     position:relative;
     display: inline-block;
@@ -41,7 +23,7 @@
     
     vertical-align: bottom;
 
-    &.new{
+    &.tab--new{
         padding: 2px 8px;
         border: 1px solid $color-highlight-dark;
         font-size: 14px;
@@ -54,7 +36,7 @@
         border-color: $color-primary;
     }
 
-    &.active{
+    &.tab--active{
         color: white;
         background-color: $color-highlight;
         border-color: $color-highlight;
@@ -64,23 +46,18 @@
     // Little badge floating on the tab that
     // shows how many validation errors exist on
     // that tab (form).
-    .errors-badge{
+    .tab__badge{
         position: absolute;
         top: -10px;
         right: -5px;
         padding: 2px 5px;
         font-size: 12px;
         line-height: 14px;
-        background-color: $color-primary;
-        color: white;
-        border: 1px solid $color-highlight;
         border-radius: 20px;
-        
+
+        &.tab__badge--error{
+            background-color: $color-primary;
+            color: white;
+        }
     }
-
-}
-
-.buttons{
-    max-width:500px;
-    margin:auto;
 }

@@ -26,18 +26,16 @@ class Work_New_Contract extends React.Component {
         var tier = model.Tier || '[Tier]';
         var type = model.Skill || model.Category || '[Skill]';
 
-        var tierClassName = tier === '[Tier]' ? ' fade' : '';
-        var typeClassName = type === '[Skill]' ? ' fade' : '';
-
         var skills = (this.state.category || {}).Skills || [];
         
         return (
-            <div className='new-contract'>                
+            <div className='form'>  
+
                 <div className='contract'>
                     <h2>New Contract:
-                        <div className='identifiers'>
-                            <span className={'tier ' + tierClassName}>{tier}</span>
-                            <span className={typeClassName}>{type}</span>
+                        <div className='contract__identifiers'>
+                            <span className='contract__tier'>{tier}</span>
+                            <span className='contract__type '>{type}</span>
                         </div>
                     </h2>
                 </div>

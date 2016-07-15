@@ -52,8 +52,8 @@ class _Contracts_Grid extends React.Component {
         var pageSize = this.state.filters.pageSize;
         return (
             <div className='paginator'>
-                <span className='previous'></span>
-                <span className='next'></span>
+                <span className='paginator__previous'></span>
+                <span className='paginator__next'></span>
             </div>
         )
     }

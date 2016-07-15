@@ -14,7 +14,7 @@ class Work_View extends React.Component {
     render() {
         var model = this.state.model;
         return (
-            <div>
+            <div className='work work--view'>
                 <h2>Work</h2>
                 
                 <_Contracts_Grid />

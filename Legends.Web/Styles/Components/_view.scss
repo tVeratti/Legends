@@ -1,0 +1,20 @@
+﻿@import "../_colors.scss";
+@import "../_fonts.scss";
+@import "../_variables.scss";
+
+// -------------------------------
+// View
+// -------------------------------
+.view{
+    width: 80%;
+    max-width: 900px;
+    margin: auto;
+    text-align: left;
+    margin-bottom: 100px;
+    color: $color-base-font;
+    
+    @media (max-width: $size-screen-mobile){
+        width: 100%;
+        padding: 20px;
+    }
+}

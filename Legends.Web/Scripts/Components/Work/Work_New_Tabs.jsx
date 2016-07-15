@@ -30,15 +30,15 @@ class Work_New_Tabs extends React.Component {
         var tabNodes = formKeys.map((key, index) => {
             var form = formStore.forms[key];
             var clickHandler = workStore.activateContract.bind(this, form.seed);
-            var tabClassName = 'tab button';
+            var tabClassName = 'button tab ';
 
             var isActive = form.seed === activeSeed;
             if (isActive){
-                tabClassName += ' active';
+                tabClassName += 'tab--active';
                 clickHandler = undefined;
             }
             var errorsBadgeNode = form.showErrors && form.errors > 0 ?
-                <span className='errors-badge'>{form.errors}</span> :
+                <span className='tab__badge tab__badge--error'>{form.errors}</span> :
                 undefined;
 
             return <button key={form.seed} className={tabClassName} onClick={clickHandler}>{form.seed}{errorsBadgeNode}</button>;
@@ -46,7 +46,7 @@ class Work_New_Tabs extends React.Component {
 
         // Add a final tab used to create new contracts.
         var newHandler = workStore.newContract;
-        tabNodes.push(<button className='tab button new' onClick={newHandler}>+</button>);
+        tabNodes.push(<button className='button tab tab--new' onClick={newHandler}>+</button>);
         
         return tabNodes;
     }
