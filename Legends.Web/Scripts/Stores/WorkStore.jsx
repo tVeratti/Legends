@@ -57,17 +57,22 @@ function WorkStore(){
 		return $.get(_api.find, { id });
 	};
 
+	self.updateWorkSummary = function(event){
+		var value = event.target.value;
+		self.workSummary = value;
+	};
+
 	// --------------------------------
 	self.create = function(forms) {
 		// Extract associative array into a simple array.
         var formKeys = Object.keys(formStore.forms);
         var contracts = formKeys.map(key => formStore.forms[key].fields);
-		var model = JSON.stringify(contracts);
+		var model = { Description: self.workSummary || '' };
 
 		$.ajax({
 			url: _api.create,
 			type: 'POST',
-			data: model,
+			data: JSON.stringify({model, contracts}),
 			contentType: 'application/json; charset=utf-8',
 			success: function (result) {
 				window.location = '/';
@@ -81,8 +86,8 @@ function WorkStore(){
 	};
 
 	// --------------------------------
-	self.activateContract = function(index){
-		PubSub.publish(self.events.activate, index);
+	self.activateContract = function(seed){
+		PubSub.publish(self.events.activate, seed);
 	};
 
 	// --------------------------------

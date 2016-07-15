@@ -90,9 +90,11 @@ h2 {
   margin-bottom: 5px;
   border-bottom: 2px solid #841818; }
 
-.buttons {
-  padding: 10px;
-  text-align: right; }
+.delete {
+  cursor: pointer; }
+  .delete:before {
+    font-family: FontAwesome;
+    content: "\f00d"; }
 
 ::-webkit-scrollbar {
   width: 10px; }
@@ -595,6 +597,10 @@ h2 {
 button:focus, a:focus, input:focus, textarea:focus {
   outline: none; }
 
+.buttons {
+  padding: 10px;
+  text-align: right; }
+
 .tab {
   position: relative;
   display: inline-block;
@@ -630,6 +636,7 @@ button:focus, a:focus, input:focus, textarea:focus {
     top: -10px;
     right: -5px;
     padding: 2px 5px;
+    font-family: monospace;
     font-size: 12px;
     line-height: 14px;
     border-radius: 20px; }
@@ -722,16 +729,24 @@ button:focus, a:focus, input:focus, textarea:focus {
   .contract--row .cell:not(:first-child) {
     vertical-align: middle; }
 
-.contract--header .contract__identifiers {
-  font-size: 32px; }
+.contract--header {
+  position: relative; }
+  .contract--header .contract__identifiers {
+    font-size: 32px; }
+  .contract--header .contract__tier {
+    font-size: 28px; }
+  .contract--header .contract__fade {
+    color: #515959; }
+  .contract--header .contract__delete {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 24px; }
+    .contract--header .contract__delete:hover {
+      color: #b02020; }
 
-.contract--header .contract__tier {
-  font-size: 28px; }
-
-.contract--header .contract__fade {
-  color: #515959; }
-
-.work .work--new {
+.work.work--new {
   max-width: 500px;
   margin: auto; }
 
@@ -746,5 +761,6 @@ button:focus, a:focus, input:focus, textarea:focus {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.4); }
 
 .tabs {
+  padding: 0 10px;
   white-space: nowrap; }
 

@@ -42,8 +42,21 @@
 
 // Contract (as Header)
 .contract--header{
+    position: relative;
     .contract__identifiers { font-size: 32px; }
     .contract__tier { font-size: 28px; }
     .contract__fade{ color: $color-base-bg-light; }
+
+    .contract__delete{
+        position: absolute;
+        top: 0; 
+        right: 0;
+        color: rgba(white, .40);
+        font-size: 24px;
+
+        &:hover{
+            color: $color-primary;
+        }
+    }
 }
 

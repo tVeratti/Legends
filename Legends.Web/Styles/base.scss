@@ -26,9 +26,13 @@ h2 {
     border-bottom: 2px solid $color-primary-dark;
 }
 
-.buttons{
-    padding: 10px;
-    text-align: right;
+.delete{
+    cursor: pointer;
+
+    &:before{
+        font-family: FontAwesome;
+        content: "\f00d";
+    }
 }
 
 ::-webkit-scrollbar { width: 10px; }
