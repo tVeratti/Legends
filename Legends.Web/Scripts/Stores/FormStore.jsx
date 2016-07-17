@@ -106,7 +106,6 @@
 		// --------------------------------
 		formKeys = Object.keys(formStore.forms);
 		var nextFormSeed = formKeys[curIndex];
-		console.log(curIndex, nextFormSeed)
 
 		workStore.activateContract(nextFormSeed);
 	}

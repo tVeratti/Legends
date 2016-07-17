@@ -28,9 +28,11 @@ class _Contracts_Row extends React.Component {
         // Details
         var description = this.getDescription();
         var duration = this.getRemainingDuration();
+        var bidsName = 'Bids';
+        if (model.BidsCount === 1) bidsName = 'Bid';
 
         return (
-            <div className='grid__row contract contract--row' onClick={this.toWork}>
+            <div className='grid__row contract contract--row' onClick={this.toContract}>
 
                 {/* Standard Request Identifiers */}
                 <div className='grid__cell'>
@@ -50,7 +52,7 @@ class _Contracts_Row extends React.Component {
 
                 {/* Bid Count */}
                 <div className='grid__cell'>
-                    13 Bids
+                    {model.BidsCount} {bidsName}
                 </div>
             </div>
         );
@@ -71,12 +73,7 @@ class _Contracts_Row extends React.Component {
     // --------------------------------
     getRemainingDuration(){
         var model = this.props;
-
-        // Calculate the time left on the order.
-        // Diff: CreatedDateTime, EndDateTime, Duration.
-        var createdDateTime = model.CreatedDateTime;
-        var endDateTime = moment.utc(createdDateTime).add(model.Duration, 'h');
-        var remainingHours = endDateTime.diff(new moment.utc(), 'h');
+        var remainingHours = Math.round(workStore.getRemainingDuration(model));
 
         if (remainingHours < 1) remainingHours = '< 1';
         remainingHours += 'h';
@@ -84,8 +81,8 @@ class _Contracts_Row extends React.Component {
         return remainingHours;
     }
     
-    toWork = (e) => {
+    toContract = (e) => {
         // View Work View (Parent)
-        window.location = '/#/Work/View/' + this.props.WorkId;
+        window.location = '/#/Work/View/Contract/' + this.props.Id;
     }
 }

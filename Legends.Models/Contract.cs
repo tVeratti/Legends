@@ -28,5 +28,6 @@ namespace Legends.Models
         public string Tier { get; set; }
         public int Duration { get; set; }
         public IEnumerable<Bid> Bids { get; set; }
+        public int BidsCount { get; set; }
     }
 }

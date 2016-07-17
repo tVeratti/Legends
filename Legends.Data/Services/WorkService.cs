@@ -27,7 +27,7 @@ namespace Legends.Data.Services
             var spr_name = "[Legends].[Ins_Work]";
             var spr_prms = new
             {
-                //Description = Model.Description,
+                Description = Model.Description,
                 Contracts = Model.Contracts
                     .Cast<Table_Contract>()
                     .ToDataTable(),

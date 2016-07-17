@@ -36,11 +36,11 @@ class Work_New extends React.Component {
 
                 {/* Work Info
                  ------------------------- */}
-                <div className='work-info panel'>
+                <div className='work-info'>
                     <div className='field'>
-                        <label className='label'>Work Summary</label>
-                        <p className='info'>Describe the overall goal for the contract(s). This field can help you remember the context of the above contract(s).</p>
-                        <textarea className='input' placeholder='(Optional)' onInput={workStore.updateWorkSummary} />
+                        <label className='field__label'>Work Summary</label>
+                        <p className='field__info'>Describe the overall goal for the contract(s). This field can help you remember the context of the above contract(s).</p>
+                        <textarea className='field__input' placeholder='(Optional)' onInput={workStore.updateWorkSummary} />
                     </div>
                 </div>
 

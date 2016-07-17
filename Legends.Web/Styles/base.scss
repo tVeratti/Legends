@@ -1,6 +1,6 @@
-﻿@import "_reset.scss";
-@import "_colors.scss";
-@import "_fonts.scss";
+﻿@import "reset";
+@import "colors";
+@import "fonts";
 @import "variables";
 
 html{ 
@@ -24,6 +24,23 @@ h2 {
     font-size: 24px;
     margin-bottom: 5px;
     border-bottom: 2px solid $color-primary-dark;
+}
+
+h3 {
+    font-size: 24px;
+    margin: 20px 0;
+}
+
+a {
+    &:link,
+    &:visited,
+    &:active{
+        color: $color-highlight;
+        &:hover{
+            color: white;
+        }
+    }
+        
 }
 
 .delete{

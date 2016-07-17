@@ -1,0 +1,35 @@
+﻿@import "../colors";
+@import "../fonts";
+@import "../variables";
+@import "../mixins";
+
+.work{
+    &.work--new{
+        max-width: 500px;
+        margin: 0 auto;
+
+        .tabs{
+            padding: 0 10px;
+        }
+
+        .form{
+            padding: 20px;
+            border-top-width: 2px;
+            @include border-deco();
+        }
+
+        .work-info{
+            padding: 20px;
+        }
+
+        .buttons{
+            .button{
+                margin-left: 10px;
+            }
+        }
+    }
+
+    &.work--view{
+
+    }
+}

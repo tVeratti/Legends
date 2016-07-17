@@ -5,10 +5,12 @@ function WorkStore(){
 	var self = this;
 
 	var _api = {
-		read: 		'/Work/Read',
-		find: 		'/Work/Find',
-		create: 	'/Work/Create',
-		getLookups: '/Work/Lookup_Skills'
+		read: 			'/Work/Read',
+		find: 			'/Work/Find',
+		create: 		'/Work/Create',
+		createBid: 		'/Work/CreateBid',
+		getLookups: 	'/Work/Lookup_Skills',
+		findContract: 	'/Work/FindContract'
 	};
 	
 	var _keys = {
@@ -18,7 +20,8 @@ function WorkStore(){
 	self.events = {
 		lookups: 		'lookups',
 		contracts: 		'contracts.get',
-		activate: 		'contracts.activate'
+		activate: 		'contracts.activate',
+		bid: 			'contracts.bid'
 	};
 	
 	self.filters = {
@@ -57,6 +60,12 @@ function WorkStore(){
 		return $.get(_api.find, { id });
 	};
 
+	// --------------------------------
+	self.findContract = function(id) {
+		return $.get(_api.findContract, { id });
+	};
+
+	// --------------------------------
 	self.updateWorkSummary = function(event){
 		var value = event.target.value;
 		self.workSummary = value;
@@ -81,6 +90,16 @@ function WorkStore(){
 	};
 
 	// --------------------------------
+	self.createBid = function(contractId){
+		return $.ajax({
+			url: _api.createBid,
+			type: 'POST',
+			data: JSON.stringify({contractId}),
+			contentType: 'application/json; charset=utf-8'
+		});
+	};
+
+	// --------------------------------
 	self.newContract = function(){
 		PubSub.publish(self.events.activate, -1);
 	};
@@ -100,6 +119,17 @@ function WorkStore(){
 			return item;
 		});	
 	};
+
+	// --------------------------------
+    self.getRemainingDuration = function(model){
+        // Calculate the time left on the order.
+        // Diff: CreatedDateTime, EndDateTime, Duration.
+        var createdDateTime = model.CreatedDateTime;
+        var endDateTime = moment.utc(createdDateTime).add(model.Duration, 'h');
+        var remainingHours = endDateTime.diff(new moment.utc(), 'h', true).toFixed(2);
+
+        return remainingHours;
+    };
 
 	return self;
 }

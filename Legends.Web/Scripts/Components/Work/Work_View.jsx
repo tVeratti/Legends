@@ -1,6 +1,6 @@
 /*
 	-----------------------------------
-	Work_New
+	Work_View
 	-----------------------------------
 */
 class Work_View extends React.Component {
@@ -16,12 +16,11 @@ class Work_View extends React.Component {
         return (
             <div className='work work--view'>
                 <h2>Work</h2>
+                <p>{model.Description}</p>
                 
+                <h2>Contracts</h2>
                 <_Contracts_Grid />
                 
-                <div className='buttons'>
-                    <button className='button'>Bid</button>
-                </div>
             </div>
         );
     }

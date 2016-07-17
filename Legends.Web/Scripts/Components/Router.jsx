@@ -10,6 +10,7 @@ var routerNode = (
             <Route path='New' component={Work_New} />
             <Route path='Browse' component={Work_Browse} />
             <Route path='View/:Id' component={Work_View} />
+            <Route path='View/Contract/:Id' component={Work_View_Contract} />
         </Route>
         
     </Router>

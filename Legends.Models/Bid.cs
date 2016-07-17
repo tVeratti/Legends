@@ -15,5 +15,8 @@ namespace Legends.Models
         public long CreatedById { get; set; }
         public DateTime CreatedDateTime { get; set; }
         public int StatusId { get; set; }
+
+        // Joined Values
+        public string Status { get; set; }
     }
 }

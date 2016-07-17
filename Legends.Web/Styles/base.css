@@ -26,6 +26,9 @@
 @import url(https://fonts.googleapis.com/css?family=Arima+Madurai:400,200);
 @import url(https://fonts.googleapis.com/css?family=Cinzel+Decorative:700);
 @import url(https://fonts.googleapis.com/css?family=Overlock+SC);
+@import url(https://fonts.googleapis.com/css?family=Arima+Madurai:400,200);
+@import url(https://fonts.googleapis.com/css?family=Cinzel+Decorative:700);
+@import url(https://fonts.googleapis.com/css?family=Overlock+SC);
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -89,6 +92,15 @@ h2 {
   font-size: 24px;
   margin-bottom: 5px;
   border-bottom: 2px solid #841818; }
+
+h3 {
+  font-size: 24px;
+  margin: 20px 0; }
+
+a:link, a:visited, a:active {
+  color: #90835c; }
+  a:link:hover, a:visited:hover, a:active:hover {
+    color: white; }
 
 .delete {
   cursor: pointer; }
@@ -490,7 +502,8 @@ h2 {
   width: 100%;
   border-collapse: collapse;
   border: 1px solid #90835c;
-  border-width: 1px 0; }
+  border-width: 1px 0;
+  text-align: left; }
   .grid .grid__row {
     display: table-row;
     width: 100%; }
@@ -748,19 +761,19 @@ button:focus, a:focus, input:focus, textarea:focus {
 
 .work.work--new {
   max-width: 500px;
-  margin: auto; }
-
-.form {
-  text-align: left;
-  padding: 20px;
-  border-top-width: 2px;
-  border: 1px solid #90835c;
-  border-width: 1px 0;
-  background-color: #1e2020;
-  border-radius: 10px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4); }
-
-.tabs {
-  padding: 0 10px;
-  white-space: nowrap; }
+  margin: 0 auto; }
+  .work.work--new .tabs {
+    padding: 0 10px; }
+  .work.work--new .form {
+    padding: 20px;
+    border-top-width: 2px;
+    border: 1px solid #90835c;
+    border-width: 1px 0;
+    background-color: #1e2020;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.4); }
+  .work.work--new .work-info {
+    padding: 20px; }
+  .work.work--new .buttons .button {
+    margin-left: 10px; }
 

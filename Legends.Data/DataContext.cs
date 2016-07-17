@@ -25,6 +25,7 @@ namespace Legends.Data
 
         private LookupService _lookups;
         private WorkService _work;
+        private ContractService _contracts;
 
         public LookupService Lookups
         {
@@ -36,6 +37,10 @@ namespace Legends.Data
             get { return _work ?? new WorkService(_cnx); }
         }
 
+        public ContractService Contracts
+        {
+            get { return _contracts ?? new ContractService(_cnx); }
+        }
 
     }
 }

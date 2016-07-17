@@ -49,6 +49,7 @@
     <Compile Include="DataContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\LookupService.cs" />
+    <Compile Include="Services\ContractService.cs" />
     <Compile Include="Services\WorkService.cs" />
     <Compile Include="Utilities.cs" />
   </ItemGroup>

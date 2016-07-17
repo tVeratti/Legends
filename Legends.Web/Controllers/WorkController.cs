@@ -28,12 +28,26 @@ namespace Legends.Web.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpGet]
+        public JsonResult FindContract(long Id)
+        {
+            var result = _context.Contracts.Read(Id);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
         [HttpPost]
         public JsonResult Create(Work Model, IEnumerable<Contract> Contracts)
         {
             Model.Contracts = Contracts;
             var result = _context.Work.Create(Model);
 
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult CreateBid(long ContractId)
+        {
+            var result = _context.Contracts.CreateBid(ContractId);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
