@@ -288,6 +288,8 @@
     <Content Include="Content\Town.jpg" />
     <Content Include="favicon.png" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\Components\Common\_Dialog.jsx" />
+    <Content Include="Scripts\Components\Common\_Analytics.jsx" />
     <Content Include="Scripts\Components\Common\_Field.jsx" />
     <Content Include="Scripts\Components\Common\_Navigation.jsx" />
     <Content Include="Scripts\Components\App.jsx" />
@@ -298,6 +300,7 @@
     <Content Include="Scripts\Components\Work\Work_New.jsx" />
     <Content Include="Scripts\Components\Work\Work_View_Contract.jsx" />
     <Content Include="Scripts\Components\Work\Work_View.jsx" />
+    <Content Include="Scripts\Components\Work\_BidForm_Dialog.jsx" />
     <Content Include="Scripts\Components\Work\_Contracts_Grid.jsx" />
     <Content Include="Scripts\Components\Work\_Bids_Grid.jsx" />
     <Content Include="Scripts\Components\Profile\Profile.jsx" />
@@ -379,6 +382,7 @@
     <Content Include="Styles\Components\_tab.scss" />
     <Content Include="Styles\Components\_view.scss" />
     <Content Include="Styles\Components\_work.scss" />
+    <Content Include="Styles\Components\_dialog.scss" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Legends.Data\Legends.Data.csproj">

@@ -29,6 +29,9 @@
 @import url(https://fonts.googleapis.com/css?family=Arima+Madurai:400,200);
 @import url(https://fonts.googleapis.com/css?family=Cinzel+Decorative:700);
 @import url(https://fonts.googleapis.com/css?family=Overlock+SC);
+@import url(https://fonts.googleapis.com/css?family=Arima+Madurai:400,200);
+@import url(https://fonts.googleapis.com/css?family=Cinzel+Decorative:700);
+@import url(https://fonts.googleapis.com/css?family=Overlock+SC);
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -511,7 +514,7 @@ a:link, a:visited, a:active {
       background-color: #1e2020; }
     .grid .grid__row:hover {
       background-color: #841818;
-      color: white; }
+      color: white !important; }
     .grid .grid__row.grid__row--header {
       background-color: #90835c;
       color: white; }
@@ -563,7 +566,7 @@ a:link, a:visited, a:active {
     outline: none; }
   .field.field--invalid input, .field.field--invalid textarea, .field.field--invalid .Select-control {
     border-color: #b02020; }
-  .field.field--invalid .warning {
+  .field.field--invalid .field__warning {
     visibility: visible; }
 
 ::-webkit-input-placeholder {
@@ -669,6 +672,47 @@ button:focus, a:focus, input:focus, textarea:focus {
       width: 100%;
       padding: 20px; } }
 
+.dialog .dialog__overlay {
+  position: fixed;
+  top: -10px;
+  left: -10px;
+  bottom: -10px;
+  right: -10px;
+  background: rgba(0, 0, 0, 0.6); }
+
+.dialog .dialog__window {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  max-height: calc(100% - 50px);
+  transform: translateX(-50%);
+  border: 1px solid #90835c;
+  border-width: 1px 0;
+  background-color: #1e2020;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4); }
+
+.dialog .dialog__title,
+.dialog .dialog__body,
+.dialog .dialog__buttons {
+  padding: 15px; }
+  .dialog .dialog__title .button,
+  .dialog .dialog__body .button,
+  .dialog .dialog__buttons .button {
+    margin-left: 10px; }
+
+.dialog .dialog__body {
+  overflow-y: auto; }
+
+.dialog .dialog__title {
+  font-size: 24px;
+  border: 1px solid #515959;
+  border-right: none;
+  border-left: none; }
+
+.dialog .dialog__buttons {
+  text-align: right; }
+
 .home {
   text-align: center; }
 
@@ -731,15 +775,15 @@ button:focus, a:focus, input:focus, textarea:focus {
 .contract--row .contract__tier {
   font-size: 14px; }
 
-.contract--row.row:hover .contract__identifiers {
+.contract--row.grid__row:hover .contract__identifiers {
   color: white; }
 
-.contract--row .cell {
+.contract--row .grid__cell {
   cursor: pointer; }
-  .contract--row .cell:first-child {
+  .contract--row .grid__cell:first-child {
     width: 50%;
     text-align: left; }
-  .contract--row .cell:not(:first-child) {
+  .contract--row .grid__cell:not(:first-child) {
     vertical-align: middle; }
 
 .contract--header {
@@ -776,4 +820,16 @@ button:focus, a:focus, input:focus, textarea:focus {
     padding: 20px; }
   .work.work--new .buttons .button {
     margin-left: 10px; }
+
+.work.work--view .bid__identifiers {
+  text-transform: uppercase; }
+  .work.work--view .bid__identifiers .bid__tier {
+    color: #90835c; }
+  .work.work--view .bid__identifiers .bid__tier,
+  .work.work--view .bid__identifiers .bid__offer,
+  .work.work--view .bid__identifiers .bid__quantity {
+    margin-right: 5px; }
+
+.work.work--view .grid__row:hover .bid__tier {
+  color: white; }
 

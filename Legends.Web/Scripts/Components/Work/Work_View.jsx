@@ -7,6 +7,7 @@ class Work_View extends React.Component {
 	// --------------------------------
     constructor(props, context) {
         super(props, context);
+        var initialForm = formStore.getForm();
         this.state = { model: {} };
     }
 
@@ -21,6 +22,7 @@ class Work_View extends React.Component {
                 <h2>Contracts</h2>
                 <_Contracts_Grid />
                 
+                <_Analytics />
             </div>
         );
     }

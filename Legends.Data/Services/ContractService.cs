@@ -50,10 +50,17 @@ namespace Legends.Data.Services
             }
         }
 
-        public IEnumerable<Bid> CreateBid(long ContractId)
+        public IEnumerable<Bid> CreateBid(Bid Model)
         {
             var spr_name = "[Legends].[Ins_Bid]";
-            var spr_prms = new { ContractId };
+            var spr_prms = new
+            {
+                ContractId = Model.ContractId,
+                TierId = Model.TierId,
+                Offer = Model.Offer,
+                Description = Model.Description,
+                Quantity = Model.Quantity
+            };
             return _cnx.Query<Bid>(spr_name, spr_prms, commandType: CommandType.StoredProcedure);
         }
 

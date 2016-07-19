@@ -8,7 +8,7 @@ class _Bids_Grid extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state = { 
-            contracts: props.contracts || [],
+            bids: props.bids || [],
             filters: {
                 pageNumber: 1,
                 pageSize: 10,
@@ -50,10 +50,5 @@ class _Bids_Grid extends React.Component {
                 <span className='paginator__next'></span>
             </div>
         )
-    }
-    
-    // --------------------------------
-    update = (message, contracts) => {
-        this.setState({ contracts });
     }
 }

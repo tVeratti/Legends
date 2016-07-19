@@ -31,5 +31,24 @@
 
     &.work--view{
 
+
+        .bid__identifiers{
+            text-transform: uppercase;
+            .bid__tier{ color: $color-highlight; }
+
+            .bid__tier,
+            .bid__offer,
+            .bid__quantity{
+                margin-right: 5px;
+
+            }
+
+            
+        }
+        .grid__row{
+            &:hover{
+                .bid__tier{ color: white; }
+            }
+        }
     }
 }

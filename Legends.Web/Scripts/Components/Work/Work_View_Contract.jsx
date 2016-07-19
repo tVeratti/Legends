@@ -7,7 +7,7 @@ class Work_View_Contract extends React.Component {
 	// --------------------------------
     constructor(props, context) {
         super(props, context);
-        this.state = { model: {}, timeLeft: 0 };
+        this.state = { model: {}, timeLeft: 0, showBidForm: false };
     }
 
     // --------------------------------
@@ -19,6 +19,10 @@ class Work_View_Contract extends React.Component {
         var createdDateTime = moment(model.CreatedDateTime)
             .subtract(offset, 'm')
             .format('dddd, MMMM Do YYYY, h:mmA');
+
+        var bidForm = this.state.showBidForm ?
+            <_BidForm_Dialog close={this.closeBidForm} contractId={model.Id} /> :
+            undefined;
 
         return (
             <div className='work work--view'>
@@ -39,12 +43,17 @@ class Work_View_Contract extends React.Component {
                     <a href={'/#/Work/View/' + model.WorkId}>View Parent</a>
                 </p>
 
+                {/* Bids */}
                 <h3>Bids</h3>
                 <_Bids_Grid bids={model.Bids} />
                 
+                {/* Buttons */}
                 <div className='buttons'>
-                    <button className='button' onClick={this.toBid}>Bid</button>
+                    <button className='button' onClick={this.openBidForm}>Bid</button>
                 </div>
+
+                {/* Dialog Bid Form */}
+                {bidForm}
             </div>
         );
     }
@@ -64,13 +73,8 @@ class Work_View_Contract extends React.Component {
     }
 
     // --------------------------------
-    renderBids(){
-        
-        var bids = this.state.model.Bids || [];
-        console.log('render', bids)
-        return bids.map( bid =>{
-            return <div className='contract__bid'>{bid.Status}</div>;
-        });
+    componentDidMount(){
+        this.token = PubSub.subscribe(workStore.events.bids, this.updateBids);
     }
 
     // --------------------------------
@@ -84,13 +88,18 @@ class Work_View_Contract extends React.Component {
         return splitArr[0] + 'h ' + remainingMinutes + 'm';
     }
 
+    updateBids = (message, bids) => {
+        var model = this.state.model;
+        model.Bids = bids;
+        this.setState({ bids });
+    }
+
     // --------------------------------
-    toBid = (event) => {
-        workStore.createBid(this.state.model.Id).done(bids =>{
-            console.log(bids)
-            var model = this.state.model;
-            model.Bids = bids;
-            this.setState({ model });
-        });
+    openBidForm = (event) => {
+        this.setState({ showBidForm: true });
+    }
+
+    closeBidForm = (event) => {
+        this.setState({ showBidForm: false });
     }
 }

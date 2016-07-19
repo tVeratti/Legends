@@ -21,7 +21,7 @@ function WorkStore(){
 		lookups: 		'lookups',
 		contracts: 		'contracts.get',
 		activate: 		'contracts.activate',
-		bid: 			'contracts.bid'
+		bids: 			'contracts.bids'
 	};
 	
 	self.filters = {
@@ -90,12 +90,15 @@ function WorkStore(){
 	};
 
 	// --------------------------------
-	self.createBid = function(contractId){
+	self.createBid = function(model){
 		return $.ajax({
 			url: _api.createBid,
 			type: 'POST',
-			data: JSON.stringify({contractId}),
-			contentType: 'application/json; charset=utf-8'
+			data: JSON.stringify({model}),
+			contentType: 'application/json; charset=utf-8',
+			success: function(bids){
+				PubSub.publish(self.events.bids, bids);
+			}
 		});
 	};
 

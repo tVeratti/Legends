@@ -25,7 +25,7 @@ $border-color: $color-highlight;
         &:nth-child(odd) { background-color: $row-color-bg-zebra; }
         &:hover { 
             background-color: $row-color-bg-hover; 
-            color: white;
+            color: white !important;
         }
 
         &.grid__row--header {

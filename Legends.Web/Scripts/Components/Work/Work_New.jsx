@@ -50,6 +50,8 @@ class Work_New extends React.Component {
                     <button className='button secondary' onClick={this.cancel}>Cancel</button>
                     <button className='button' onClick={this.submitForm.bind(this)}>Create</button>
                 </div>
+
+                <_Analytics />
             </div>
         );
     }
@@ -61,7 +63,7 @@ class Work_New extends React.Component {
             PubSub.subscribe(workStore.events.activate, this.activateTab),
             PubSub.subscribe(formStore.events.formValidated, this.update),
             PubSub.subscribe(formStore.events.formDeleted, this.update)
-        ];
+        ]; 
     }
 
     // --------------------------------

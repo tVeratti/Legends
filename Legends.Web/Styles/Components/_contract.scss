@@ -29,11 +29,11 @@
     .contract__identifiers{ font-size: 16px; }
     .contract__tier{ font-size: 14px; }
 
-    &.row:hover{
+    &.grid__row:hover{
         .contract__identifiers { color: white; }
     }
 
-    .cell{
+    .grid__cell{
         cursor: pointer;
         &:first-child{ width: 50%; text-align: left; }
         &:not(:first-child){ vertical-align: middle; }

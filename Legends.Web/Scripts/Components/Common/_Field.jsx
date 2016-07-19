@@ -87,6 +87,7 @@ class _Field extends React.Component {
 
         } else {
             // Input Type: Other
+            fieldProps.onChange = undefined;
             switch(type){
                 case 'textarea': return <textarea {...fieldProps} onInput={this.inputHandler} />;
                 default: return <input {...fieldProps} onInput={this.inputHandler} />;
@@ -96,7 +97,7 @@ class _Field extends React.Component {
 
     // --------------------------------
     inputHandler = (event) => {
-        var value = event.target.value;
+        var value = (event.target.value || '');
         var isValid = this.isValid(value);
         this.setState({ value, isValid });
         this.reportChange(value);

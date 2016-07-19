@@ -15,10 +15,12 @@ class Work_Browse extends React.Component {
         return (
             <div>
                 <_Contracts_Grid />
+                <_Analytics />
             </div>
         );
     }
     
+    // --------------------------------
     componentWillMount(){
         workStore.read();
     }

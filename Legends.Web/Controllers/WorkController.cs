@@ -45,9 +45,9 @@ namespace Legends.Web.Controllers
         }
 
         [HttpPost]
-        public JsonResult CreateBid(long ContractId)
+        public JsonResult CreateBid(Bid Model)
         {
-            var result = _context.Contracts.CreateBid(ContractId);
+            var result = _context.Contracts.CreateBid(Model);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
