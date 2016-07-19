@@ -685,6 +685,8 @@ button:focus, a:focus, input:focus, textarea:focus {
   top: 20px;
   left: 50%;
   max-height: calc(100% - 50px);
+  max-width: 80%;
+  width: 600px;
   transform: translateX(-50%);
   border: 1px solid #90835c;
   border-width: 1px 0;
@@ -706,9 +708,7 @@ button:focus, a:focus, input:focus, textarea:focus {
 
 .dialog .dialog__title {
   font-size: 24px;
-  border: 1px solid #515959;
-  border-right: none;
-  border-left: none; }
+  border-bottom: 1px solid #515959; }
 
 .dialog .dialog__buttons {
   text-align: right; }
@@ -821,15 +821,20 @@ button:focus, a:focus, input:focus, textarea:focus {
   .work.work--new .buttons .button {
     margin-left: 10px; }
 
-.work.work--view .bid__identifiers {
-  text-transform: uppercase; }
-  .work.work--view .bid__identifiers .bid__tier {
-    color: #90835c; }
-  .work.work--view .bid__identifiers .bid__tier,
-  .work.work--view .bid__identifiers .bid__offer,
-  .work.work--view .bid__identifiers .bid__quantity {
-    margin-right: 5px; }
+.work.work--view .bid__label {
+  margin-right: 5px; }
 
-.work.work--view .grid__row:hover .bid__tier {
+.work.work--view .bid__value {
+  color: #90835c;
+  text-transform: uppercase; }
+
+.work.work--view .bid__description {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.75); }
+
+.work.work--view .grid__row:first-child {
+  width: 100%; }
+
+.work.work--view .grid__row:hover .bid__value {
   color: white; }
 

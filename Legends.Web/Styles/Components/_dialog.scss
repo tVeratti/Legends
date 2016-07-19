@@ -21,6 +21,8 @@
         top: 20px;
         left: 50%;
         max-height: calc(100% - 50px);
+        max-width: 80%;
+        width: 600px;
         transform: translateX(-50%);
         @include border-deco();
     }
@@ -38,9 +40,7 @@
 
     .dialog__title{
         font-size: 24px;
-        border: 1px solid $color-base-bg-light;
-        border-right: none;
-        border-left: none;
+        border-bottom: 1px solid $color-base-bg-light;
     }
 
     .dialog__buttons{

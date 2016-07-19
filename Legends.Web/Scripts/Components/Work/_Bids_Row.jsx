@@ -19,17 +19,25 @@ class _Bids_Row extends React.Component {
             .subtract(offset, 'm')
             .format('ddd, h:mmA');
 
+        var offer = `${model.Offer} (${model.Quantity})`;
 
         return (
             <div className='grid__row bid'>
 
                 <div className='grid__cell'>
-                    {/* Bid Identifiers */}
-                    <p className='bid__identifiers'>
-                        <span className='bid__tier'>{model.Tier}</span>
-                        <span className='bid__quantity'>{model.Quantity}</span>
-                        <span className='bid__offer'>{model.Offer}</span>
+                
+                    {/* Bid Tier */}
+                    <p className='bid__tier'>
+                        <label className='bid__label'>I am:</label>
+                        <span className='bid__value'>{model.Tier}</span>
                     </p>
+
+                    {/* Bid Offer Request */}
+                    <p className='bid__offer'>
+                        <label className='bid__label'>I want:</label>
+                        <span className='bid__value'>{offer}</span>
+                    </p>
+
 
                     {/* Bid Description */}
                     <p className='bid__description'>{model.Description}</p>

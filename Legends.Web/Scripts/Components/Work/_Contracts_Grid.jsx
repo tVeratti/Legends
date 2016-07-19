@@ -41,6 +41,11 @@ class _Contracts_Grid extends React.Component {
     }
 
     // --------------------------------
+    componentWillUnmount(){
+        PubSub.unsubscribe(this.token);
+    }
+
+    // --------------------------------
     renderGrid(){
         var contracts = this.state.contracts || [];
         return contracts.map(contract => <_Contracts_Row {...contract} />);

@@ -35,27 +35,27 @@ class _BidForm_Dialog extends React.Component {
             <_Dialog title='Create Bid' buttons={buttons}>
 
                 <_Field name='TierId'
-                    label='Tier'
-                    info='Choose the tier at which you can fulfill this contract.'
+                    label='I am'
+                    info='What skill tier are you?'
                     onChange={this.changeTier}
                     options={lookups.Tiers} />
 
                 <_Field name='Offer'
-                    label='Offer'
-                    info='The object which you request as compensation for your bid.'
+                    label='I want'
+                    info='What do you want for completing this contract?'
                     onChange={this.changeOffer}
                     placeholder='(e.g Wolf Pelts)' />
 
                 <_Field name='Quantity'
                     label='Quantity'
-                    info='The quantity of your offer which you request as compensation for your bid.'
+                    info='How much of the above do you want?'
                     onChange={this.changeQuantity}
                     type='number'
                     placeholder='(e.g. 12)' />
 
                 <_Field name='Description'
                     label='Description'
-                    info='Describe your bid in 255 characters or less.'
+                    info='Additional info for your bid in 255 characters or less.'
                     onChange={this.changeDescription}
                     placeholder='(Optional)' />
 
@@ -63,22 +63,32 @@ class _BidForm_Dialog extends React.Component {
         );  
     }
 
+    // --------------------------------
+    componentWillUnmount(){
+        formStore.reset();
+    }
+
+    // --------------------------------
     changeTier = (option) => {
         this.setState({ TierId: option.Id });
     }
 
+    // --------------------------------
     changeOffer = (Offer) => {
         this.setState({ Offer });
     }
 
+    // --------------------------------
     changeQuantity = (Quantity) => {
         this.setState({ Quantity });
     }
 
+    // --------------------------------
     changeDescription = (Description) => {
         this.setState({ Description });
     }
 
+    // --------------------------------
     submit = (event) => {
         if (formStore.isValid()){
             var bidModel = formStore.activeForm.fields;

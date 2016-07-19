@@ -30,24 +30,21 @@
     }
 
     &.work--view{
-
-
-        .bid__identifiers{
-            text-transform: uppercase;
-            .bid__tier{ color: $color-highlight; }
-
-            .bid__tier,
-            .bid__offer,
-            .bid__quantity{
-                margin-right: 5px;
-
-            }
-
-            
+        .bid__label{ margin-right: 5px; }
+        .bid__value{ 
+            color: $color-highlight;
+            text-transform: uppercase; 
         }
+
+        .bid__description{
+            font-size: 14px;
+            color: rgba($color-base-font, .75);
+        }
+
         .grid__row{
+            &:first-child{ width: 100%; }
             &:hover{
-                .bid__tier{ color: white; }
+                .bid__value{ color: white; }
             }
         }
     }
