@@ -13,9 +13,22 @@
         }
 
         .form{
+            position: relative;
             padding: 20px;
             border-top-width: 2px;
             @include border-deco();
+
+            .form__delete{
+                position: absolute;
+                top: 10px; 
+                right: 10px;
+                color: rgba(white, .40);
+                font-size: 24px;
+
+                &:hover{
+                    color: $color-primary;
+                }
+            }
         }
 
         .work-info{
@@ -28,24 +41,24 @@
             }
         }
     }
+}
 
-    &.work--view{
-        .bid__label{ margin-right: 5px; }
-        .bid__value{ 
-            color: $color-highlight;
-            text-transform: uppercase; 
-        }
+.contract-view{
+    .bid__label{ margin-right: 5px; }
+    .bid__value{ 
+        color: $color-highlight;
+        text-transform: uppercase; 
+    }
 
-        .bid__description{
-            font-size: 14px;
-            color: rgba($color-base-font, .75);
-        }
+    .bid__description{
+        font-size: 14px;
+        color: rgba($color-base-font, .75);
+    }
 
-        .grid__row{
-            &:first-child{ width: 100%; }
-            &:hover{
-                .bid__value{ color: white; }
-            }
+    .grid__row{
+        &:first-child{ width: 100%; }
+        &:hover{
+            .bid__value{ color: white; }
         }
     }
 }

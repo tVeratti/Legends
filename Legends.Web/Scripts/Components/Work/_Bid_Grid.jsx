@@ -3,7 +3,7 @@
 	_Bids
 	-----------------------------------
 */
-class _Bids_Grid extends React.Component {
+class _Bid_Grid extends React.Component {
 	// --------------------------------
     constructor(props, context) {
         super(props, context);
@@ -26,7 +26,7 @@ class _Bids_Grid extends React.Component {
         var rowNodes = this.renderGrid();
         var paginator = this.renderPaginator();
         return (
-            <div className='bids'>
+            <div className='bid-grid'>
                 <div className='grid'>
                     {rowNodes}
                 </div>
@@ -37,7 +37,7 @@ class _Bids_Grid extends React.Component {
     // --------------------------------
     renderGrid(){
         var bids = this.props.bids || [];
-        return bids.map(bid => <_Bids_Row {...bid} />);
+        return bids.map(bid => <_Bid_Row {...bid} />);
     }
 
     // --------------------------------

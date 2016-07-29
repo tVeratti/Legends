@@ -14,7 +14,7 @@ class Work_Browse extends React.Component {
     render() {
         return (
             <div>
-                <_Contracts_Grid />
+                <_Contract_Grid />
                 <_Analytics />
             </div>
         );

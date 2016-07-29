@@ -3,34 +3,36 @@
 @import "../_variables.scss";
 
 // Contract
-.contract{
-     .contract__identifiers{
+// -------------------------------------
+.contract-summary{
+     .contract-summary__identifiers{
         margin-bottom: 5px;
         text-transform: uppercase;
         font-weight: bold;
         color: $color-highlight;
         text-shadow: $text-shadow-normal;
-
-        .contract__tier{ 
-            display: inline-block;
-            margin-right: .5rem;
-            font-weight: normal;
-        }
     }
 
-    .contract__description{
+     .contract-summary__tier{ 
+        display: inline-block;
+        margin-right: .5rem;
+        font-weight: normal;
+    }
+
+    .contract-summary__description{
         font-size: 14px;
         color: rgba($color-base-font, .75);
     }
 }
 
 // Contract (as Grid Row)
-.contract--row{
-    .contract__identifiers{ font-size: 16px; }
-    .contract__tier{ font-size: 14px; }
+// -------------------------------------
+.contract-summary--row{
+    .contract-summary__identifiers{ font-size: 16px; }
+    .contract-summary__tier{ font-size: 14px; }
 
     &.grid__row:hover{
-        .contract__identifiers { color: white; }
+        .contract-summary__identifiers { color: white; }
     }
 
     .grid__cell{
@@ -41,22 +43,10 @@
 }
 
 // Contract (as Header)
-.contract--header{
-    position: relative;
-    .contract__identifiers { font-size: 32px; }
-    .contract__tier { font-size: 28px; }
-    .contract__fade{ color: $color-base-bg-light; }
-
-    .contract__delete{
-        position: absolute;
-        top: 0; 
-        right: 0;
-        color: rgba(white, .40);
-        font-size: 24px;
-
-        &:hover{
-            color: $color-primary;
-        }
-    }
+// -------------------------------------
+.contract-summary--header{
+    .contract-summary__identifiers { font-size: 32px; }
+    .contract-summary__tier { font-size: 28px; }
+    .contract-summary__fade{ color: $color-base-bg-light; }
 }
 

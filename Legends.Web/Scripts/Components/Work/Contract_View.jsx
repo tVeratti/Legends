@@ -1,9 +1,9 @@
 /*
 	-----------------------------------
-	Work_View_Contract
+	Contract_View
 	-----------------------------------
 */
-class Work_View_Contract extends React.Component {
+class Contract_View extends React.Component {
 	// --------------------------------
     constructor(props, context) {
         super(props, context);
@@ -25,27 +25,37 @@ class Work_View_Contract extends React.Component {
             undefined;
 
         return (
-            <div className='work work--view'>
-                <div className='contract contact--header'>
-                    <h2>Contract
-                        <div className='contract__identifiers'>
-                            <span className='contract__tier'>{model.Tier}</span>
-                            <span className='contract__type'>{model.Skill || model.Category}</span>
-                        </div>
-                    </h2>
+            <div className='contract-view'>
+
+                {/* Summary */}
+                <div className='contract-view__summary'>
+                    <_Contract_Summary model={model} modifier='--header' />
                 </div>
 
-                <p>{model.Description}</p>
-                <p>Created {createdDateTime}</p>
-                <p>Time Left: {duration}</p>
+                {/* Details */}
+                <div className='contract-view__details'>
+                    <p>{model.Description}</p>
+                    <p>Created {createdDateTime}</p>
+                    <p>Time Left: {duration}</p>
+                </div>
 
-                <p>
-                    <a href={'/#/Work/View/' + model.WorkId}>View Parent</a>
+                {/* Parent */}
+                <p className='contract-view__parent'>
+                    <a href={workStore.routes.work_view + model.WorkId}>View Parent</a>
                 </p>
 
-                {/* Bids */}
-                <h3>Bids</h3>
-                <_Bids_Grid bids={model.Bids} />
+                <div className='contract-view__content'>
+
+                    {/* Activity Log */}
+                    <div className='contract-view__log'>
+                    </div>
+
+                    {/* Bids */}
+                    <div className='contract-view__bids'>
+                        <h3>Bids</h3>
+                        <_Bid_Grid bids={model.Bids} />
+                    </div>
+                </div>
                 
                 {/* Buttons */}
                 <div className='buttons'>
@@ -88,6 +98,7 @@ class Work_View_Contract extends React.Component {
         return splitArr[0] + 'h ' + remainingMinutes + 'm';
     }
 
+    // --------------------------------
     updateBids = (message, bids) => {
         var model = this.state.model;
         model.Bids = bids;
@@ -99,6 +110,7 @@ class Work_View_Contract extends React.Component {
         this.setState({ showBidForm: true });
     }
 
+    // --------------------------------
     closeBidForm = (event) => {
         this.setState({ showBidForm: false });
     }

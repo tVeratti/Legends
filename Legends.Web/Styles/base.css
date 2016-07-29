@@ -684,9 +684,8 @@ button:focus, a:focus, input:focus, textarea:focus {
   position: fixed;
   top: 20px;
   left: 50%;
-  max-height: calc(100% - 50px);
-  max-width: 80%;
   width: 600px;
+  max-width: 80%;
   transform: translateX(-50%);
   border: 1px solid #90835c;
   border-width: 1px 0;
@@ -704,6 +703,7 @@ button:focus, a:focus, input:focus, textarea:focus {
     margin-left: 10px; }
 
 .dialog .dialog__body {
+  max-height: 60vh;
   overflow-y: auto; }
 
 .dialog .dialog__title {
@@ -754,54 +754,47 @@ button:focus, a:focus, input:focus, textarea:focus {
 .work .grid {
   margin-top: 10px; }
 
-.contract .contract__identifiers {
+.contract-summary .contract-summary__identifiers {
   margin-bottom: 5px;
   text-transform: uppercase;
   font-weight: bold;
   color: #90835c;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.75); }
-  .contract .contract__identifiers .contract__tier {
-    display: inline-block;
-    margin-right: .5rem;
-    font-weight: normal; }
 
-.contract .contract__description {
+.contract-summary .contract-summary__tier {
+  display: inline-block;
+  margin-right: .5rem;
+  font-weight: normal; }
+
+.contract-summary .contract-summary__description {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.75); }
 
-.contract--row .contract__identifiers {
+.contract-summary--row .contract-summary__identifiers {
   font-size: 16px; }
 
-.contract--row .contract__tier {
+.contract-summary--row .contract-summary__tier {
   font-size: 14px; }
 
-.contract--row.grid__row:hover .contract__identifiers {
+.contract-summary--row.grid__row:hover .contract-summary__identifiers {
   color: white; }
 
-.contract--row .grid__cell {
+.contract-summary--row .grid__cell {
   cursor: pointer; }
-  .contract--row .grid__cell:first-child {
+  .contract-summary--row .grid__cell:first-child {
     width: 50%;
     text-align: left; }
-  .contract--row .grid__cell:not(:first-child) {
+  .contract-summary--row .grid__cell:not(:first-child) {
     vertical-align: middle; }
 
-.contract--header {
-  position: relative; }
-  .contract--header .contract__identifiers {
-    font-size: 32px; }
-  .contract--header .contract__tier {
-    font-size: 28px; }
-  .contract--header .contract__fade {
-    color: #515959; }
-  .contract--header .contract__delete {
-    position: absolute;
-    top: 0;
-    right: 0;
-    color: rgba(255, 255, 255, 0.4);
-    font-size: 24px; }
-    .contract--header .contract__delete:hover {
-      color: #b02020; }
+.contract-summary--header .contract-summary__identifiers {
+  font-size: 32px; }
+
+.contract-summary--header .contract-summary__tier {
+  font-size: 28px; }
+
+.contract-summary--header .contract-summary__fade {
+  color: #515959; }
 
 .work.work--new {
   max-width: 500px;
@@ -809,6 +802,7 @@ button:focus, a:focus, input:focus, textarea:focus {
   .work.work--new .tabs {
     padding: 0 10px; }
   .work.work--new .form {
+    position: relative;
     padding: 20px;
     border-top-width: 2px;
     border: 1px solid #90835c;
@@ -816,25 +810,33 @@ button:focus, a:focus, input:focus, textarea:focus {
     background-color: #1e2020;
     border-radius: 10px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.4); }
+    .work.work--new .form .form__delete {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 24px; }
+      .work.work--new .form .form__delete:hover {
+        color: #b02020; }
   .work.work--new .work-info {
     padding: 20px; }
   .work.work--new .buttons .button {
     margin-left: 10px; }
 
-.work.work--view .bid__label {
+.contract-view .bid__label {
   margin-right: 5px; }
 
-.work.work--view .bid__value {
+.contract-view .bid__value {
   color: #90835c;
   text-transform: uppercase; }
 
-.work.work--view .bid__description {
+.contract-view .bid__description {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.75); }
 
-.work.work--view .grid__row:first-child {
+.contract-view .grid__row:first-child {
   width: 100%; }
 
-.work.work--view .grid__row:hover .bid__value {
+.contract-view .grid__row:hover .bid__value {
   color: white; }
 

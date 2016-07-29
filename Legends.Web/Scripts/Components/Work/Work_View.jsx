@@ -20,7 +20,7 @@ class Work_View extends React.Component {
                 <p>{model.Description}</p>
                 
                 <h2>Contracts</h2>
-                <_Contracts_Grid />
+                <_Contract_Grid />
                 
                 <_Analytics />
             </div>

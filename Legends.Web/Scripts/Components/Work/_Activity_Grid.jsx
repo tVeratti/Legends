@@ -1,14 +1,14 @@
 ﻿/*
 	-----------------------------------
-	_Contracts
+	_Activity_Grid
 	-----------------------------------
 */
-class _Contracts_Grid extends React.Component {
+class _Activity_Grid extends React.Component {
 	// --------------------------------
     constructor(props, context) {
         super(props, context);
         this.state = { 
-            contracts: props.contracts || [],
+            bids: props.bids || [],
             filters: {
                 pageNumber: 1,
                 pageSize: 10,
@@ -26,7 +26,7 @@ class _Contracts_Grid extends React.Component {
         var rowNodes = this.renderGrid();
         var paginator = this.renderPaginator();
         return (
-            <div className='contracts'>
+            <div className='activity-grid'>
                 <div className='grid'>
                     {rowNodes}
                 </div>
@@ -35,20 +35,9 @@ class _Contracts_Grid extends React.Component {
     }
 
     // --------------------------------
-    componentWillMount(){
-        // Subscribe to any events that update the contracts list.
-        this.token = PubSub.subscribe(workStore.events.contracts, this.update);
-    }
-
-    // --------------------------------
-    componentWillUnmount(){
-        PubSub.unsubscribe(this.token);
-    }
-
-    // --------------------------------
     renderGrid(){
-        var contracts = this.state.contracts || [];
-        return contracts.map(contract => <_Contracts_Row {...contract} />);
+        var activity = this.props.activity || [];
+        return bids.map(bid => <_Activity_Row {...bid} />);
     }
 
     // --------------------------------
@@ -61,10 +50,5 @@ class _Contracts_Grid extends React.Component {
                 <span className='paginator__next'></span>
             </div>
         )
-    }
-    
-    // --------------------------------
-    update = (message, contracts) => {
-        this.setState({ contracts });
     }
 }

@@ -1,6 +1,6 @@
 ﻿/*
     -----------------------------------
-    _Contracts_Row
+    _Contract_Row
     -----------------------------------
     props.Model:
     - long          Id
@@ -13,7 +13,7 @@
     - string        CreatedByName
     - Bid[]         Bids
 */
-class _Contracts_Row extends React.Component {
+class _Contract_Row extends React.Component {
     // --------------------------------
     constructor(props, context) {
         super(props, context);
@@ -32,17 +32,11 @@ class _Contracts_Row extends React.Component {
         if (model.BidsCount === 1) bidsName = 'Bid';
 
         return (
-            <div className='grid__row contract contract--row' onClick={this.toContract}>
+            <div className='grid__row' onClick={this.toContract}>
 
                 {/* Standard Request Identifiers */}
                 <div className='grid__cell'>
-                    <div className='contract__identifiers'>
-                        <span className='contract__tier'>{model.Tier || 'Novice'}</span>
-                        <span className='contract__skill'>{model.Skill || model.Category}</span>
-                    </div>
-
-                    {/* Custom Request Description */}
-                    <div className='contract__description'>{description}</div>
+                    <_Contract_Summary model={model} modifier='--row' />
                 </div>
 
                 {/* Remaining Duration */}
@@ -59,18 +53,6 @@ class _Contracts_Row extends React.Component {
     }
 
     // --------------------------------
-    getDescription(){
-        var description = this.props.Description || '';
-
-        if (description.length > 50){
-            // Remove exceeding characters and add an ellipsis.
-            description = description.substr(0, 50) + '...';
-        }
-
-        return description;
-    }
-
-    // --------------------------------
     getRemainingDuration(){
         var model = this.props;
         var remainingHours = Math.round(workStore.getRemainingDuration(model));
@@ -81,8 +63,17 @@ class _Contracts_Row extends React.Component {
         return remainingHours;
     }
     
+    // --------------------------------
     toContract = (e) => {
-        // View Work View (Parent)
-        window.location = '/#/Work/View/Contract/' + this.props.Id;
+        // View Contract (/Work/View/Contract/Id)
+        window.location = '/#' + workStore.routes.contract_view + this.props.Id;
+    }
+
+    // --------------------------------
+    toWork = (e) => {
+        if (e) e.stopPropagation();
+
+        // View Work Parent (/Work/View/Id)
+        window.location = '/#' + workStore.routes.work_view + this.props.WorkId;
     }
 }

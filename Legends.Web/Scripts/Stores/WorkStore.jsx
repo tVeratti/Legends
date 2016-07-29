@@ -17,6 +17,13 @@ function WorkStore(){
 		lookups: 'lookups_skills'
 	};
 
+	self.routes = {
+		work_view: 		'/Work/View/',
+		work_browse: 	'/Work/Browse/'
+		work_new: 		'/Work/New',
+		contract_view: 	'/Work/View/Contract/'
+	};
+
 	self.events = {
 		lookups: 		'lookups',
 		contracts: 		'contracts.get',
@@ -24,11 +31,6 @@ function WorkStore(){
 		bids: 			'contracts.bids'
 	};
 	
-	self.filters = {
-
-	};
-	
-	// Source Lookups
 	self.lookups = {
 		Categories: [],
 		Skills: [],

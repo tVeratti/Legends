@@ -32,26 +32,20 @@ class Work_New_Contract extends React.Component {
         // Do not render if only 1 form exists.
         var formKeys = Object.keys(formStore.forms);
         var deleteNode = formKeys.length > 1 ?
-            <span className='contract__delete delete' onClick={this.deleteContract} /> :
+            <span className='form__delete delete' onClick={this.deleteForm} /> :
             undefined;
         
         return (
             <div className='form'>  
 
-                <div className='contract contract--header'>
+                {/* Contract Title (Tier/Skill) */}
+                <h2>
+                    <p>New Contract:</p>
+                    <_Contract_Summary model={model} modifier='--header' />
+                </h2>
 
-                    {/* Contract Title (Tier/Skill) */}
-                    <h2>New Contract:
-                        <div className='contract__identifiers'>
-                            <span className='contract__tier'>{tier}</span>
-                            <span className='contract__type '>{type}</span>
-                        </div>
-                    </h2>
-
-                    {/* Delete Contract */}
-                    {deleteNode}
-                </div>
-                
+                {/* Delete Form */}
+                {deleteNode}
                 
                 <_Field name='Tier'
                     label='Minimum Required Tier'
@@ -96,7 +90,7 @@ class Work_New_Contract extends React.Component {
     }
 
     // --------------------------------
-    deleteContract = (event) => {
+    deleteForm = (event) => {
         formStore.deleteForm(formStore.activeForm.seed);
     } 
     

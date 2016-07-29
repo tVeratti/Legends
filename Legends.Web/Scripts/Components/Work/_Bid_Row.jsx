@@ -1,9 +1,9 @@
 ﻿/*
     -----------------------------------
-    _Bids_Row
+    _Bid_Row
     -----------------------------------
 */
-class _Bids_Row extends React.Component {
+class _Bid_Row extends React.Component {
     // --------------------------------
     constructor(props, context) {
         super(props, context);
@@ -21,6 +21,8 @@ class _Bids_Row extends React.Component {
 
         var offer = `${model.Offer} (${model.Quantity})`;
 
+        var nLabel = (/^[aeiou]$/i).test(model.Tier[0]) ? 'n' : '';
+
         return (
             <div className='grid__row bid'>
 
@@ -28,7 +30,7 @@ class _Bids_Row extends React.Component {
                 
                     {/* Bid Tier */}
                     <p className='bid__tier'>
-                        <label className='bid__label'>I am:</label>
+                        <label className='bid__label'>{`I am a${nLabel}:`}</label>
                         <span className='bid__value'>{model.Tier}</span>
                     </p>
 
