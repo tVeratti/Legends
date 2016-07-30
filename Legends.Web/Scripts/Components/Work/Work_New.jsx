@@ -26,9 +26,7 @@ class Work_New extends React.Component {
 
         return (
             <div className='work work--new'>
-                <h1>I Need a(n)...</h1>
-                <p>Describe the work you wish to hire someone to complete.</p>
-
+            
                 {/* Tabs
                  ------------------------- */}
                 <Work_New_Tabs />

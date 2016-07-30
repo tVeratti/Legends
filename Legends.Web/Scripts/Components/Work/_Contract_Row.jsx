@@ -26,7 +26,6 @@ class _Contract_Row extends React.Component {
         var model = this.props;
         
         // Details
-        var description = this.getDescription();
         var duration = this.getRemainingDuration();
         var bidsName = 'Bids';
         if (model.BidsCount === 1) bidsName = 'Bid';
@@ -36,7 +35,7 @@ class _Contract_Row extends React.Component {
 
                 {/* Standard Request Identifiers */}
                 <div className='grid__cell'>
-                    <_Contract_Summary model={model} modifier='--row' />
+                    <_Contract_Summary model={model} modifier='--row' showDescription={true} />
                 </div>
 
                 {/* Remaining Duration */}

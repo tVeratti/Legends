@@ -44,13 +44,31 @@
 }
 
 .contract-view{
-    .bid__label{ margin-right: 5px; }
+    .bid__label{ 
+        display: inline-block;
+        margin-right: 5px; 
+        color: rgba(white, .5);
+        width: 60px;
+        text-align: right;
+    }
+
     .bid__value{ 
-        color: $color-highlight;
+        color: white;
         text-transform: uppercase; 
+    }
+    .bid__tier { 
+        margin-bottom: 5px; 
+        border-bottom: 1px dotted rgba(white, .2);
+    }
+    .bid__tier .bid__value { 
+        font-size: 18px;
+        font-weight: bold;
+        color: $color-highlight;
     }
 
     .bid__description{
+        margin-left: 65px;
+        margin-top: 5px;
         font-size: 14px;
         color: rgba($color-base-font, .75);
     }

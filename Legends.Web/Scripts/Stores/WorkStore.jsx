@@ -19,7 +19,7 @@ function WorkStore(){
 
 	self.routes = {
 		work_view: 		'/Work/View/',
-		work_browse: 	'/Work/Browse/'
+		work_browse: 	'/Work/Browse',
 		work_new: 		'/Work/New',
 		contract_view: 	'/Work/View/Contract/'
 	};

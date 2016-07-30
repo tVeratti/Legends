@@ -27,24 +27,25 @@
 
 // Contract (as Grid Row)
 // -------------------------------------
-.contract-summary--row{
+.grid__row{
     .contract-summary__identifiers{ font-size: 16px; }
     .contract-summary__tier{ font-size: 14px; }
 
-    &.grid__row:hover{
-        .contract-summary__identifiers { color: white; }
-    }
-
-    .grid__cell{
-        cursor: pointer;
-        &:first-child{ width: 50%; text-align: left; }
-        &:not(:first-child){ vertical-align: middle; }
-    }
+    &:hover .contract-summary__identifiers { color: white; }
 }
+
+.grid__cell{
+    cursor: pointer;
+    &:first-child{ width: 50%; text-align: left; }
+    &:not(:first-child){ vertical-align: middle; }
+}
+
 
 // Contract (as Header)
 // -------------------------------------
 .contract-summary--header{
+    margin-bottom: 5px;
+    border-bottom: 2px solid $color-primary-dark;
     .contract-summary__identifiers { font-size: 32px; }
     .contract-summary__tier { font-size: 28px; }
     .contract-summary__fade{ color: $color-base-bg-light; }

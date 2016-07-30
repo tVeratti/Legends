@@ -3,6 +3,8 @@
 @import "../mixins";
 @import "../variables";
 
+$bg-mix: mix($color-base-bg-light, $color-base-bg-panel, 30%);
+
 // -------------------------------
 // Dialog
 // -------------------------------
@@ -34,16 +36,21 @@
     }
 
     .dialog__body{
-        max-height: 60vh;
+        max-height: 80vh;
         overflow-y: auto;
     }
 
     .dialog__title{
+        background: $bg-mix;
         font-size: 24px;
         border-bottom: 1px solid $color-base-bg-light;
+        border-radius: 10px 10px 0 0;
     }
 
     .dialog__buttons{
+        background: $bg-mix;
         text-align: right;
+        border-top: 1px solid $color-base-bg-light;
+        border-radius: 0 0 10px 10px;
     }
 }

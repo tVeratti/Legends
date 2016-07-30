@@ -41,7 +41,7 @@ class Contract_View extends React.Component {
 
                 {/* Parent */}
                 <p className='contract-view__parent'>
-                    <a href={workStore.routes.work_view + model.WorkId}>View Parent</a>
+                    <a href={'/#' + workStore.routes.work_view + model.WorkId}>View Parent</a>
                 </p>
 
                 <div className='contract-view__content'>

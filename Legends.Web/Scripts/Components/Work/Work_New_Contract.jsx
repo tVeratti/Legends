@@ -40,7 +40,7 @@ class Work_New_Contract extends React.Component {
 
                 {/* Contract Title (Tier/Skill) */}
                 <h2>
-                    <p>New Contract:</p>
+                    <p>I Need:</p>
                     <_Contract_Summary model={model} modifier='--header' />
                 </h2>
 

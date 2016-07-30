@@ -92,9 +92,7 @@ h1 {
   font-size: 42px; }
 
 h2 {
-  font-size: 24px;
-  margin-bottom: 5px;
-  border-bottom: 2px solid #841818; }
+  font-size: 24px; }
 
 h3 {
   font-size: 24px;
@@ -703,15 +701,20 @@ button:focus, a:focus, input:focus, textarea:focus {
     margin-left: 10px; }
 
 .dialog .dialog__body {
-  max-height: 60vh;
+  max-height: 80vh;
   overflow-y: auto; }
 
 .dialog .dialog__title {
+  background: #2d3131;
   font-size: 24px;
-  border-bottom: 1px solid #515959; }
+  border-bottom: 1px solid #515959;
+  border-radius: 10px 10px 0 0; }
 
 .dialog .dialog__buttons {
-  text-align: right; }
+  background: #2d3131;
+  text-align: right;
+  border-top: 1px solid #515959;
+  border-radius: 0 0 10px 10px; }
 
 .home {
   text-align: center; }
@@ -770,31 +773,32 @@ button:focus, a:focus, input:focus, textarea:focus {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.75); }
 
-.contract-summary--row .contract-summary__identifiers {
+.grid__row .contract-summary__identifiers {
   font-size: 16px; }
 
-.contract-summary--row .contract-summary__tier {
+.grid__row .contract-summary__tier {
   font-size: 14px; }
 
-.contract-summary--row.grid__row:hover .contract-summary__identifiers {
+.grid__row:hover .contract-summary__identifiers {
   color: white; }
 
-.contract-summary--row .grid__cell {
+.grid__cell {
   cursor: pointer; }
-  .contract-summary--row .grid__cell:first-child {
+  .grid__cell:first-child {
     width: 50%;
     text-align: left; }
-  .contract-summary--row .grid__cell:not(:first-child) {
+  .grid__cell:not(:first-child) {
     vertical-align: middle; }
 
-.contract-summary--header .contract-summary__identifiers {
-  font-size: 32px; }
-
-.contract-summary--header .contract-summary__tier {
-  font-size: 28px; }
-
-.contract-summary--header .contract-summary__fade {
-  color: #515959; }
+.contract-summary--header {
+  margin-bottom: 5px;
+  border-bottom: 2px solid #841818; }
+  .contract-summary--header .contract-summary__identifiers {
+    font-size: 32px; }
+  .contract-summary--header .contract-summary__tier {
+    font-size: 28px; }
+  .contract-summary--header .contract-summary__fade {
+    color: #515959; }
 
 .work.work--new {
   max-width: 500px;
@@ -824,13 +828,28 @@ button:focus, a:focus, input:focus, textarea:focus {
     margin-left: 10px; }
 
 .contract-view .bid__label {
-  margin-right: 5px; }
+  display: inline-block;
+  margin-right: 5px;
+  color: rgba(255, 255, 255, 0.5);
+  width: 60px;
+  text-align: right; }
 
 .contract-view .bid__value {
-  color: #90835c;
+  color: white;
   text-transform: uppercase; }
 
+.contract-view .bid__tier {
+  margin-bottom: 5px;
+  border-bottom: 1px dotted rgba(255, 255, 255, 0.2); }
+
+.contract-view .bid__tier .bid__value {
+  font-size: 18px;
+  font-weight: bold;
+  color: #90835c; }
+
 .contract-view .bid__description {
+  margin-left: 65px;
+  margin-top: 5px;
   font-size: 14px;
   color: rgba(255, 255, 255, 0.75); }
 

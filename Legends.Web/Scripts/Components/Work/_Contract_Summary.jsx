@@ -16,7 +16,8 @@ class _Contract_Summary extends React.Component {
         // Modifiers:
         //   --header
         //   --row
-        var classModifier = this.props.modifier || '';
+        var classModifier = '';
+        if (this.props.modifier) classModifier = 'contract-summary' + this.props.modifier;
 
         var descriptionNode = this.props.showDescription ?
             <div className='contract-summary__description'>{model.Description}</div> :

@@ -39,10 +39,6 @@ class _Bid_Row extends React.Component {
                         <label className='bid__label'>I want:</label>
                         <span className='bid__value'>{offer}</span>
                     </p>
-
-
-                    {/* Bid Description */}
-                    <p className='bid__description'>{model.Description}</p>
                 </div>
 
                 <div className='grid__cell'>{model.Status}</div>
