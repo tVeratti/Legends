@@ -7,9 +7,6 @@ class Work extends React.Component {
 	// --------------------------------
     constructor(props, context) {
         super(props, context);
-
-        // Set the User data from the application.
-        userStore.setUser(props.User);
     }
 
     // --------------------------------

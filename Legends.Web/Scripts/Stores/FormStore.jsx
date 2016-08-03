@@ -144,7 +144,6 @@
 			// they conain a defined value.
 			var value = form.fields[fieldKey];
 			if (!this.isDefined(value)){
-				console.log(fieldKey, value)
 				isValid = false;
 				// Track the number of errors on this form,
 				// to be used on the tabs for indicators.

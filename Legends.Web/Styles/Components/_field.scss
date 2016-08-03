@@ -78,5 +78,29 @@
 :-ms-input-placeholder { color: $input-color-placeholder; }
 :-moz-placeholder { color: $input-color-placeholder; }
 
+.checkbox{
+    display: inline-block;
+    .checkbox__input{
+        display: none;
+        &:checked + .checkbox__label:before{
+            content:"\f14a";
+        }
+    }
 
+    .checkbox__label{
+        display: inline-block;
+        padding: 10px;
+        cursor: pointer;
+        &:before{
+            display: inline-block;
+            width: 16px;
+            font-family: FontAwesome;
+            content: "\f096";
+            text-align: center;
+           color: $color-secondary;
+
+        }
+        &:hover:before{ color: white; }
+    }
+}
 

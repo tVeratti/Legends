@@ -1,4 +1,5 @@
-﻿/* http://meyerweb.com/eric/tools/css/reset/ 
+﻿@charset "UTF-8";
+/* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -99,7 +100,9 @@ h3 {
   margin: 20px 0; }
 
 a:link, a:visited, a:active {
-  color: #90835c; }
+  color: #90835c;
+  text-decoration: none !important;
+  font-weight: bold; }
   a:link:hover, a:visited:hover, a:active:hover {
     color: white; }
 
@@ -579,6 +582,26 @@ a:link, a:visited, a:active {
 :-moz-placeholder {
   color: #515959; }
 
+.checkbox {
+  display: inline-block; }
+  .checkbox .checkbox__input {
+    display: none; }
+    .checkbox .checkbox__input:checked + .checkbox__label:before {
+      content: "\f14a"; }
+  .checkbox .checkbox__label {
+    display: inline-block;
+    padding: 10px;
+    cursor: pointer; }
+    .checkbox .checkbox__label:before {
+      display: inline-block;
+      width: 16px;
+      font-family: FontAwesome;
+      content: "\f096";
+      text-align: center;
+      color: #209ab0; }
+    .checkbox .checkbox__label:hover:before {
+      color: white; }
+
 .button {
   position: relative;
   display: inline-block;
@@ -827,35 +850,66 @@ button:focus, a:focus, input:focus, textarea:focus {
   .work.work--new .buttons .button {
     margin-left: 10px; }
 
-.contract-view .bid__label {
-  display: inline-block;
-  margin-right: 5px;
-  color: rgba(255, 255, 255, 0.5);
-  width: 60px;
-  text-align: right; }
+.contract-view .grid__row {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); }
 
-.contract-view .bid__value {
-  color: white;
-  text-transform: uppercase; }
+.contract-view .grid__row.bid .grid__cell:first-child {
+  width: 1%;
+  padding: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  vertical-align: middle; }
+
+.contract-view .grid__row.bid .grid__cell--full {
+  width: 100%; }
 
 .contract-view .bid__tier {
   margin-bottom: 5px;
-  border-bottom: 1px dotted rgba(255, 255, 255, 0.2); }
-
-.contract-view .bid__tier .bid__value {
+  border-bottom: 1px dotted rgba(255, 255, 255, 0.2);
   font-size: 18px;
   font-weight: bold;
-  color: #90835c; }
+  color: #90835c;
+  text-transform: uppercase; }
+  .contract-view .bid__tier:after {
+    font-family: FontAwesome;
+    font-size: 16px;
+    margin-left: 5px;
+    line-height: 10px;
+    vertical-align: top;
+    color: rgba(255, 255, 255, 0.5); }
+  .contract-view .bid__tier.bid__tier--above-1:after {
+    content: ""; }
+  .contract-view .bid__tier.bid__tier--above-2:after {
+    content: ""; }
+  .contract-view .bid__tier.bid__tier--below-1:after {
+    content: ""; }
+  .contract-view .bid__tier.bid__tier--below-2:after {
+    content: ""; }
 
 .contract-view .bid__description {
-  margin-left: 65px;
   margin-top: 5px;
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.75); }
+  color: rgba(255, 255, 255, 0.4);
+  white-space: nowrap;
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis; }
+
+.contract-view .bid__created {
+  font-size: 14px;
+  white-space: nowrap; }
+  .contract-view .bid__created a {
+    display: inline-block;
+    margin-bottom: 5px; }
 
 .contract-view .grid__row:first-child {
   width: 100%; }
 
-.contract-view .grid__row:hover .bid__value {
-  color: white; }
+.contract-view .grid__row:hover .grid__cell,
+.contract-view .grid__row:hover .grid__cell .bid__tier,
+.contract-view .grid__row:hover .grid__cell .bid__tier:before {
+  color: white !important; }
 

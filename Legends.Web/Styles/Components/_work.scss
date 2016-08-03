@@ -3,80 +3,150 @@
 @import "../variables";
 @import "../mixins";
 
-.work{
-    &.work--new{
+$icon-above-1: "\f106";
+$icon-above-2: "\f102";
+$icon-below-1: "\f107";
+$icon-below-2: "\f103";
+
+
+.work {
+    &.work--new {
         max-width: 500px;
         margin: 0 auto;
 
-        .tabs{
+        .tabs {
             padding: 0 10px;
         }
 
-        .form{
+        .form {
             position: relative;
             padding: 20px;
             border-top-width: 2px;
             @include border-deco();
 
-            .form__delete{
+            .form__delete {
                 position: absolute;
-                top: 10px; 
+                top: 10px;
                 right: 10px;
                 color: rgba(white, .40);
                 font-size: 24px;
 
-                &:hover{
+                &:hover {
                     color: $color-primary;
                 }
             }
         }
 
-        .work-info{
+        .work-info {
             padding: 20px;
         }
 
-        .buttons{
-            .button{
+        .buttons {
+            .button {
                 margin-left: 10px;
             }
         }
     }
 }
 
-.contract-view{
-    .bid__label{ 
-        display: inline-block;
-        margin-right: 5px; 
-        color: rgba(white, .5);
-        width: 60px;
-        text-align: right;
+.contract-view {
+    .grid__row {
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+        text-shadow: 1px 1px 1px rgba(black, .5);
     }
 
-    .bid__value{ 
-        color: white;
-        text-transform: uppercase; 
+    .grid__row.bid {
+
+        .grid__cell:first-child {
+            width: 1%;
+            padding: 0;
+            background-color: rgba(black, .2);
+            vertical-align: middle;
+        }
+
+        .grid__cell--full {
+            width: 100%;
+        }
     }
-    .bid__tier { 
-        margin-bottom: 5px; 
+
+    .bid__tier {
+        margin-bottom: 5px;
         border-bottom: 1px dotted rgba(white, .2);
-    }
-    .bid__tier .bid__value { 
         font-size: 18px;
         font-weight: bold;
         color: $color-highlight;
+        text-transform: uppercase;
+
+        &:after {
+            font-family: FontAwesome;
+            font-size: 16px;
+            margin-left: 5px;
+            line-height: 10px;
+            vertical-align: top;
+            color: rgba(white, .5);
+        }
+
+        &.bid__tier--above-1:after,
+        &.bid__tier--above-2:after {
+            //color: $color-secondary;
+        }
+
+        &.bid__tier--below-1:after,
+        &.bid__tier--below-2:after {
+            //color: $color-primary;
+        }
+
+        &.bid__tier--above-1:after {
+            content: $icon-above-1;
+        }
+
+        &.bid__tier--above-2:after {
+            content: $icon-above-2;
+        }
+
+        &.bid__tier--below-1:after {
+            content: $icon-below-1;
+        }
+
+        &.bid__tier--below-2:after {
+            content: $icon-below-2;
+        }
     }
 
-    .bid__description{
-        margin-left: 65px;
+    .bid__description {
         margin-top: 5px;
         font-size: 14px;
-        color: rgba($color-base-font, .75);
+        color: rgba($color-base-font, .4);
+        white-space: nowrap;
+        -ms-text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
     }
 
-    .grid__row{
-        &:first-child{ width: 100%; }
-        &:hover{
-            .bid__value{ color: white; }
+    .bid__created {
+        font-size: 14px;
+        white-space: nowrap;
+
+        a {
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+    }
+
+    .grid__row {
+        &:first-child {
+            width: 100%;
+        }
+
+        &:hover {
+            .grid__cell,
+            .grid__cell .bid__tier,
+            .grid__cell .bid__tier:before {
+                color: white !important;
+            }
         }
     }
 }

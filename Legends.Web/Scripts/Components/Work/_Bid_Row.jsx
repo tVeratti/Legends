@@ -21,30 +21,69 @@ class _Bid_Row extends React.Component {
 
         var offer = `${model.Offer} (${model.Quantity})`;
 
-        var nLabel = (/^[aeiou]$/i).test(model.Tier[0]) ? 'n' : '';
+        var mineLabel = userStore.user.Id === model.CreatedById ?
+            <p>My offer</p> : undefined;
+
+        var bidClassName = this.getBidTierClassName();
 
         return (
             <div className='grid__row bid'>
-
+                {/* Checkbox */}
                 <div className='grid__cell'>
-                
-                    {/* Bid Tier */}
-                    <p className='bid__tier'>
-                        <label className='bid__label'>{`I am a${nLabel}:`}</label>
-                        <span className='bid__value'>{model.Tier}</span>
-                    </p>
-
-                    {/* Bid Offer Request */}
-                    <p className='bid__offer'>
-                        <label className='bid__label'>I want:</label>
-                        <span className='bid__value'>{offer}</span>
-                    </p>
+                    <_Checkbox id={model.Id} />
                 </div>
 
-                <div className='grid__cell'>{model.Status}</div>
-                <div className='grid__cell'>{createdDateTime}</div>
+                <div className='grid__cell grid__cell--full' onClick={this.openBidDetails}>
+                
+                    {/* Bid Tier */}
+                    <p className={bidClassName}>{model.Tier}</p>
+
+                    {/* Bid Offer Request */}
+                    <p className='bid__offer'>{offer}</p>
+
+                    <p className='bid__description'>{model.Description || ''}</p>                    
+                </div>
+
+                {/* Bid Status */}
+                <div className='grid__cell' onClick={this.openBidDetails}>
+                    {model.Status}
+                </div>
+
+                {/* Created By / Time */}
+                <div className='grid__cell bid__created'>
+                    <p><a href='#'>Test User</a></p>
+                    {createdDateTime}
+                </div>
 
             </div>
         );
+    }
+
+    // --------------------------------
+    getBidTierClassName(){
+        var bidClassName = 'bid__tier', bidModifier = ' bid__tier--';
+
+        var bidTierOrder = this.props.TierOrder;
+        var contractTierOrder = this.props.contract.TierOrder;
+
+        // Compare Bid Tier Order to determine if the bidder
+        // is proposing a relatively higher or lower skill level
+        switch (true){
+            // Above
+            case bidTierOrder > contractTierOrder + 2: bidModifier += 'above-2'; break;
+            case bidTierOrder > contractTierOrder: bidModifier += 'above-1'; break;
+            // Below
+            case bidTierOrder < contractTierOrder - 2: bidModifier += 'below-2'; break;
+            case bidTierOrder < contractTierOrder: bidModifier += 'below-1'; break;
+
+            default: bidModifier = '';
+        }
+
+        return bidClassName + bidModifier;
+    }
+
+    openBidDetails = (event) => {
+        var model = this.props;
+        workStore.openBidDetails(model);
     }
 }

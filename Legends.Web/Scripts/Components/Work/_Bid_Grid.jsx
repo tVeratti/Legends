@@ -36,8 +36,8 @@ class _Bid_Grid extends React.Component {
 
     // --------------------------------
     renderGrid(){
-        var bids = this.props.bids || [];
-        return bids.map(bid => <_Bid_Row {...bid} />);
+        var bids = this.props.contract.Bids || [];
+        return bids.map(bid => <_Bid_Row {...bid} contract={this.props.contract} />);
     }
 
     // --------------------------------

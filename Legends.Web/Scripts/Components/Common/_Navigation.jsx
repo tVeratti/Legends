@@ -7,7 +7,7 @@ class _Navigation extends React.Component {
 	// --------------------------------
     constructor(props, context) {
         super(props, context);
-        this.state = {};
+        this.state = {user: props.User};
     }
 
     // --------------------------------
@@ -21,5 +21,10 @@ class _Navigation extends React.Component {
                 </div>
             </div>
         );
+    }
+
+    componentDidMount(){
+        // Set the User data from the application.
+        userStore.setUser(this.props.User);
     }
 }

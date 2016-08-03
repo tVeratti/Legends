@@ -26,6 +26,7 @@ namespace Legends.Models
         public string Category { get; set; }
         public string Skill { get; set; }
         public string Tier { get; set; }
+        public int TierOrder { get; set; }
         public int Duration { get; set; }
         public IEnumerable<Bid> Bids { get; set; }
         public int BidsCount { get; set; }

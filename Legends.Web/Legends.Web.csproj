@@ -290,6 +290,7 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\Components\Common\_Dialog.jsx" />
     <Content Include="Scripts\Components\Common\_Analytics.jsx" />
+    <Content Include="Scripts\Components\Common\_Checkbox.jsx" />
     <Content Include="Scripts\Components\Common\_Field.jsx" />
     <Content Include="Scripts\Components\Common\_Navigation.jsx" />
     <Content Include="Scripts\Components\App.jsx" />
@@ -301,6 +302,7 @@
     <Content Include="Scripts\Components\Work\Work_New.jsx" />
     <Content Include="Scripts\Components\Work\Work_View.jsx" />
     <Content Include="Scripts\Components\Work\_Activity_Grid.jsx" />
+    <Content Include="Scripts\Components\Work\_BidDetails_Dialog.jsx" />
     <Content Include="Scripts\Components\Work\_Contract_Summary.jsx" />
     <Content Include="Scripts\Components\Work\_Activity_Row.jsx" />
     <Content Include="Scripts\Components\Work\_BidForm_Dialog.jsx" />
@@ -369,6 +371,7 @@
     <Content Include="Styles\_colors.scss" />
     <None Include="Properties\PublishProfiles\legendsforhire.verspyre.com - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\legendsforhire.verspyre.com - Web Deploy %283%29.pubxml" />
+    <None Include="Properties\PublishProfiles\legendsforhire.verspyre.com - Web Deploy %284%29.pubxml" />
     <None Include="Properties\PublishProfiles\legendsforhire.verspyre.com - Web Deploy.pubxml" />
     <Content Include="Styles\_fonts.scss" />
     <Content Include="Styles\Components\_field.scss" />

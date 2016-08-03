@@ -7,7 +7,12 @@ class Contract_View extends React.Component {
 	// --------------------------------
     constructor(props, context) {
         super(props, context);
-        this.state = { model: {}, timeLeft: 0, showBidForm: false };
+        this.state = { 
+            model: {}, 
+            timeLeft: 0, 
+            showBidForm: false,
+            showBidDetails: false
+        };
     }
 
     // --------------------------------
@@ -20,9 +25,15 @@ class Contract_View extends React.Component {
             .subtract(offset, 'm')
             .format('dddd, MMMM Do YYYY, h:mmA');
 
-        var bidForm = this.state.showBidForm ?
-            <_BidForm_Dialog close={this.closeBidForm} contractId={model.Id} /> :
-            undefined;
+        var dialogNode;
+        switch(true){
+            case this.state.showBidForm: 
+                dialogNode = <_BidForm_Dialog close={this.closeDialog} contractId={model.Id} />; 
+                break;
+            case this.state.showBidDetails: 
+                dialogNode = <_BidDetails_Dialog close={this.closeDialog} bid={this.state.activeBid} />;
+                break;
+        }
 
         return (
             <div className='contract-view'>
@@ -53,7 +64,7 @@ class Contract_View extends React.Component {
                     {/* Bids */}
                     <div className='contract-view__bids'>
                         <h3>Bids</h3>
-                        <_Bid_Grid bids={model.Bids} />
+                        <_Bid_Grid contract={model} />
                     </div>
                 </div>
                 
@@ -63,10 +74,11 @@ class Contract_View extends React.Component {
                 </div>
 
                 {/* Dialog Bid Form */}
-                {bidForm}
+                {dialogNode}
             </div>
         );
     }
+
 
     // --------------------------------
     componentWillMount(){
@@ -80,6 +92,8 @@ class Contract_View extends React.Component {
             // Update the contract every set time.
             this.forceUpdate();
         }, 60000);
+
+        workStore.openBidDetails = this.openBidDetails;
     }
 
     // --------------------------------
@@ -111,7 +125,15 @@ class Contract_View extends React.Component {
     }
 
     // --------------------------------
-    closeBidForm = (event) => {
-        this.setState({ showBidForm: false });
+    closeDialog = (event) => {
+        this.setState({ 
+            showBidForm: false,
+            showBidDetails: false
+        });
+    }
+
+    openBidDetails = (bid, event) => {
+        console.log(bid)
+        this.setState({ showBidDetails: true, activeBid: bid });
     }
 }

@@ -21,6 +21,7 @@ namespace Legends.Models
 
         // Joined Values
         public string Tier { get; set; }
+        public int TierOrder { get; set; }
         public string Offer { get; set; }
         public string Status { get; set; }
     }
