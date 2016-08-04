@@ -14,33 +14,26 @@ class _Bid_Row extends React.Component {
     render() {
         // Model: Bid
         var model = this.props;
-        var offset = new Date().getTimezoneOffset();
-        var createdDateTime = moment(model.CreatedDateTime)
-            .subtract(offset, 'm')
-            .format('ddd, h:mmA');
-
-        var offer = `${model.Offer} (${model.Quantity})`;
+        var createdDateTime = userStore.getLocalTime(model.CreatedDateTime);
 
         var mineLabel = userStore.user.Id === model.CreatedById ?
             <p>My offer</p> : undefined;
 
-        var bidClassName = this.getBidTierClassName();
-
         return (
             <div className='grid__row bid'>
                 {/* Checkbox */}
-                <div className='grid__cell'>
+                <div className='grid__cell grid__cell--checkbox'>
                     <_Checkbox id={model.Id} />
                 </div>
 
                 <div className='grid__cell grid__cell--full' onClick={this.openBidDetails}>
-                
                     {/* Bid Tier */}
                     <p className={bidClassName}>{model.Tier}</p>
 
                     {/* Bid Offer Request */}
-                    <p className='bid__offer'>{offer}</p>
+                    <p className='bid__offer'>{`${model.Offer} (${model.Quantity})`}</p>
 
+                    {/* Bid Description (Optional) */}
                     <p className='bid__description'>{model.Description || ''}</p>                    
                 </div>
 

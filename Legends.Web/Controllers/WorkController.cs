@@ -1,5 +1,6 @@
 ﻿using Legends.Data;
 using Legends.Models;
+using Legends.Models.Filters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,13 +23,20 @@ namespace Legends.Web.Controllers
         }
 
         [HttpGet]
+        public JsonResult ReadBids(BidFilter filters)
+        {
+            var results = _context.Bids.Read(filters);
+            return Json(results, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
         public JsonResult Find(long Id)
         {
             var result = _context.Work.Read(Id);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpGet]
+        [HttpGet, OutputCache(Duration = 60 * 60)]
         public JsonResult FindContract(long Id)
         {
             var result = _context.Contracts.Read(Id);
@@ -47,7 +55,7 @@ namespace Legends.Web.Controllers
         [HttpPost]
         public JsonResult CreateBid(Bid Model)
         {
-            var result = _context.Contracts.CreateBid(Model);
+            var result = _context.Bids.Create(Model);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 

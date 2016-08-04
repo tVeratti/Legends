@@ -6,6 +6,7 @@ function WorkStore(){
 
 	var _api = {
 		read: 			'/Work/Read',
+		readBids: 		'/Work/ReadBids',
 		find: 			'/Work/Find',
 		create: 		'/Work/Create',
 		createBid: 		'/Work/CreateBid',
@@ -54,6 +55,13 @@ function WorkStore(){
 	self.read = function() {
 		$.get(_api.read).success(function(contracts){
 			PubSub.publish(self.events.contracts, contracts);
+		});
+	};
+
+	// --------------------------------
+	self.readBids = function(filters) {
+		$.get(_api.readBids, filters).success(function(bids){
+			PubSub.publish(self.events.bids, bids);
 		});
 	};
 

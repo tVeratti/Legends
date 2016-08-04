@@ -33,7 +33,7 @@ class App extends React.Component {
                     </a>
         		</div>
 
-        		<div className='orders'>
+        		<div className='contracts'>
                     {/* Popular Work Grid */}
                     <_Contract_Grid />
         		</div>

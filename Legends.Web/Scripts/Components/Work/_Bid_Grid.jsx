@@ -8,47 +8,79 @@ class _Bid_Grid extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state = { 
-            bids: props.bids || [],
+            bids: [],
             filters: {
-                pageNumber: 1,
-                pageSize: 10,
-                sortBy: 'CreatedDateTime',
-                sortOrder: 1,
-                tiers: [],
-                categories: [],
-                skills: []
+                ContractId: props.contract.Id,
+                Filter: null,
+                MinimumTier: 1,
+                MaximumTier: 8,
+                SortBy: 'CreatedDateTime',
+                SortOrder: 1,
+                Statuses: []
             }
         };
     }
 
     // --------------------------------
     render() {
-        var rowNodes = this.renderGrid();
-        var paginator = this.renderPaginator();
+        var filters = this.renderFilters();
+        var grid = this.renderGrid();
+
         return (
             <div className='bid-grid'>
-                <div className='grid'>
-                    {rowNodes}
+                {/* Bid Filters */}
+                <div className='bid-grid__filters'>
+                    {filters}
+                </div>
+
+                {/* Bid Grid */}
+                <div className='bid-grid__grid'>
+                    {grid}
                 </div>
             </div>
         );
     }
 
     // --------------------------------
-    renderGrid(){
-        var bids = this.props.contract.Bids || [];
-        return bids.map(bid => <_Bid_Row {...bid} contract={this.props.contract} />);
+    componentWillMount(){
+        // Subscribe to any events that update the contracts list.
+        this.token = PubSub.subscribe(workStore.events.bids, this.update);
+
+        // Get an initial list of bids.
+        workStore.readBids(this.state.filters);
     }
 
     // --------------------------------
-    renderPaginator(){
-        var pageNumber = this.state.filters.pageNumber;
-        var pageSize = this.state.filters.pageSize;
-        return (
-            <div className='paginator'>
-                <span className='paginator__previous'></span>
-                <span className='paginator__next'></span>
-            </div>
-        )
+    componentWillUnmount(){
+        PubSub.unsubscribe(this.token);
     }
+
+    // --------------------------------
+    renderFilters(){
+        var filters = this.state.filters;
+        return (
+            <div className='filters'>
+                <input className='filters__field filters__field--filter' />
+                <input className='filters__field filters__field--tier-min' />
+                <input className='filters__field filters__field--tier-max' />
+                <input className='filters__field filters__field--sort-by' />
+                <input className='filters__field filters__field--sort-order' />
+                <input className='filters__field filters__field--statuses' />
+            </div>
+        );
+    }
+
+    // --------------------------------
+    renderGrid(){
+        var bids = this.state.bids || [];
+        var bidRowNodes = bids.map(bid => <_Bid_Row {...bid} contract={this.props.contract} />);
+
+        return <div className='grid'>{bidRowNodes}</div>;
+    }
+
+    // --------------------------------
+    update = (message, bids) => {
+        this.setState({ bids });
+    }
+
 }

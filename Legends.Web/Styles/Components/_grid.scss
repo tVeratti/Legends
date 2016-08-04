@@ -6,7 +6,7 @@ $row-color-bg-zebra: $color-base-bg-panel;
 $border-color: $color-highlight;
 
 // Grid Body
-// ------------
+// ----------------------------
 .grid {
     //border: 1px solid $border-color;
     display: table;
@@ -38,6 +38,26 @@ $border-color: $color-highlight;
         .grid__cell {
             display: table-cell;
             padding: 15px 10px;
+
+            &.grid__cell--full {  width: 100%; }
+            &.grid__cell--checkbox {
+                width: 1%;
+                padding: 0;
+                background-color: rgba(black, .2);
+                vertical-align: middle;
+            }
         }
+    }
+}
+
+// Filters
+// ----------------------------
+.filters{
+    padding: 10px;
+    background: $row-color-bg-zebra;
+
+    .filters__field{
+        display: block;
+        margin: 10px;
     }
 }

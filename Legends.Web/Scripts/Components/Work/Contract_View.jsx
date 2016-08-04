@@ -20,20 +20,9 @@ class Contract_View extends React.Component {
         var model = this.state.model;
         var duration = this.getRemainingDuration();
 
-        var offset = new Date().getTimezoneOffset();
-        var createdDateTime = moment(model.CreatedDateTime)
-            .subtract(offset, 'm')
-            .format('dddd, MMMM Do YYYY, h:mmA');
+        var createdDateTime = userStore.getLocalTime(model.CreatedDateTime);
 
-        var dialogNode;
-        switch(true){
-            case this.state.showBidForm: 
-                dialogNode = <_BidForm_Dialog close={this.closeDialog} contractId={model.Id} />; 
-                break;
-            case this.state.showBidDetails: 
-                dialogNode = <_BidDetails_Dialog close={this.closeDialog} bid={this.state.activeBid} />;
-                break;
-        }
+        var dialogNode = this.renderDialog();
 
         return (
             <div className='contract-view'>
@@ -82,23 +71,25 @@ class Contract_View extends React.Component {
 
     // --------------------------------
     componentWillMount(){
-        var contractId = this.props.params.Id;
-        workStore.findContract(contractId).success(model => {
-            // Update the view's model.
-            this.setState({ model });
-        });
+        // Request contract data from workStore based on the
+        // Contract Id in the route parameters.
+        workStore.findContract(this.props.params.Id)
+            .success(model =>  this.setState({ model }); });
 
-        setInterval(() => {
-            // Update the contract every set time.
-            this.forceUpdate();
-        }, 60000);
+        // Update the page every minute (mainly for timers).
+        setInterval(() => { this.forceUpdate(); }, 60000);
 
         workStore.openBidDetails = this.openBidDetails;
     }
 
     // --------------------------------
-    componentDidMount(){
-        this.token = PubSub.subscribe(workStore.events.bids, this.updateBids);
+    renderDialog(){
+        switch(true){
+            case this.state.showBidForm: 
+                return <_BidForm_Dialog close={this.closeDialog} contractId={model.Id} />; 
+            case this.state.showBidDetails: 
+                return <_BidDetails_Dialog close={this.closeDialog} bid={this.state.activeBid} />;
+        }
     }
 
     // --------------------------------
@@ -113,15 +104,13 @@ class Contract_View extends React.Component {
     }
 
     // --------------------------------
-    updateBids = (message, bids) => {
-        var model = this.state.model;
-        model.Bids = bids;
-        this.setState({ bids });
+    openBidForm = (event) => {
+        this.setState({ showBidForm: true });
     }
 
     // --------------------------------
-    openBidForm = (event) => {
-        this.setState({ showBidForm: true });
+    openBidDetails = (bid, event) => {
+        this.setState({ showBidDetails: true, activeBid: bid });
     }
 
     // --------------------------------
@@ -130,10 +119,5 @@ class Contract_View extends React.Component {
             showBidForm: false,
             showBidDetails: false
         });
-    }
-
-    openBidDetails = (bid, event) => {
-        console.log(bid)
-        this.setState({ showBidDetails: true, activeBid: bid });
     }
 }

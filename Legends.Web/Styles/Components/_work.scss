@@ -49,26 +49,27 @@ $icon-below-2: "\f103";
     }
 }
 
-.contract-view {
+.bid-grid {
+    display: table;
+    width: 100%;
+
+    .bid-grid__grid,
+    .bid-grid__filters{ display: table-cell; }
+    .bid-grid__grid{ width: 100% }
+
     .grid__row {
         -moz-user-select: none;
         -ms-user-select: none;
         -webkit-user-select: none;
         user-select: none;
         text-shadow: 1px 1px 1px rgba(black, .5);
-    }
 
-    .grid__row.bid {
-
-        .grid__cell:first-child {
-            width: 1%;
-            padding: 0;
-            background-color: rgba(black, .2);
-            vertical-align: middle;
-        }
-
-        .grid__cell--full {
-            width: 100%;
+        &:hover {
+            .grid__cell,
+            .grid__cell .bid__tier,
+            .grid__cell .bid__tier:before {
+                color: white !important;
+            }
         }
     }
 
@@ -79,41 +80,6 @@ $icon-below-2: "\f103";
         font-weight: bold;
         color: $color-highlight;
         text-transform: uppercase;
-
-        &:after {
-            font-family: FontAwesome;
-            font-size: 16px;
-            margin-left: 5px;
-            line-height: 10px;
-            vertical-align: top;
-            color: rgba(white, .5);
-        }
-
-        &.bid__tier--above-1:after,
-        &.bid__tier--above-2:after {
-            //color: $color-secondary;
-        }
-
-        &.bid__tier--below-1:after,
-        &.bid__tier--below-2:after {
-            //color: $color-primary;
-        }
-
-        &.bid__tier--above-1:after {
-            content: $icon-above-1;
-        }
-
-        &.bid__tier--above-2:after {
-            content: $icon-above-2;
-        }
-
-        &.bid__tier--below-1:after {
-            content: $icon-below-1;
-        }
-
-        &.bid__tier--below-2:after {
-            content: $icon-below-2;
-        }
     }
 
     .bid__description {
@@ -133,20 +99,6 @@ $icon-below-2: "\f103";
         a {
             display: inline-block;
             margin-bottom: 5px;
-        }
-    }
-
-    .grid__row {
-        &:first-child {
-            width: 100%;
-        }
-
-        &:hover {
-            .grid__cell,
-            .grid__cell .bid__tier,
-            .grid__cell .bid__tier:before {
-                color: white !important;
-            }
         }
     }
 }

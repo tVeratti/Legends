@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Bid.cs" />
     <Compile Include="Category.cs" />
+    <Compile Include="Filters\BidFilter.cs" />
     <Compile Include="Lookup.cs" />
     <Compile Include="Duration.cs" />
     <Compile Include="Tier.cs" />
