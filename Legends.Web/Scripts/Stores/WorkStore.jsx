@@ -18,13 +18,6 @@ function WorkStore(){
 		lookups: 'lookups_skills'
 	};
 
-	self.routes = {
-		work_view: 		'/Work/View/',
-		work_browse: 	'/Work/Browse',
-		work_new: 		'/Work/New',
-		contract_view: 	'/Work/View/Contract/'
-	};
-
 	self.events = {
 		lookups: 		'lookups',
 		contracts: 		'contracts.get',
@@ -60,6 +53,7 @@ function WorkStore(){
 
 	// --------------------------------
 	self.readBids = function(filters) {
+		filters.ContractId = self.contractId;
 		$.get(_api.readBids, filters).success(function(bids){
 			PubSub.publish(self.events.bids, bids);
 		});

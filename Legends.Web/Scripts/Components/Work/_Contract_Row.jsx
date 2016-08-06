@@ -65,7 +65,7 @@ class _Contract_Row extends React.Component {
     // --------------------------------
     toContract = (e) => {
         // View Contract (/Work/View/Contract/Id)
-        window.location = '/#' + workStore.routes.contract_view + this.props.Id;
+        window.location = '/#' + routes.contract_view + this.props.Id;
     }
 
     // --------------------------------
@@ -73,6 +73,6 @@ class _Contract_Row extends React.Component {
         if (e) e.stopPropagation();
 
         // View Work Parent (/Work/View/Id)
-        window.location = '/#' + workStore.routes.work_view + this.props.WorkId;
+        window.location = '/#' + routes.work_view + this.props.WorkId;
     }
 }

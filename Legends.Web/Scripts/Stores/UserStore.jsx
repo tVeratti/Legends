@@ -2,6 +2,8 @@
 	// --------------------------------
     constructor(){
     	this.user = {};
+
+		
 	}
 
 	// --------------------------------
@@ -10,11 +12,11 @@
 	}
 
 	// --------------------------------
-	getLocalTime(dateTime){
+	getLocalTime(dateTime, format){
 		var offset = new Date().getTimezoneOffset();
         return moment(dateTime)
             .subtract(offset, 'm')
-            .format('dddd, MMMM Do YYYY, h:mmA');
+            .format(format || 'dddd, MMMM Do YYYY, h:mmA');
 	}
 }
 

@@ -143,7 +143,7 @@ class _Field extends React.Component {
             this.props.onInput;
 
         if (typeof reportHandler  === 'function'){
-            reportHandler(value);
+            reportHandler(value, this.props.name);
         }
     }
 }

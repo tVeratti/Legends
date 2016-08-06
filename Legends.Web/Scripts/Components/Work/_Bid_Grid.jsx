@@ -10,13 +10,12 @@ class _Bid_Grid extends React.Component {
         this.state = { 
             bids: [],
             filters: {
-                ContractId: props.contract.Id,
                 Filter: null,
                 MinimumTier: 1,
                 MaximumTier: 8,
+                Statuses: [],
                 SortBy: 'CreatedDateTime',
-                SortOrder: 1,
-                Statuses: []
+                SortOrder: 1
             }
         };
     }
@@ -58,14 +57,33 @@ class _Bid_Grid extends React.Component {
     // --------------------------------
     renderFilters(){
         var filters = this.state.filters;
+        var lookups = workStore.lookups;
+
         return (
             <div className='filters'>
-                <input className='filters__field filters__field--filter' />
-                <input className='filters__field filters__field--tier-min' />
-                <input className='filters__field filters__field--tier-max' />
-                <input className='filters__field filters__field--sort-by' />
-                <input className='filters__field filters__field--sort-order' />
-                <input className='filters__field filters__field--statuses' />
+                <div className='filters__field filters__field--filter'>
+                    <_Field name='Filter' 
+                        label='Search' 
+                        onChange={this.filterChange} />
+                </div>
+
+                <div className='filters__field filters__field--tier-min'>
+                    <_Field name='MinimumTier' 
+                        label='Minimum Tier' 
+                        options={lookups.Tiers}
+                        onChange={this.filterChange} />
+                </div>
+
+                <div className='filters__field filters__field--tier-max'>
+                    <_Field name='MaximumTier' 
+                        label='Maximum Tier' 
+                        options={lookups.Tiers}
+                        onChange={this.filterChange} />
+                </div>
+
+                <div className='filters__field filters__field--sort-by' />
+                <div className='filters__field filters__field--sort-order' />
+                <div className='filters__field filters__field--statuses' />
             </div>
         );
     }
@@ -74,8 +92,19 @@ class _Bid_Grid extends React.Component {
     renderGrid(){
         var bids = this.state.bids || [];
         var bidRowNodes = bids.map(bid => <_Bid_Row {...bid} contract={this.props.contract} />);
+        if (bidRowNodes.length) return <div className='grid'>{bidRowNodes}</div>;
+        else return <div className='no-results'>No Bid Results</div>;
+    }
 
-        return <div className='grid'>{bidRowNodes}</div>;
+    // --------------------------------
+    filterChange = (value, fieldName) =>{
+        if (typeof value === 'object') value = value.Id;
+
+        var {...filters} = this.state.filters;
+        filters[fieldName] = value;
+        this.setState({ filters });
+
+        workStore.readBids(filters);
     }
 
     // --------------------------------

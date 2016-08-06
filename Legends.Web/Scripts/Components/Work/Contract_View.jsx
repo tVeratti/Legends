@@ -41,7 +41,7 @@ class Contract_View extends React.Component {
 
                 {/* Parent */}
                 <p className='contract-view__parent'>
-                    <a href={'/#' + workStore.routes.work_view + model.WorkId}>View Parent</a>
+                    <a href={'/#' + routes.work_view + model.WorkId}>View Parent</a>
                 </p>
 
                 <div className='contract-view__content'>
@@ -73,12 +73,14 @@ class Contract_View extends React.Component {
     componentWillMount(){
         // Request contract data from workStore based on the
         // Contract Id in the route parameters.
-        workStore.findContract(this.props.params.Id)
-            .success(model =>  this.setState({ model }); });
+        var contractId = this.props.params.Id;
+        workStore.findContract(contractId)
+            .success(model =>  this.setState({ model }) );
 
         // Update the page every minute (mainly for timers).
         setInterval(() => { this.forceUpdate(); }, 60000);
 
+        workStore.contractId = contractId;
         workStore.openBidDetails = this.openBidDetails;
     }
 
@@ -86,7 +88,7 @@ class Contract_View extends React.Component {
     renderDialog(){
         switch(true){
             case this.state.showBidForm: 
-                return <_BidForm_Dialog close={this.closeDialog} contractId={model.Id} />; 
+                return <_BidForm_Dialog close={this.closeDialog} contractId={this.state.model.Id} />; 
             case this.state.showBidDetails: 
                 return <_BidDetails_Dialog close={this.closeDialog} bid={this.state.activeBid} />;
         }

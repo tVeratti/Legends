@@ -34,5 +34,13 @@ namespace Legends.Data
 
             return tb;
         }
+
+        public static DataTable ToDataTable_Value<T>(this IEnumerable<T> items)
+        {
+            var tb = new DataTable();
+            tb.Columns.Add("value", typeof(T));
+            items.ToList().ForEach(item => tb.Rows.Add(item));
+            return tb;
+        }
     }
 }

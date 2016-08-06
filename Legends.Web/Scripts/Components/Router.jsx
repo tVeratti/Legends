@@ -1,6 +1,13 @@
 ﻿// React-Router object aliases
 var { Router, Route, Link, hashHistory } = ReactRouter;
-var routes = workStore.routes;
+
+const routes = {
+    work_view: 		'/Work/View/',
+    work_browse: 	'/Work/Browse',
+    work_new: 		'/Work/New',
+    contract_view: 	'/Work/View/Contract/',
+    user_view: 	    '/Profile/'
+};
 
 // Configure Routing
 var routerNode = (
@@ -13,6 +20,10 @@ var routerNode = (
             <Route path={routes.work_view + ':Id'} component={Work_View} />
 
             <Route path={routes.contract_view + ':Id'} component={Contract_View} />
+        </Route>
+
+        <Route path='Profile' component={Profile}>
+            <Route path={routes.user_view} component={Profile_View} />
         </Route>
         
     </Router>

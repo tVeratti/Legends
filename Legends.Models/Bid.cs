@@ -24,5 +24,6 @@ namespace Legends.Models
         public int TierOrder { get; set; }
         public string Offer { get; set; }
         public string Status { get; set; }
+        public string Bidder { get; set; }
     }
 }

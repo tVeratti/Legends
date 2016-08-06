@@ -53,11 +53,17 @@ $border-color: $color-highlight;
 // Filters
 // ----------------------------
 .filters{
-    padding: 10px;
-    background: $row-color-bg-zebra;
+
+    .field__warning,
+    .field__info{
+        display: none;
+    }
 
     .filters__field{
         display: block;
-        margin: 10px;
+        font-size: 12px;
+        &:first-child .field{
+            padding-top: 0;
+        }
     }
 }

@@ -1,9 +1,9 @@
 ﻿/*
 	-----------------------------------
-	Profile
+	Profile_View
 	-----------------------------------
 */
-class Profile extends React.Component {
+class Profile_View extends React.Component {
 	// --------------------------------
     constructor(props, context) {
         super(props, context);
@@ -14,8 +14,7 @@ class Profile extends React.Component {
     render() {
         return (
             <div className='view'>
-                {/* Router View */}
-                {this.props.children}
+                View Profile
             </div>
         );
     }

@@ -50,12 +50,25 @@ $icon-below-2: "\f103";
 }
 
 .bid-grid {
-    display: table;
     width: 100%;
+    vertical-align: top;
 
     .bid-grid__grid,
-    .bid-grid__filters{ display: table-cell; }
-    .bid-grid__grid{ width: 100% }
+    .bid-grid__filters{ 
+        vertical-align: top;
+    }
+    .bid-grid__filters{
+        padding: 10px;
+        background: $color-base-bg-panel;
+        border: 0 solid $color-highlight;
+        border-top-width: 1px;
+    }
+
+    .bid-grid__actions{
+        background-color: rgba(black, .2);
+        height: 30px;
+        .button { margin: 10px; }
+    }
 
     .grid__row {
         -moz-user-select: none;
@@ -86,7 +99,6 @@ $icon-below-2: "\f103";
         margin-top: 5px;
         font-size: 14px;
         color: rgba($color-base-font, .4);
-        white-space: nowrap;
         -ms-text-overflow: ellipsis;
         -o-text-overflow: ellipsis;
         text-overflow: ellipsis;
@@ -94,11 +106,31 @@ $icon-below-2: "\f103";
 
     .bid__created {
         font-size: 14px;
+        -ms-text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        overflow-x: hidden;
         white-space: nowrap;
+        max-width: 100px;
 
         a {
             display: inline-block;
             margin-bottom: 5px;
+        }
+    }
+
+    @media (min-width: $size-screen-mobile){
+        // Bring the filters to be beside the grid.
+        display: table;
+
+        .bid-grid__filters,
+        .bid-grid__grid{
+            display: table-cell;
+        }
+
+        .bid-grid__filters{ 
+            width: 175px; 
+            border-bottom-width: 1px;
         }
     }
 }

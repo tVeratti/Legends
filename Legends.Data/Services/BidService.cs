@@ -25,8 +25,21 @@ namespace Legends.Data.Services
 
         public IEnumerable<Bid> Read(BidFilter filters)
         {
-            var spr_name = "[Legends].[Sel_Bid]";
-            using (var multi = _cnx.QueryMultiple(spr_name, filters, commandType: CommandType.StoredProcedure))
+            var statusesDatatable = (filters.Statuses ?? new List<int>()).ToDataTable_Value();
+
+            var spr_name = "[Legends].[Sel_Bids]";
+            var spr_prms = new
+            {
+                ContractId = filters.ContractId,
+                Filter = filters.Filter,
+                MinimumTier = filters.MinimumTier,
+                MaximumTier = filters.MaximumTier,
+                Statuses = statusesDatatable,
+                SortBy = filters.SortBy,
+                SortOrder = filters.SortOrder
+            };
+
+            using (var multi = _cnx.QueryMultiple(spr_name, spr_prms, commandType: CommandType.StoredProcedure))
             {
                 // Read datasets
                 var bids = multi.Read<Bid>();

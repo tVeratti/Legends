@@ -14,7 +14,7 @@ class _Bid_Row extends React.Component {
     render() {
         // Model: Bid
         var model = this.props;
-        var createdDateTime = userStore.getLocalTime(model.CreatedDateTime);
+        var createdDateTime = userStore.getLocalTime(model.CreatedDateTime, 'ddd, hA');
 
         var mineLabel = userStore.user.Id === model.CreatedById ?
             <p>My offer</p> : undefined;
@@ -28,7 +28,7 @@ class _Bid_Row extends React.Component {
 
                 <div className='grid__cell grid__cell--full' onClick={this.openBidDetails}>
                     {/* Bid Tier */}
-                    <p className={bidClassName}>{model.Tier}</p>
+                    <p className='bid__tier'>{model.Tier}</p>
 
                     {/* Bid Offer Request */}
                     <p className='bid__offer'>{`${model.Offer} (${model.Quantity})`}</p>
@@ -44,7 +44,10 @@ class _Bid_Row extends React.Component {
 
                 {/* Created By / Time */}
                 <div className='grid__cell bid__created'>
-                    <p><a href='#'>Test User</a></p>
+                    <p><a href={'/#' + routes.user_view + '/' + model.CreatedById}>
+                            {model.Bidder}
+                    </a></p>
+
                     {createdDateTime}
                 </div>
 

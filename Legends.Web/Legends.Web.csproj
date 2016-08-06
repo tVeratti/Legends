@@ -294,6 +294,7 @@
     <Content Include="Scripts\Components\Common\_Field.jsx" />
     <Content Include="Scripts\Components\Common\_Navigation.jsx" />
     <Content Include="Scripts\Components\App.jsx" />
+    <Content Include="Scripts\Components\Profile\Profile_View.jsx" />
     <Content Include="Scripts\Components\Work\Contract_View.jsx" />
     <Content Include="Scripts\Components\Work\Work.jsx" />
     <Content Include="Scripts\Components\Work\Work_Browse.jsx" />
@@ -372,6 +373,7 @@
     <None Include="Properties\PublishProfiles\legendsforhire.verspyre.com - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\legendsforhire.verspyre.com - Web Deploy %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\legendsforhire.verspyre.com - Web Deploy %284%29.pubxml" />
+    <None Include="Properties\PublishProfiles\legendsforhire.verspyre.com - Web Deploy %285%29.pubxml" />
     <None Include="Properties\PublishProfiles\legendsforhire.verspyre.com - Web Deploy.pubxml" />
     <Content Include="Styles\_fonts.scss" />
     <Content Include="Styles\Components\_field.scss" />

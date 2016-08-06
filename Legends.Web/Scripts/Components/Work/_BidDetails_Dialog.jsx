@@ -21,6 +21,7 @@ class _BidDetails_Dialog extends React.Component {
         return (
             <_Dialog title='Bid Details' buttons={buttons}>
                 <p className='bid__tier'>{model.Tier}</p>
+                <p className='bid__description'>{model.Description}</p>
             </_Dialog>
         );  
     }
