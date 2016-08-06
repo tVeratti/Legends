@@ -95,6 +95,7 @@ function WorkStore(){
 
 	// --------------------------------
 	self.createBid = function(model){
+		model.ContractId = self.contractId;
 		return $.ajax({
 			url: _api.createBid,
 			type: 'POST',

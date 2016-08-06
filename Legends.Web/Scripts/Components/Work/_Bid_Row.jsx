@@ -20,7 +20,7 @@ class _Bid_Row extends React.Component {
             <p>My offer</p> : undefined;
 
         return (
-            <div className='grid__row bid'>
+            <div key={model.Id} className='grid__row bid'>
                 {/* Checkbox */}
                 <div className='grid__cell grid__cell--checkbox'>
                     <_Checkbox id={model.Id} />

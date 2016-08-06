@@ -64,6 +64,11 @@ class _BidForm_Dialog extends React.Component {
     }
 
     // --------------------------------
+    componentWillMount(){
+        formStore.reset();
+    }
+
+    // --------------------------------
     componentWillUnmount(){
         formStore.reset();
     }
@@ -92,7 +97,6 @@ class _BidForm_Dialog extends React.Component {
     submit = (event) => {
         if (formStore.isValid()){
             var bidModel = formStore.activeForm.fields;
-            bidModel.ContractId = this.props.contractId;
             workStore.createBid(bidModel);
             this.props.close();
         } else {
