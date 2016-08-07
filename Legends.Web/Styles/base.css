@@ -112,11 +112,16 @@ a:link, a:visited, a:active {
     content: "\f00d"; }
 
 .no-results {
-  margin: 0 20px;
   padding: 20px;
   text-align: center;
   color: #8f9a9a;
   background: #1e2020; }
+
+.separator {
+  display: block;
+  visibility: hidden; }
+  .separator.small {
+    height: 20px; }
 
 ::-webkit-scrollbar {
   width: 10px; }
@@ -511,7 +516,6 @@ a:link, a:visited, a:active {
   display: table;
   width: 100%;
   border-collapse: collapse;
-  border: 1px solid #90835c;
   border-width: 1px 0;
   text-align: left; }
   .grid .grid__row {
@@ -533,18 +537,19 @@ a:link, a:visited, a:active {
       .grid .grid__row .grid__cell.grid__cell--checkbox {
         width: 1%;
         padding: 0;
-        background-color: rgba(0, 0, 0, 0.2);
         vertical-align: middle; }
 
-.filters .field__warning,
-.filters .field__info {
-  display: none; }
-
-.filters .filters__field {
-  display: block;
-  font-size: 12px; }
-  .filters .filters__field:first-child .field {
-    padding-top: 0; }
+.filters {
+  background: #1e2020;
+  padding: 10px; }
+  .filters .field__warning,
+  .filters .field__info {
+    display: none; }
+  .filters .filters__field {
+    display: block;
+    font-size: 12px; }
+    .filters .filters__field:first-child .field {
+      padding-top: 0; }
 
 .field {
   display: block;
@@ -621,7 +626,7 @@ a:link, a:visited, a:active {
       font-family: FontAwesome;
       content: "\f096";
       text-align: center;
-      color: #209ab0; }
+      color: #90835c; }
     .checkbox .checkbox__label:hover:before {
       color: white; }
 
@@ -706,7 +711,7 @@ button:focus, a:focus, input:focus, textarea:focus {
 
 .view {
   width: 100%;
-  padding: 20px;
+  padding: 40px;
   max-width: 1200px;
   margin: auto;
   text-align: left;
@@ -877,13 +882,11 @@ button:focus, a:focus, input:focus, textarea:focus {
   .bid-grid .bid-grid__filters {
     vertical-align: top; }
   .bid-grid .bid-grid__filters {
-    padding: 10px;
-    background: #1e2020;
-    border: 0 solid #90835c;
-    border-top-width: 1px; }
+    padding-bottom: 10px; }
   .bid-grid .bid-grid__actions {
-    background-color: rgba(0, 0, 0, 0.2);
-    height: 30px; }
+    background-color: #1e2020;
+    height: 30px;
+    margin-bottom: 10px; }
     .bid-grid .bid-grid__actions .button {
       margin: 10px; }
   .bid-grid .grid__row {
@@ -898,7 +901,7 @@ button:focus, a:focus, input:focus, textarea:focus {
       color: white !important; }
   .bid-grid .bid__tier {
     margin-bottom: 5px;
-    border-bottom: 1px dotted rgba(255, 255, 255, 0.2);
+    border-bottom: 1px dotted rgba(255, 255, 255, 0.1);
     font-size: 18px;
     font-weight: bold;
     color: #90835c;
@@ -928,6 +931,8 @@ button:focus, a:focus, input:focus, textarea:focus {
       .bid-grid .bid-grid__grid {
         display: table-cell; }
       .bid-grid .bid-grid__filters {
-        width: 175px;
-        border-bottom-width: 1px; } }
+        width: 200px;
+        border-bottom-width: 1px;
+        padding-right: 10px;
+        padding-bottom: 0; } }
 

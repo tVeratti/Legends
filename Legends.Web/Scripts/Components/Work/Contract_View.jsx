@@ -35,8 +35,13 @@ class Contract_View extends React.Component {
                 {/* Details */}
                 <div className='contract-view__details'>
                     <p>{model.Description}</p>
+                    <div className='separator small' />
+
                     <p>Created {createdDateTime}</p>
+                    <div className='separator small' />
+
                     <p>Time Left: {duration}</p>
+                    <div className='separator small' />
                 </div>
 
                 {/* Parent */}
@@ -88,7 +93,7 @@ class Contract_View extends React.Component {
     renderDialog(){
         switch(true){
             case this.state.showBidForm: 
-                return <_BidForm_Dialog close={this.closeDialog} contractId={this.state.model.Id} />; 
+                return <_BidForm_Dialog close={this.closeDialog} contract={this.state.model} />; 
             case this.state.showBidDetails: 
                 return <_BidDetails_Dialog close={this.closeDialog} bid={this.state.activeBid} />;
         }

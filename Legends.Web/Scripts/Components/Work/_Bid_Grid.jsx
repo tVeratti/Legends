@@ -34,6 +34,7 @@ class _Bid_Grid extends React.Component {
 
                 {/* Bid Grid */}
                 <div className='bid-grid__grid'>
+                    <div className='bid-grid__actions' />
                     {grid}
                 </div>
             </div>

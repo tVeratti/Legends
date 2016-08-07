@@ -16,7 +16,7 @@ class _BidForm_Dialog extends React.Component {
         ];
 
         var initialForm = formStore.getForm();
-        this.state = { };
+        this.state = { TierId: props.contract.TierId  };
     }
 
     // --------------------------------
@@ -37,6 +37,7 @@ class _BidForm_Dialog extends React.Component {
                 <_Field name='TierId'
                     label='I am'
                     info='What skill tier are you?'
+                    value={this.state.TierId}
                     onChange={this.changeTier}
                     options={lookups.Tiers} />
 
@@ -61,11 +62,6 @@ class _BidForm_Dialog extends React.Component {
 
             </_Dialog>
         );  
-    }
-
-    // --------------------------------
-    componentWillMount(){
-        formStore.reset();
     }
 
     // --------------------------------

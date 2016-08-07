@@ -54,11 +54,18 @@ a {
 }
 
 .no-results{
-    margin: 0 20px;
     padding: 20px;
     text-align: center;
     color: $color-base-bg-lighter;
     background: $color-base-bg-panel;
+}
+
+.separator{
+    display: block;
+    visibility:hidden;
+    &.small{
+        height: 20px;
+    }
 }
 
 ::-webkit-scrollbar { width: 10px; }

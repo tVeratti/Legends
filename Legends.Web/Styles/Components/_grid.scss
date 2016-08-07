@@ -1,4 +1,5 @@
 ﻿@import '../_colors.scss';
+@import '../mixins';
 
 $row-color-bg-hover: $color-primary-dark;
 $row-color-bg-zebra: $color-base-bg-panel;
@@ -8,11 +9,9 @@ $border-color: $color-highlight;
 // Grid Body
 // ----------------------------
 .grid {
-    //border: 1px solid $border-color;
     display: table;
     width: 100%;
     border-collapse: collapse;
-    border: 1px solid $color-highlight;
     border-width: 1px 0;
     text-align: left;
 
@@ -43,7 +42,6 @@ $border-color: $color-highlight;
             &.grid__cell--checkbox {
                 width: 1%;
                 padding: 0;
-                background-color: rgba(black, .2);
                 vertical-align: middle;
             }
         }
@@ -53,6 +51,8 @@ $border-color: $color-highlight;
 // Filters
 // ----------------------------
 .filters{
+    background: $color-base-bg-panel;
+    padding: 10px;
 
     .field__warning,
     .field__info{
