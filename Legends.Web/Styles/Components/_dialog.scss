@@ -43,14 +43,14 @@ $bg-mix: mix($color-base-bg-light, $color-base-bg-panel, 30%);
     .dialog__title{
         background: $bg-mix;
         font-size: 24px;
-        border-bottom: 1px solid $color-base-bg-light;
+        //border-bottom: 1px solid $color-base-bg-light;
         border-radius: 10px 10px 0 0;
     }
 
     .dialog__buttons{
         background: $bg-mix;
         text-align: right;
-        border-top: 1px solid $color-base-bg-light;
+        //border-top: 1px solid $color-base-bg-light;
         border-radius: 0 0 10px 10px;
     }
 }

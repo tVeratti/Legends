@@ -111,12 +111,6 @@ a:link, a:visited, a:active {
     font-family: FontAwesome;
     content: "\f00d"; }
 
-.no-results {
-  padding: 20px;
-  text-align: center;
-  color: #8f9a9a;
-  background: #1e2020; }
-
 .separator {
   display: block;
   visibility: hidden; }
@@ -551,6 +545,12 @@ a:link, a:visited, a:active {
     .filters .filters__field:first-child .field {
       padding-top: 0; }
 
+.no-results {
+  padding: 20px;
+  text-align: center;
+  color: #8f9a9a;
+  background: #1e2020; }
+
 .field {
   display: block;
   max-width: 100%;
@@ -755,13 +755,11 @@ button:focus, a:focus, input:focus, textarea:focus {
 .dialog .dialog__title {
   background: #2d3131;
   font-size: 24px;
-  border-bottom: 1px solid #515959;
   border-radius: 10px 10px 0 0; }
 
 .dialog .dialog__buttons {
   background: #2d3131;
   text-align: right;
-  border-top: 1px solid #515959;
   border-radius: 0 0 10px 10px; }
 
 .home {
