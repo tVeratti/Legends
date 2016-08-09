@@ -53,11 +53,12 @@ namespace Legends.Data.Services
             var spr_name = "[Legends].[Ins_Bid]";
             var spr_prms = new
             {
-                BidId = Model.Id,
+                ContractId = Model.ContractId,
                 TierId = Model.TierId,
                 Offer = Model.Offer,
                 Description = Model.Description,
-                Quantity = Model.Quantity
+                Quantity = Model.Quantity,
+                CreatedById = Model.CreatedById
             };
             return _cnx.Query<Bid>(spr_name, spr_prms, commandType: CommandType.StoredProcedure);
         }

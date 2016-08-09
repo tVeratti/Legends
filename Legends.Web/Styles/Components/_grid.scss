@@ -51,7 +51,6 @@ $border-color: $color-highlight;
 // Filters
 // ----------------------------
 .filters{
-    background: $color-base-bg-panel;
     padding: 10px;
 
     .field__warning,
@@ -61,7 +60,8 @@ $border-color: $color-highlight;
 
     .filters__field{
         display: block;
-        font-size: 12px;
+        font-size: 14px;
+        font-weight: normal;
         &:first-child .field{
             padding-top: 0;
         }

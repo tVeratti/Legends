@@ -62,10 +62,14 @@ $icon-below-2: "\f103";
     }
 
     .bid-grid__actions{
-        background-color: $color-base-bg-panel;
-        height: 30px;
+        //background-color: $color-primary-darker;
+        //padding: 5px;
+        //height: 30px;
         margin-bottom: 10px;
-        .button { margin: 10px; }
+        .button + .button {
+            margin-left: 10px;
+        }
+        
     }
 
     .grid__row {
@@ -129,8 +133,12 @@ $icon-below-2: "\f103";
         .bid-grid__filters{ 
             width: 200px; 
             border-bottom-width: 1px;
-            padding-right: 10px;
             padding-bottom: 0;
+            background: $color-base-bg-panel;
+        }
+
+        .bid-grid__grid{
+            padding-left: 10px;
         }
     }
 }

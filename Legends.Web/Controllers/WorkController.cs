@@ -46,6 +46,7 @@ namespace Legends.Web.Controllers
         [HttpPost]
         public JsonResult Create(Work Model, IEnumerable<Contract> Contracts)
         {
+            Model.CreatedById = 1;
             Model.Contracts = Contracts;
             var result = _context.Work.Create(Model);
 
@@ -55,6 +56,7 @@ namespace Legends.Web.Controllers
         [HttpPost]
         public JsonResult CreateBid(Bid Model)
         {
+            Model.CreatedById = 1;
             var result = _context.Bids.Create(Model);
             return Json(result, JsonRequestBehavior.AllowGet);
         }

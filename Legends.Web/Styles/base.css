@@ -534,14 +534,14 @@ a:link, a:visited, a:active {
         vertical-align: middle; }
 
 .filters {
-  background: #1e2020;
   padding: 10px; }
   .filters .field__warning,
   .filters .field__info {
     display: none; }
   .filters .filters__field {
     display: block;
-    font-size: 12px; }
+    font-size: 14px;
+    font-weight: normal; }
     .filters .filters__field:first-child .field {
       padding-top: 0; }
 
@@ -645,13 +645,27 @@ a:link, a:visited, a:active {
   color: #90835c;
   background-color: #581010;
   border: 1px solid #841818;
-  border-radius: 10px;
+  border-radius: 3px;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.75);
   transition: all 0.2s ease-in-out; }
+  .button.button--simple {
+    font-size: 16px;
+    font-family: "Arima Madurai", cursive;
+    padding: 5px 10px;
+    /*background-color: $color-base-bg-panel;
+        border-color: $color-base-bg-light;
+        color: rgba(white, .5);*/ }
   .button:hover {
     color: white;
     border-color: #b02020;
     background-color: #841818; }
+  .button.button--disabled {
+    background-color: #1e2020;
+    border-color: #1e2020;
+    color: #515959;
+    box-shadow: none;
+    text-shadow: none;
+    cursor: default; }
   .button .button__subtitle {
     font-family: "Arima Madurai", cursive;
     font-size: 12px;
@@ -769,12 +783,12 @@ button:focus, a:focus, input:focus, textarea:focus {
   padding: 20px;
   text-align: center;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.75); }
-  .quote .quote_text {
+  .quote .quote__text {
     max-width: 450px;
     margin: auto;
     font-family: "Cinzel Decorative", cursive;
     font-style: italic;
-    font-size: 28px;
+    font-size: 22px;
     margin-bottom: 5px; }
   .quote .quote__author {
     font-size: 10px;
@@ -882,11 +896,9 @@ button:focus, a:focus, input:focus, textarea:focus {
   .bid-grid .bid-grid__filters {
     padding-bottom: 10px; }
   .bid-grid .bid-grid__actions {
-    background-color: #1e2020;
-    height: 30px;
     margin-bottom: 10px; }
-    .bid-grid .bid-grid__actions .button {
-      margin: 10px; }
+    .bid-grid .bid-grid__actions .button + .button {
+      margin-left: 10px; }
   .bid-grid .grid__row {
     -moz-user-select: none;
     -ms-user-select: none;
@@ -931,6 +943,8 @@ button:focus, a:focus, input:focus, textarea:focus {
       .bid-grid .bid-grid__filters {
         width: 200px;
         border-bottom-width: 1px;
-        padding-right: 10px;
-        padding-bottom: 0; } }
+        padding-bottom: 0;
+        background: #1e2020; }
+      .bid-grid .bid-grid__grid {
+        padding-left: 10px; } }
 

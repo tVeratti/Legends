@@ -19,9 +19,7 @@ class Contract_View extends React.Component {
     render() {
         var model = this.state.model;
         var duration = this.getRemainingDuration();
-
         var createdDateTime = userStore.getLocalTime(model.CreatedDateTime);
-
         var dialogNode = this.renderDialog();
 
         return (
@@ -31,6 +29,8 @@ class Contract_View extends React.Component {
                 <div className='contract-view__summary'>
                     <_Contract_Summary model={model} modifier='--header' />
                 </div>
+
+                <div className='separator small' />
 
                 {/* Details */}
                 <div className='contract-view__details'>
@@ -61,11 +61,6 @@ class Contract_View extends React.Component {
                         <_Bid_Grid contract={model} />
                     </div>
                 </div>
-                
-                {/* Buttons */}
-                <div className='buttons'>
-                    <button className='button' onClick={this.openBidForm}>Bid</button>
-                </div>
 
                 {/* Dialog Bid Form */}
                 {dialogNode}
@@ -85,8 +80,9 @@ class Contract_View extends React.Component {
         // Update the page every minute (mainly for timers).
         setInterval(() => { this.forceUpdate(); }, 60000);
 
-        workStore.contractId = contractId;
+        workStore.ContractId = contractId;
         workStore.openBidDetails = this.openBidDetails;
+        workStore.openBidForm = this.openBidForm;
     }
 
     // --------------------------------

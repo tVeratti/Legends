@@ -7,16 +7,18 @@ class _Bid_Grid extends React.Component {
 	// --------------------------------
     constructor(props, context) {
         super(props, context);
+        this.defaultFilters = {
+            Filter: null,
+            MinimumTier: 1,
+            MaximumTier: 8,
+            Statuses: [],
+            SortBy: 'CreatedDateTime',
+            SortOrder: 1
+        };
+
         this.state = { 
             bids: [],
-            filters: {
-                Filter: null,
-                MinimumTier: 1,
-                MaximumTier: 8,
-                Statuses: [],
-                SortBy: 'CreatedDateTime',
-                SortOrder: 1
-            }
+            filters: this.defaultFilters
         };
     }
 
@@ -34,7 +36,11 @@ class _Bid_Grid extends React.Component {
 
                 {/* Bid Grid */}
                 <div className='bid-grid__grid'>
-                    <div className='bid-grid__actions' />
+                    <div className='bid-grid__actions'>
+                        <button className='button button--simple button--disabled'>Accept</button>
+                        <button className='button button--simple button--disabled'>Reject</button>
+                        <button className='button button--simple' onClick={workStore.openBidForm}>Create Bid</button>
+                    </div>
                     {grid}
                 </div>
             </div>
@@ -44,7 +50,10 @@ class _Bid_Grid extends React.Component {
     // --------------------------------
     componentWillMount(){
         // Subscribe to any events that update the contracts list.
-        this.token = PubSub.subscribe(workStore.events.bids, this.update);
+        this.tokens = [
+            PubSub.subscribe(workStore.events.bids, this.update),
+            PubSub.subscribe(workStore.events.resetGrid, this.update)
+        ];
 
         // Get an initial list of bids.
         workStore.readBids(this.state.filters);
@@ -52,7 +61,7 @@ class _Bid_Grid extends React.Component {
 
     // --------------------------------
     componentWillUnmount(){
-        PubSub.unsubscribe(this.token);
+        PubSub.unsubscribe(this.tokens);
     }
 
     // --------------------------------
@@ -65,6 +74,7 @@ class _Bid_Grid extends React.Component {
                 <div className='filters__field filters__field--filter'>
                     <_Field name='Filter' 
                         label='Search' 
+                        value={filters.Filter}
                         onChange={this.filterChange} />
                 </div>
 
@@ -110,7 +120,10 @@ class _Bid_Grid extends React.Component {
 
     // --------------------------------
     update = (message, bids) => {
-        this.setState({ bids });
+        var filters = message === workStore.events.resetGrid ?
+            this.defaultFilters : this.state.filters;
+
+        this.setState({ bids, filters });
     }
 
 }

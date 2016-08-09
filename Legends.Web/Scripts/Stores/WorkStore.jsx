@@ -22,7 +22,8 @@ function WorkStore(){
 		lookups: 		'lookups',
 		contracts: 		'contracts.get',
 		activate: 		'contracts.activate',
-		bids: 			'contracts.bids'
+		bids: 			'contracts.bids',
+		resetGrid: 		'grid.reset'
 	};
 	
 	self.lookups = {
@@ -53,7 +54,7 @@ function WorkStore(){
 
 	// --------------------------------
 	self.readBids = function(filters) {
-		filters.ContractId = self.contractId;
+		filters.ContractId = self.ContractId;
 		$.get(_api.readBids, filters).success(function(bids){
 			PubSub.publish(self.events.bids, bids);
 		});
@@ -102,7 +103,7 @@ function WorkStore(){
 			data: JSON.stringify({model}),
 			contentType: 'application/json; charset=utf-8',
 			success: function(bids){
-				PubSub.publish(self.events.bids, bids);
+				PubSub.publish(self.events.resetGrid, bids);
 			}
 		});
 	};
