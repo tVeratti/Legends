@@ -88,6 +88,9 @@ html, body {
   min-width: 100%;
   min-height: 100%; }
 
+body {
+  padding-top: 70px; }
+
 h1 {
   font-size: 42px; }
 
@@ -479,32 +482,82 @@ a:link, a:visited, a:active {
     -webkit-transform: rotate(1turn); } }
 
 .navigation {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   margin-bottom: 20px;
   height: 60px;
   border-bottom: 1px solid #111;
   background: #841818;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.75);
-  border-bottom: 1px solid #b02020; }
+  border-bottom: 1px solid #b02020;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
+  z-index: 1000; }
+  .navigation .navigation__wrapper {
+    position: relative;
+    height: 60px;
+    width: 100%; }
+  .navigation .navigation__title {
+    display: inline-block;
+    padding: 0 10px;
+    height: 40px;
+    line-height: 40px;
+    font-family: "Cinzel Decorative", cursive;
+    color: white;
+    font-size: 18px; }
+  .navigation .navigation__toggle {
+    display: none;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 10px;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.75);
+    cursor: pointer;
+    float: right; }
+    .navigation .navigation__toggle:before {
+      font-family: FontAwesome;
+      content: "\f0c9";
+      margin-right: 5px; }
+    .navigation .navigation__toggle:hover {
+      color: white; }
   .navigation .navigation__menu {
     position: absolute;
     display: block;
     bottom: 10px;
-    left: 0;
+    left: 0px;
     width: 100%;
     height: 40px;
     background-color: rgba(0, 0, 0, 0.2); }
+    .navigation .navigation__menu .navigation__links {
+      display: inline-block; }
     .navigation .navigation__menu .navigation__link {
       display: inline-block;
       height: 100%;
       padding: 0 15px;
       color: rgba(255, 255, 255, 0.75);
-      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
       text-decoration: none;
       vertical-align: middle;
-      line-height: 40px; }
+      line-height: 40px;
+      font-size: 14px;
+      font-weight: normal; }
       .navigation .navigation__menu .navigation__link:hover {
         color: white; }
+
+@media screen and (max-width: 490px) {
+  .navigation .navigation__menu .navigation__links {
+    display: none; }
+  .navigation .navigation__menu.navigation__menu--open .navigation__links {
+    display: block;
+    background: #581010;
+    border-bottom: 1px solid #841818; }
+  .navigation .navigation__menu .navigation__link {
+    display: block; }
+    .navigation .navigation__menu .navigation__link:hover {
+      background-color: #841818; }
+  .navigation .navigation__toggle {
+    display: inline-block; } }
 
 .grid {
   display: table;
