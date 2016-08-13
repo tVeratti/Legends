@@ -19,12 +19,10 @@ class _Bid_Row extends React.Component {
         var mineLabel = userStore.user.Id === model.CreatedById ?
             <p>My offer</p> : undefined;
 
+        var checkboxNode = this.renderCheckbox();
         return (
             <div key={model.Id} className='grid__row bid'>
-                {/* Checkbox */}
-                <div className='grid__cell grid__cell--checkbox'>
-                    <_Checkbox id={model.Id} />
-                </div>
+                {checkboxNode}
 
                 <div className='grid__cell grid__cell--full' onClick={this.openBidDetails}>
                     {/* Bid Tier */}
@@ -56,6 +54,19 @@ class _Bid_Row extends React.Component {
     }
 
     // --------------------------------
+    renderCheckbox(){
+        if (this.props.userOwnsContract){
+            // Render a checkbox that is used for owners to 
+            // select, reject/accept bids.
+            return (
+                <div className='grid__cell grid__cell--checkbox'>
+                    <_Checkbox id={this.props.Id} onChange={bidStore.selectBid} />
+                </div>
+            );
+        }
+    }
+
+    // --------------------------------
     getBidTierClassName(){
         var bidClassName = 'bid__tier', bidModifier = ' bid__tier--';
 
@@ -78,6 +89,7 @@ class _Bid_Row extends React.Component {
         return bidClassName + bidModifier;
     }
 
+    // --------------------------------
     openBidDetails = (event) => {
         var model = this.props;
         workStore.openBidDetails(model);

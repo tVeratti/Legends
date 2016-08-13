@@ -43,14 +43,13 @@
         background-color: $color-primary-dark;
     }
 
-    &.button--disabled{
+    &:disabled{
         background-color: $color-base-bg-panel;
         border-color: $color-base-bg-panel;
         color: $color-base-bg-light;
         box-shadow: none;
         text-shadow: none;
         cursor: default;
-        //border-radius: 0;
     }
 
     .button__subtitle{

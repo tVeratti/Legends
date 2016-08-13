@@ -7,6 +7,10 @@ class _Bid_Grid extends React.Component {
 	// --------------------------------
     constructor(props, context) {
         super(props, context);
+        // Determine if the current user is the owner of the contract.
+        // This is used to render ownerActions (Accept, Reject).
+        this.userOwnsContract = userStore.getUser().Id === props.contract.CreatedById;
+
         this.defaultFilters = {
             Filter: null,
             MinimumTier: 1,
@@ -18,6 +22,7 @@ class _Bid_Grid extends React.Component {
 
         this.state = { 
             bids: [],
+            selectedBids: [],
             filters: this.defaultFilters
         };
     }
@@ -26,6 +31,8 @@ class _Bid_Grid extends React.Component {
     render() {
         var filters = this.renderFilters();
         var grid = this.renderGrid();
+
+        var actionButtons = this.renderActions();
 
         return (
             <div className='bid-grid'>
@@ -36,11 +43,8 @@ class _Bid_Grid extends React.Component {
 
                 {/* Bid Grid */}
                 <div className='bid-grid__grid'>
-                    <div className='bid-grid__actions'>
-                        <button className='button button--simple button--disabled'>Accept</button>
-                        <button className='button button--simple button--disabled'>Reject</button>
-                        <button className='button button--simple' onClick={workStore.openBidForm}>Create Bid</button>
-                    </div>
+                    <div className='bid-grid__actions'>{actionButtons}</div>
+
                     {grid}
                 </div>
             </div>
@@ -51,12 +55,12 @@ class _Bid_Grid extends React.Component {
     componentWillMount(){
         // Subscribe to any events that update the contracts list.
         this.tokens = [
-            PubSub.subscribe(workStore.events.bids, this.update),
+            PubSub.subscribe(bidStore.events.bids, this.update),
             PubSub.subscribe(workStore.events.resetGrid, this.update)
         ];
 
         // Get an initial list of bids.
-        workStore.readBids(this.state.filters);
+        bidStore.read(this.state.filters);
     }
 
     // --------------------------------
@@ -102,28 +106,93 @@ class _Bid_Grid extends React.Component {
     // --------------------------------
     renderGrid(){
         var bids = this.state.bids || [];
-        var bidRowNodes = bids.map(bid => <_Bid_Row {...bid} contract={this.props.contract} />);
-        if (bidRowNodes.length) return <div className='grid'>{bidRowNodes}</div>;
-        else return <div className='no-results'>No Bid Results</div>;
+        var bidRowNodes = bids.map(bid => {
+            return (
+                <_Bid_Row {...bid} 
+                    contract={this.props.contract} 
+                    selectRow={this.selectRow}
+                    userOwnsContract={this.userOwnsContract} />
+            );
+        });
+
+        return (bidRowNodes.length) ?
+            <div className='grid'>{bidRowNodes}</div> :
+            <div className='no-results'>No Bid Results</div>;
+    }
+
+    // --------------------------------
+    renderActions(){
+        if (this.userOwnsContract){
+            // These are the actions available when the owner of the contract
+            // is viewing the bids (Accept, Reject).
+            var selectedRowCount = this.state.selectedBids.length;
+            var acceptDisabled = selectedRowCount !== 1;
+            var rejectDisabled = selectedRowCount < 1;
+            return ([
+                <button className='button button--simple' disabled={acceptDisabled}>Accept</button>,
+                <button className='button button--simple' disabled={rejectDisabled}>Reject</button>
+            ]);
+
+        } else {
+            // As a user that does not own the contract, this is the action available.
+            return <button className='button button--simple' onClick={workStore.openBidForm}>Create Bid</button>;
+        }
     }
 
     // --------------------------------
     filterChange = (value, fieldName) =>{
+        // The _Field component will return a model for
+        // the Select onChange, and since this function is used
+        // for both Select and text input, check which type
+        // of data is being reported and reduce down to the Id
+        // for models (Select).
         if (typeof value === 'object') value = value.Id;
 
         var {...filters} = this.state.filters;
         filters[fieldName] = value;
         this.setState({ filters });
 
-        workStore.readBids(filters);
+        bids.read(filters);
     }
 
     // --------------------------------
     update = (message, bids) => {
         var filters = message === workStore.events.resetGrid ?
-            this.defaultFilters : this.state.filters;
+            this.defaultFilters:
+            this.state.filters;
 
         this.setState({ bids, filters });
+    }
+
+    // --------------------------------
+    selectRow = (event) => {
+        var selectedBids = this.state.selectedBids;
+        var selectedId = +event.target.id;
+        var checked = event.target.checked;
+
+        if (checked){
+            // Add the Bid Id to the state's Id array.
+            selectedBids.push(selectedId);
+        } else {
+            // Remove the Id from the state's Id array.
+            var existingIndex = selectedBids.indexOf(selectedId);
+            if (existingIndex > -1){
+                selectedBids.slice(existingIndex, 1);
+            }
+        }
+
+        bidStore.selectedBids = selectedBids;
+        this.setState({ selectedBids });
+    }
+
+    // --------------------------------
+    accept = () => {
+
+    }
+
+    // --------------------------------
+    reject = () => {
+        
     }
 
 }

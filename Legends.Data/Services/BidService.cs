@@ -39,13 +39,7 @@ namespace Legends.Data.Services
                 SortOrder = filters.SortOrder
             };
 
-            using (var multi = _cnx.QueryMultiple(spr_name, spr_prms, commandType: CommandType.StoredProcedure))
-            {
-                // Read datasets
-                var bids = multi.Read<Bid>();
-
-                return bids;
-            }
+            return _cnx.Query<Bid>(spr_name, spr_prms, commandType: CommandType.StoredProcedure);
         }
 
         public IEnumerable<Bid> Create(Bid Model)
@@ -63,9 +57,22 @@ namespace Legends.Data.Services
             return _cnx.Query<Bid>(spr_name, spr_prms, commandType: CommandType.StoredProcedure);
         }
 
-        public Bid Update(Bid Model)
+        public IEnumerable<Bid> Update(Bid Model, long UserId)
         {
-            throw new NotImplementedException();
+            var bidList = new List<Bid>() { Model };
+            return Update(bidList, UserId);
+        }
+
+        public IEnumerable<Bid> Update(IEnumerable<Bid> Models, long UserId)
+        {
+            var spr_name = "[Legends].[Upd_Bid]";
+            var spr_prms = new
+            {
+                Bids = Models.ToDataTable(),
+                UserId = UserId
+            };
+
+            return _cnx.Query<Bid>(spr_name, spr_prms, commandType: CommandType.StoredProcedure);
         }
 
         public void Delete(long Id)

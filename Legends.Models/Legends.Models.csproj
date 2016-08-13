@@ -46,6 +46,7 @@
     <Compile Include="Filters\BidFilter.cs" />
     <Compile Include="Lookup.cs" />
     <Compile Include="Duration.cs" />
+    <Compile Include="Status.cs" />
     <Compile Include="Tier.cs" />
     <Compile Include="Skill.cs" />
     <Compile Include="Contract.cs" />

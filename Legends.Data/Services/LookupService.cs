@@ -21,14 +21,9 @@ namespace Legends.Data.Services
             _cnx = connection;
         }
 
-        public Work Create(Work Model)
+        public Lookups Read()
         {
-            throw new NotImplementedException();
-        }
-
-        public Lookup_Skills Skills()
-        {
-            var spr_name = "[Legends].[Sel_Lookups_Skills]";
+            var spr_name = "[Legends].[Sel_Lookups]";
             using (var multi = _cnx.QueryMultiple(spr_name, commandType: CommandType.StoredProcedure))
             {
                 // Read datasets
@@ -36,16 +31,18 @@ namespace Legends.Data.Services
                 var categories = multi.Read<Category>().ToList();
                 var skills = multi.Read<Skill>();
                 var durations = multi.Read<Duration>();
+                var statuses = multi.Read<Status>();
 
                 // Nest Skills within their Category parents.
                 categories.ForEach(c => c.Skills = skills.Where(s => s.CategoryId == c.Id));
 
-                return new Lookup_Skills()
+                return new Lookups()
                 {
                     Tiers = tiers,
                     Categories = categories,
                     Skills = skills,
-                    Durations = durations
+                    Durations = durations,
+                    Statuses = statuses
                 };
             }
         }

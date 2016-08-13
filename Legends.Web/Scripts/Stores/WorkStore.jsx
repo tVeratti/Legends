@@ -6,12 +6,10 @@ function WorkStore(){
 
 	var _api = {
 		read: 			'/Work/Read',
-		readBids: 		'/Work/ReadBids',
 		find: 			'/Work/Find',
 		create: 		'/Work/Create',
-		createBid: 		'/Work/CreateBid',
-		getLookups: 	'/Work/Lookup_Skills',
-		findContract: 	'/Work/FindContract'
+		getLookups: 	'/Lookups/Read',
+		findContract: 	'/Work/Contract'
 	};
 	
 	var _keys = {
@@ -22,7 +20,6 @@ function WorkStore(){
 		lookups: 		'lookups',
 		contracts: 		'contracts.get',
 		activate: 		'contracts.activate',
-		bids: 			'contracts.bids',
 		resetGrid: 		'grid.reset'
 	};
 	
@@ -30,7 +27,8 @@ function WorkStore(){
 		Categories: [],
 		Skills: [],
 		Tiers: [],
-		Durations: []
+		Durations: [],
+		Statuses: []
 	};
 
 	// --------------------------------
@@ -49,14 +47,6 @@ function WorkStore(){
 	self.read = function() {
 		$.get(_api.read).success(function(contracts){
 			PubSub.publish(self.events.contracts, contracts);
-		});
-	};
-
-	// --------------------------------
-	self.readBids = function(filters) {
-		filters.ContractId = self.ContractId;
-		$.get(_api.readBids, filters).success(function(bids){
-			PubSub.publish(self.events.bids, bids);
 		});
 	};
 
@@ -90,20 +80,6 @@ function WorkStore(){
 			contentType: 'application/json; charset=utf-8',
 			success: function (result) {
 				window.location = '/';
-			}
-		});
-	};
-
-	// --------------------------------
-	self.createBid = function(model){
-		model.ContractId = self.ContractId;
-		return $.ajax({
-			url: _api.createBid,
-			type: 'POST',
-			data: JSON.stringify({model}),
-			contentType: 'application/json; charset=utf-8',
-			success: function(bids){
-				PubSub.publish(self.events.resetGrid, bids);
 			}
 		});
 	};

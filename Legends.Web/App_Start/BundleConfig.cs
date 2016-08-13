@@ -33,6 +33,8 @@ namespace Legends.Web
                 "~/Scripts/Components/Work/*.jsx",
                 "~/Scripts/Components/Profile/*.jsx",
                 "~/Scripts/Components/*.jsx"));
+
+            BundleTable.EnableOptimizations = true;
         }
     }
 }

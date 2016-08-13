@@ -23,13 +23,6 @@ namespace Legends.Web.Controllers
         }
 
         [HttpGet]
-        public JsonResult ReadBids(BidFilter filters)
-        {
-            var results = _context.Bids.Read(filters);
-            return Json(results, JsonRequestBehavior.AllowGet);
-        }
-
-        [HttpGet]
         public JsonResult Find(long Id)
         {
             var result = _context.Work.Read(Id);
@@ -37,7 +30,7 @@ namespace Legends.Web.Controllers
         }
 
         [HttpGet, OutputCache(Duration = 60 * 60)]
-        public JsonResult FindContract(long Id)
+        public JsonResult Contract(long Id)
         {
             var result = _context.Contracts.Read(Id);
             return Json(result, JsonRequestBehavior.AllowGet);
@@ -50,22 +43,6 @@ namespace Legends.Web.Controllers
             Model.Contracts = Contracts;
             var result = _context.Work.Create(Model);
 
-            return Json(result, JsonRequestBehavior.AllowGet);
-        }
-
-        [HttpPost]
-        public JsonResult CreateBid(Bid Model)
-        {
-            Model.CreatedById = 1;
-            var result = _context.Bids.Create(Model);
-            return Json(result, JsonRequestBehavior.AllowGet);
-        }
-
-        [HttpGet]
-        [OutputCache(Duration = 60 * 60 * 24)]
-        public JsonResult Lookup_Skills()
-        {
-            var result = _context.Lookups.Skills();
             return Json(result, JsonRequestBehavior.AllowGet);
         }
     }

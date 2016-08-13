@@ -712,7 +712,7 @@ a:link, a:visited, a:active {
     color: white;
     border-color: #b02020;
     background-color: #841818; }
-  .button.button--disabled {
+  .button:disabled {
     background-color: #1e2020;
     border-color: #1e2020;
     color: #515959;

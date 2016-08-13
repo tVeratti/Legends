@@ -251,7 +251,9 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
+    <Compile Include="Controllers\BidsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LookupsController.cs" />
     <Compile Include="Controllers\WorkController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -315,6 +317,7 @@
     <Content Include="Scripts\Components\Work\_Contract_Row.jsx" />
     <Content Include="Scripts\Stores\UserStore.jsx" />
     <Content Include="Scripts\Stores\FormStore.jsx" />
+    <Content Include="Scripts\Stores\BidStore.jsx" />
     <Content Include="Scripts\Stores\WorkStore.jsx" />
     <Content Include="Scripts\Vendor\classnames.js" />
     <Content Include="Scripts\Vendor\history-2.1.1.js" />
@@ -349,6 +352,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Lookup\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

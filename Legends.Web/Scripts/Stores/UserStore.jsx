@@ -7,9 +7,15 @@
 	}
 
 	// --------------------------------
+	getUser(user){
+		return this.user;
+	}
+
+	// --------------------------------
 	setUser(user){
 		this.user = user;
 	}
+
 
 	// --------------------------------
 	getLocalTime(dateTime, format){
