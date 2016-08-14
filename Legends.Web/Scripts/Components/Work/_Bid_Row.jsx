@@ -20,8 +20,10 @@ class _Bid_Row extends React.Component {
             <p>My offer</p> : undefined;
 
         var checkboxNode = this.renderCheckbox();
+
+        var rowClassName = `grid__row bid bid--${this.props.Status.toLowerCase()}`;
         return (
-            <div key={model.Id} className='grid__row bid'>
+            <div key={model.Id} className={rowClassName}>
                 {checkboxNode}
 
                 <div className='grid__cell grid__cell--full' onClick={this.openBidDetails}>
@@ -42,9 +44,11 @@ class _Bid_Row extends React.Component {
 
                 {/* Created By / Time */}
                 <div className='grid__cell bid__created'>
-                    <p><a href={'/#' + routes.user_view + '/' + model.CreatedById}>
+                    <p>
+                        <a href={'/#' + routes.user_view + '/' + model.CreatedById}>
                             {model.Bidder}
-                    </a></p>
+                        </a>
+                    </p>
 
                     {createdDateTime}
                 </div>
@@ -55,7 +59,9 @@ class _Bid_Row extends React.Component {
 
     // --------------------------------
     renderCheckbox(){
-        if (this.props.userOwnsContract){
+        var userOwnsBid = this.props.CreatedById === userStore.getUser().Id;
+        if (this.props.userOwnsContract || 
+            (userOwnsBid)){
             // Render a checkbox that is used for owners to 
             // select, reject/accept bids.
             return (

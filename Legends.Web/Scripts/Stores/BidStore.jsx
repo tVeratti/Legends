@@ -6,7 +6,7 @@ function BidStore(){
 	var _api = {
 		read: 		'/Bids/Read',
 		create: 	'/Bids/Create',
-		update: 	'/Bids/Update'
+		status: 	'/Bids/UpdateStatus'
 	};
 
 	self.events = {
@@ -38,36 +38,21 @@ function BidStore(){
 	};
 
 	// --------------------------------
-	self.update = function(model){
+	self.updateStatus = function(ids, status){
+		var params = {
+			Ids: ids,
+			StatusId: getStatusId(status)
+		};
+
 		return $.ajax({
-			url: _api.update,
+			url: _api.status,
 			type: 'POST',
-			data: JSON.stringify({model}),
+			data: JSON.stringify(params),
 			contentType: 'application/json; charset=utf-8',
 			success: function(bids){
 				PubSub.publish(self.events.bids, bids);
 			}
 		});
-	}
-
-	// --------------------------------
-	// Only one Bid can be accepted at a time.
-	self.accept = function(model) {
-		model.StatusId = getStatusId('ACCEPTED');
-		self.update(model);
-	};
-
-	// --------------------------------
-	// Multiple bids can be rejected at a time.
-	self.reject = function(bids) {
-		bids.forEach(b => b.StatusId = getStatusId('REJECTED'));;
-		self.update(bids);
-	};
-
-	// --------------------------------
-	self.cancel = function(model) {
-		model.StatusId = getStatusId('CANCELED');
-		self.update(model);
 	};
 
 	// -------------------------------- 

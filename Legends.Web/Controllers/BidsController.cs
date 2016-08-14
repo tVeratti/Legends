@@ -31,16 +31,9 @@ namespace Legends.Web.Controllers
         }
 
         [HttpPost]
-        public JsonResult Update(Bid Model)
+        public JsonResult UpdateStatus(IEnumerable<long> Ids, int StatusId)
         {
-            var result = _context.Bids.Update(Model, 1);
-            return Json(result, JsonRequestBehavior.AllowGet);
-        }
-
-        [HttpPost]
-        public JsonResult Update(IEnumerable<Bid> Model)
-        {
-            var result = _context.Bids.Update(Model, 1);
+            var result = _context.Bids.UpdateStatus(Ids, StatusId, 1);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
     }

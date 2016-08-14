@@ -19,7 +19,7 @@ $height-menu: 40px;
     box-shadow: $box-shadow-light;
     border-bottom: 1px solid $color-primary;
     text-shadow: $text-shadow-heavy;
-    z-index: 1000;
+    z-index: 500;
 
     .navigation__wrapper{
         position: relative;

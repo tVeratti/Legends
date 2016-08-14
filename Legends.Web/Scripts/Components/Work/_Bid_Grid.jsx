@@ -7,10 +7,7 @@ class _Bid_Grid extends React.Component {
 	// --------------------------------
     constructor(props, context) {
         super(props, context);
-        // Determine if the current user is the owner of the contract.
-        // This is used to render ownerActions (Accept, Reject).
-        this.userOwnsContract = userStore.getUser().Id === props.contract.CreatedById;
-
+        
         this.defaultFilters = {
             Filter: null,
             MinimumTier: 1,
@@ -19,6 +16,8 @@ class _Bid_Grid extends React.Component {
             SortBy: 'CreatedDateTime',
             SortOrder: 1
         };
+
+        bidStore.selectBid = this.selectRow;
 
         this.state = { 
             bids: [],
@@ -29,9 +28,12 @@ class _Bid_Grid extends React.Component {
 
     // --------------------------------
     render() {
+        // Determine if the current user is the owner of the contract.
+        // This is used to render owner actions (Accept, Reject).
+        this.userOwnsContract = userStore.getUser().Id === this.props.contract.CreatedById;
+
         var filters = this.renderFilters();
         var grid = this.renderGrid();
-
         var actionButtons = this.renderActions();
 
         return (
@@ -122,20 +124,25 @@ class _Bid_Grid extends React.Component {
 
     // --------------------------------
     renderActions(){
-        if (this.userOwnsContract){
+        var selectedRowCount = this.state.selectedBids.length;
+        if (this.userOwnsContract && false){
             // These are the actions available when the owner of the contract
             // is viewing the bids (Accept, Reject).
-            var selectedRowCount = this.state.selectedBids.length;
             var acceptDisabled = selectedRowCount !== 1;
             var rejectDisabled = selectedRowCount < 1;
+
             return ([
-                <button className='button button--simple' disabled={acceptDisabled}>Accept</button>,
-                <button className='button button--simple' disabled={rejectDisabled}>Reject</button>
+                <button className='button button--simple' disabled={acceptDisabled} onClick={this.accept}>Accept</button>,
+                <button className='button button--simple' disabled={rejectDisabled} onClick={this.reject}>Reject</button>
             ]);
 
         } else {
             // As a user that does not own the contract, this is the action available.
-            return <button className='button button--simple' onClick={workStore.openBidForm}>Create Bid</button>;
+            var cancelDisabled = selectedRowCount < 1;
+            return ([
+                <button className='button button--simple' disabled={cancelDisabled} onClick={this.cancel}>Cancel Bid</button>,
+                <button className='button button--simple button--create-bid' onClick={workStore.openBidForm}>New Bid</button>
+            ]);
         }
     }
 
@@ -167,7 +174,7 @@ class _Bid_Grid extends React.Component {
     // --------------------------------
     selectRow = (event) => {
         var selectedBids = this.state.selectedBids;
-        var selectedId = +event.target.id;
+        var selectedId = event.target.id;
         var checked = event.target.checked;
 
         if (checked){
@@ -175,10 +182,8 @@ class _Bid_Grid extends React.Component {
             selectedBids.push(selectedId);
         } else {
             // Remove the Id from the state's Id array.
-            var existingIndex = selectedBids.indexOf(selectedId);
-            if (existingIndex > -1){
-                selectedBids.slice(existingIndex, 1);
-            }
+            selectedBids = selectedBids.filter(id => id !== selectedId);
+            
         }
 
         bidStore.selectedBids = selectedBids;
@@ -187,12 +192,17 @@ class _Bid_Grid extends React.Component {
 
     // --------------------------------
     accept = () => {
-
+        bidStore.updateStatus(this.state.selectedBids, 'ACCEPTED');
     }
 
     // --------------------------------
     reject = () => {
-        
+        bidStore.updateStatus(this.state.selectedBids, 'REJECTED');
+    }
+
+    // --------------------------------
+    cancel = () => {
+        bidStore.updateStatus(this.state.selectedBids, 'CANCELED');
     }
 
 }

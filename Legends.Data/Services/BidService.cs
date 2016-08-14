@@ -57,18 +57,13 @@ namespace Legends.Data.Services
             return _cnx.Query<Bid>(spr_name, spr_prms, commandType: CommandType.StoredProcedure);
         }
 
-        public IEnumerable<Bid> Update(Bid Model, long UserId)
+        public IEnumerable<Bid> UpdateStatus(IEnumerable<long> Ids, int StatusId, long UserId)
         {
-            var bidList = new List<Bid>() { Model };
-            return Update(bidList, UserId);
-        }
-
-        public IEnumerable<Bid> Update(IEnumerable<Bid> Models, long UserId)
-        {
-            var spr_name = "[Legends].[Upd_Bid]";
+            var spr_name = "[Legends].[Upd_Bids_Status]";
             var spr_prms = new
             {
-                Bids = Models.ToDataTable(),
+                Ids = Ids.ToDataTable_Value(),
+                StatusId = StatusId,
                 UserId = UserId
             };
 
