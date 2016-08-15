@@ -19,7 +19,7 @@ var routerNode = (
             <Route path={routes.work_browse} component={Work_Browse} />
             <Route path={routes.work_view + ':Id'} component={Work_View} />
 
-            <Route path={routes.contract_view + ':Id'} component={Contract_View} />
+            <Route path={routes.contract_view + ':Id'} component={Work_View_Contract} />
         </Route>
 
         <Route path='Profile' component={Profile}>

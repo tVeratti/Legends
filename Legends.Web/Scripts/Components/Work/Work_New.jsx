@@ -29,11 +29,11 @@ class Work_New extends React.Component {
             
                 {/* Tabs
                  ------------------------- */}
-                <Work_New_Tabs />
+                <Work_New__Tabs />
                 
                 {/* Contract(s)
                  ------------------------- */}
-                <Work_New_Contract key={formStore.activeForm.seed} />
+                <Work_New__Contract key={formStore.activeForm.seed} />
 
                 {/* Work Info
                  ------------------------- */}

@@ -1,19 +1,9 @@
 ﻿/*
     -----------------------------------
-    _Contract_Row
+    _Row_Contract
     -----------------------------------
-    props.Model:
-    - long          Id
-    - string        Description
-    - int           CategoryId
-    - int           SkillId
-    - int           TierId    
-    - long          CreatedById
-    - DateTime      CreatedDateTime
-    - string        CreatedByName
-    - Bid[]         Bids
 */
-class _Contract_Row extends React.Component {
+class _Row_Contract extends React.Component {
     // --------------------------------
     constructor(props, context) {
         super(props, context);

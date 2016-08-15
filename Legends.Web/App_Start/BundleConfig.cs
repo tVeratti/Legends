@@ -31,6 +31,8 @@ namespace Legends.Web
                 // Components
                 "~/Scripts/Components/Common/*.jsx",
                 "~/Scripts/Components/Work/*.jsx",
+                "~/Scripts/Components/Work/Dialogs/*.jsx",
+                "~/Scripts/Components/Work/Grids/*.jsx",
                 "~/Scripts/Components/Profile/*.jsx",
                 "~/Scripts/Components/*.jsx"));
 

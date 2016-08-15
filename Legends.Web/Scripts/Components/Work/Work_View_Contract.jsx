@@ -1,9 +1,9 @@
 /*
 	-----------------------------------
-	Contract_View
+	Work_View_Contract
 	-----------------------------------
 */
-class Contract_View extends React.Component {
+class Work_View_Contract extends React.Component {
 	// --------------------------------
     constructor(props, context) {
         super(props, context);
@@ -58,7 +58,7 @@ class Contract_View extends React.Component {
                     {/* Bids */}
                     <div className='contract-view__bids'>
                         <h3>Bids</h3>
-                        <_Bid_Grid contract={model} />
+                        <_Grid_Bids contract={model} />
                     </div>
                 </div>
 

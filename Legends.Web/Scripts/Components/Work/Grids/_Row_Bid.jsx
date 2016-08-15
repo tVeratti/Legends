@@ -1,9 +1,9 @@
 ﻿/*
     -----------------------------------
-    _Bid_Row
+    _Row_Bid
     -----------------------------------
 */
-class _Bid_Row extends React.Component {
+class _Row_Bid extends React.Component {
     // --------------------------------
     constructor(props, context) {
         super(props, context);

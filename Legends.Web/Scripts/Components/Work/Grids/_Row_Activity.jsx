@@ -1,9 +1,9 @@
 ﻿/*
     -----------------------------------
-    _Activity_Row
+    _Row_Activity
     -----------------------------------
 */
-class _Activity_Row extends React.Component {
+class _Row_Activity extends React.Component {
     // --------------------------------
     constructor(props, context) {
         super(props, context);

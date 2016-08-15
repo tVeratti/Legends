@@ -1,9 +1,9 @@
 /*
 	-----------------------------------
-	Work_New_Contract
+	Work_New__Contract
 	-----------------------------------
 */
-class Work_New_Contract extends React.Component {
+class Work_New__Contract extends React.Component {
 	// --------------------------------
     constructor(props, context) {
         super(props, context);

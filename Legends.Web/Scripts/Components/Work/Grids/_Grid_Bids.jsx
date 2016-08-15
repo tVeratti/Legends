@@ -1,9 +1,9 @@
 ﻿/*
 	-----------------------------------
-	_Bids
+	_Grid_Bids
 	-----------------------------------
 */
-class _Bid_Grid extends React.Component {
+class _Grid_Bids extends React.Component {
 	// --------------------------------
     constructor(props, context) {
         super(props, context);
@@ -110,7 +110,7 @@ class _Bid_Grid extends React.Component {
         var bids = this.state.bids || [];
         var bidRowNodes = bids.map(bid => {
             return (
-                <_Bid_Row {...bid} 
+                <_Row_Bid {...bid} 
                     contract={this.props.contract} 
                     selectRow={this.selectRow}
                     userOwnsContract={this.userOwnsContract} />

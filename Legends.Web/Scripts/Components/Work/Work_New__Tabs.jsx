@@ -1,6 +1,6 @@
 /*
 	-----------------------------------
-	Work_New_Tabs
+	Work_New__Tabs
 	-----------------------------------
 */
 class Work_New_Tabs extends React.Component {

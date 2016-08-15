@@ -20,7 +20,11 @@ namespace Legends.Web
                 // Components
                 .AddScript("~/Scripts/Components/App.jsx")
                 .AddScript("~/Scripts/Components/Common/*.jsx")
+
                 .AddScript("~/Scripts/Components/Work/*.jsx")
+                .AddScript("~/Scripts/Components/Work/Dialogs/*.jsx")
+                .AddScript("~/Scripts/Components/Work/Grids/*.jsx")
+
                 .AddScript("~/Scripts/Components/Profile/*.jsx");
         }
 	}
