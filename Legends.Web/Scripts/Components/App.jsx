@@ -35,7 +35,7 @@ class App extends React.Component {
 
         		<div className='contracts'>
                     {/* Popular Work Grid */}
-                    <_Contract_Grid />
+                    <_Grid_Contracts />
         		</div>
         	</div>
     	);

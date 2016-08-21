@@ -76,6 +76,16 @@ $icon-below-2: "\f103";
         
     }
 
+    .bid{
+        &.bid--accepted{
+            border:2px solid $color-highlight-dark;
+            .bid__status{ color: $color-secondary; }
+            &:hover{
+                border-color: $color-highlight;
+            }
+        }
+    }
+
     .grid__row {
         -moz-user-select: none;
         -ms-user-select: none;

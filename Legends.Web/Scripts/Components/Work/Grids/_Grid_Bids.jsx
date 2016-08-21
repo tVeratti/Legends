@@ -109,10 +109,13 @@ class _Grid_Bids extends React.Component {
     renderGrid(){
         var bids = this.state.bids || [];
         var bidRowNodes = bids.map(bid => {
+            var selected = this.state.selectedBids.indexOf(`${bid.Id}`) !== -1;
+
             return (
                 <_Row_Bid {...bid} 
                     contract={this.props.contract} 
                     selectRow={this.selectRow}
+                    selected={selected}
                     userOwnsContract={this.userOwnsContract} />
             );
         });
@@ -125,7 +128,7 @@ class _Grid_Bids extends React.Component {
     // --------------------------------
     renderActions(){
         var selectedRowCount = this.state.selectedBids.length;
-        if (this.userOwnsContract && false){
+        if (this.userOwnsContract){
             // These are the actions available when the owner of the contract
             // is viewing the bids (Accept, Reject).
             var acceptDisabled = selectedRowCount !== 1;
@@ -159,7 +162,7 @@ class _Grid_Bids extends React.Component {
         filters[fieldName] = value;
         this.setState({ filters });
 
-        bids.read(filters);
+        bidStore.read(filters);
     }
 
     // --------------------------------
@@ -168,7 +171,7 @@ class _Grid_Bids extends React.Component {
             this.defaultFilters:
             this.state.filters;
 
-        this.setState({ bids, filters });
+        this.setState({ bids, filters, selectedBids: [] });
     }
 
     // --------------------------------

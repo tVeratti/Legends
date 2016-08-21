@@ -93,7 +93,7 @@ class _BidForm_Dialog extends React.Component {
     submit = (event) => {
         if (formStore.isValid()){
             var bidModel = formStore.activeForm.fields;
-            workStore.createBid(bidModel);
+            bidStore.create(bidModel);
             this.props.close();
         } else {
             this.forceUpdate();

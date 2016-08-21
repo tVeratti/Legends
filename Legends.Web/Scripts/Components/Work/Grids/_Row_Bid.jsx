@@ -38,7 +38,7 @@ class _Row_Bid extends React.Component {
                 </div>
 
                 {/* Bid Status */}
-                <div className='grid__cell' onClick={this.openBidDetails}>
+                <div className='grid__cell bid__status' onClick={this.openBidDetails}>
                     {model.Status}
                 </div>
 
@@ -66,7 +66,7 @@ class _Row_Bid extends React.Component {
             // select, reject/accept bids.
             return (
                 <div className='grid__cell grid__cell--checkbox'>
-                    <_Checkbox id={this.props.Id} onChange={bidStore.selectBid} />
+                    <_Checkbox id={this.props.Id} onChange={bidStore.selectBid} checked={this.props.selected} />
                 </div>
             );
         }

@@ -957,6 +957,12 @@ button:focus, a:focus, input:focus, textarea:focus {
     margin-bottom: 10px; }
     .bid-grid .bid-grid__actions .button + .button {
       margin-left: 10px; }
+  .bid-grid .bid.bid--accepted {
+    border: 2px solid #3a3425; }
+    .bid-grid .bid.bid--accepted .bid__status {
+      color: #209ab0; }
+    .bid-grid .bid.bid--accepted:hover {
+      border-color: #90835c; }
   .bid-grid .grid__row {
     -moz-user-select: none;
     -ms-user-select: none;

@@ -3,7 +3,7 @@
 	Work_New__Tabs
 	-----------------------------------
 */
-class Work_New_Tabs extends React.Component {
+class Work_New__Tabs extends React.Component {
 	// --------------------------------
     constructor(props, context) {
         super(props, context);
